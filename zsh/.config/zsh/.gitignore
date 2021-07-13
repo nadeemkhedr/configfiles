@@ -1,0 +1,4 @@
+plugins
+zsh-private*
+.zsh_history
+.zcompdump
