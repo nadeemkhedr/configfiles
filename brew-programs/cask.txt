@@ -1,0 +1,16 @@
+aerial
+bloomrpc
+brooklyn
+dozer
+font-fira-code
+font-hack-nerd-font
+hammerspoon
+karabiner-elements
+macmediakeyforwarder
+monitorcontrol
+mysqlworkbench
+postman
+robo-3t
+sourcetree
+vlc
+xquartz
