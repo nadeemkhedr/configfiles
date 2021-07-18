@@ -15,7 +15,6 @@ O.treesitter.ensure_installed = "maintained"
 O.treesitter.ignore_install = { "haskell" }
 O.treesitter.highlight.enabled = true
 
-
 -- python
 O.lang.python.diagnostics.virtual_text = true
 O.lang.python.analysis.use_library_code_types = true
@@ -23,14 +22,13 @@ O.lang.python.analysis.use_library_code_types = true
 -- javascript
 O.lang.tsserver.linter = "eslint"
 
-
 -- Custom
 
 -- telescope
 O.plugin.telescope.defaults.path_display = {}
 O.plugin.telescope.defaults.mappings = {
 	i = {
-		["<esc>"] = require('telescope.actions').close,
+		["<esc>"] = require("telescope.actions").close,
 	},
 }
 
@@ -55,6 +53,17 @@ O.user_plugins = {
 		end,
 		requires = "nvim-lua/plenary.nvim",
 	},
+	{
+		"bkad/CamelCaseMotion",
+		event = "BufRead",
+		config = function()
+			vim.g.camelcasemotion_key = ","
+		end,
+	},
+	{
+		"ggandor/lightspeed.nvim",
+		event = "BufRead",
+	},
 }
 O.plugin.which_key.mappings["gy"] = "Gitlinker"
 
@@ -70,9 +79,9 @@ vim.api.nvim_set_keymap("v", ":", ";", { noremap = true })
 O.user_which_key = {
 	v = { "<cmd>vsplit<CR>", "split right" },
 	x = { "<cmd>close<CR>", "close pane" },
-  o = {
-    name = "+Open",
-    z = { "<cmd>e ~/.config/zsh/zshrc<cr>", "open zshrc" },
-    v = { "<cmd>e ~/.config/nvim/lv-config.lua<cr>", "open lv-config" },
-  },
+	o = {
+		name = "+Open",
+		z = { "<cmd>e ~/.config/zsh/zshrc<cr>", "open zshrc" },
+		v = { "<cmd>e ~/.config/nvim/lv-config.lua<cr>", "open lv-config" },
+	},
 }
