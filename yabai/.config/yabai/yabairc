@@ -75,7 +75,7 @@ yabai -m config top_padding 2
 yabai -m config bottom_padding 2
 yabai -m config left_padding 2
 yabai -m config right_padding 2
-yabai -m config window_gap 10
+yabai -m config window_gap 15
 
 #Limelight addon (Kill it and start it each time Yabai starts)
 killall limelight &>/dev/null
@@ -100,10 +100,6 @@ limelight &>/dev/null &
 #testing signals
 # yabai -m signal --add event=window_destroyed action="terminal-notifier -message 'window_destroyed'"
 # yabai -m signal --add event=application_terminated action="terminal-notifier -message 'application_terminated'"
-
-## If I close the active window, focus on any other visible window.
-yabai -m signal --add event=window_destroyed action="bash /Users/jesseskelton/CustomScripts/SwitchSpaces/window-focus-on-destroy.sh"
-# yabai -m signal --add event=space_changed action="export CUR_ACTIVE_APP=\"iTerm2\""
 
 echo "yabai configuration loaded.."
 

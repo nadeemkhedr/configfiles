@@ -426,6 +426,7 @@
           [:-s ["/usr/local/bin/yabai -m window --toggle split"]]
           [:delete ["/usr/local/bin/yabai -m window --close"]]
           [:spacebar "/usr/local/bin/yabai -m window --toggle zoom-fullscreen"]
+          [:return_or_enter  ["/usr/local/bin/yabai -m space --balance"]]
           ;
           ]}
 
