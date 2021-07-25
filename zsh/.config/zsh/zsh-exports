@@ -17,9 +17,6 @@ eval "$(pyenv init --path)"
 # kit
 export PATH="$PATH:/Users/nadeemkhedr/.kenv/bin"
 
-# Karabiner 
-export GOKU_EDN_CONFIG_FILE="/Users/nadeemkhedr/work/karabiner/karabiner.edn"
-
 # similar to nvm
 eval "$(fnm env)"
 . /usr/local/etc/profile.d/z.sh

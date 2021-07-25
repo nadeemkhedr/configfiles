@@ -1,0 +1,611 @@
+{:default true
+
+ :alone 500
+ :delay 200
+ :held 500
+ :sim 200
+ :simlayer-threshold 222
+ :modifiers {;
+             :super-hyper [:command :shift :control :option :fn]
+             :hyper [:command :shift :control :option]
+             :cos [:command :shift :option]
+             :cst [:command :shift :control]
+             :co [:command :option]
+             :cs [:command :shift]
+             :ct [:command :control]
+             :to [:control :option]
+             :ts [:control :shift]
+             :os [:option :shift]
+             ;
+             }
+ :froms {;alias
+         :delete {:key :delete_or_backspace}
+         :return {:key :return_or_enter}
+         :tilde {:key :grave_accent_and_tilde}
+
+
+         ;colemak froms (for easier mnemonics)
+         :-q {:key :q}
+         :-w {:key :w}
+         :-f {:key :e}
+         :-p {:key :r}
+         :-g {:key :t}
+         :-j {:key :y}
+         :-l {:key :u}
+         :-u {:key :i}
+         :-y {:key :o}
+         :-semicolon {:key :p}
+
+         :-a {:key :a}
+         :-r {:key :s}
+         :-s {:key :d}
+         :-t {:key :f}
+         :-d {:key :g}
+         :-h {:key :h}
+         :-n {:key :j}
+         :-e {:key :k}
+         :-i {:key :l}
+         :-o {:key :semicolon}
+
+         :-z {:key :z}
+         :-x {:key :x}
+         :-c {:key :c}
+         :-v {:key :v}
+         :-b {:key :b}
+         :-k {:key :n}
+         :-m {:key :m}
+
+         ;
+         }
+
+ :tos {;
+       :delete {:key :delete_or_backspace}
+       :return {:key :return_or_enter}
+       :tilde {:key :grave_accent_and_tilde}
+
+       :delete_line {:key :k :modi :cs} ;!CSk
+
+       :expand_selection {:key :right_arrow :modi :cst}
+       :shrink_selection {:key :left_arrow :modi :cst}
+
+       :insert_line_below {:key :return_or_enter :modi :command} ;!Creturn_or_enter
+       :insert_line_above {:key :return_or_enter :modi :cs} ;!Creturn_or_enter
+
+       ;named symbols
+       :open_brace {:key :open_bracket :modi :shift}
+       :close_brace {:key :close_bracket :modi :shift}
+       :open_paren {:key :9 :modi :shift}
+       :close_paren {:key :0 :modi :shift}
+       :less_than {:key :comma :modi :shift}
+       :greater_than {:key :period :modi :shift}
+
+       ;general
+       :emoji_picker {:key :spacebar :modi :ct} ;!CTspacebar
+       :switch_windows {:key :grave_accent_and_tilde :modi :command}
+       :prev_app {:key :tab :modi :cs :lazy true}
+       :next_app {:key :tab :modi :command :lazy true}
+       :reopen_tab {:key t :modi :cs} ;brave/code
+       :zoom_in {:key :equal_sign :modi :co}
+       :zoom_out {:key :hyphen :modi :co}
+
+       ;vscode
+       :command_palette {:key :p :modi :command}
+       :go_to_file {:key :p :modi :cs}
+
+       :code_tab_prev [{:key k :modi :command} 
+                       {:key left_arrow :modi :co}] ;prev tab in group
+       :code_tab_next [{:key k :modi :command}
+                      {:key right_arrow :modi :co}] ;next tab in group
+       ;brave
+       :prev_tab {:key tab :modi :ts}
+       :next_tab {:key tab :modi :control}
+       :tab_move_left {:key page_up :modi :ts}
+       :tab_move_right {:key page_down :modi :ts}
+       :new_tab {:key t :modi :command}
+       :close_tab {:key w :modi :command}
+       :open_dev_tools {:key :i :modi :co} ;:!COl
+       :focus_omnibar {:key :l :modi :command}
+       :refresh {:key r :modi :command}
+       :private_mode {:key n :modi :cs}
+       :browser_1pass {:key x :modi :cs}
+       ;
+       }
+ 
+ :templates {;
+             :alfred "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\"'"
+             :code-project "osascript -e 'tell application \"Visual Studio Code\" to activate' &&
+                            open -a 'Visual Studio Code' %s -g %s
+                            "
+             :delay "osascript -e 'delay \"%s\"'"
+             :km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
+             :type "osascript -e 'tell application \"System Events\" to keystroke \"%s\"'"
+             :launch "osascript -e '
+                        tell application \"%s\" 
+                           reopen
+                           activate
+                        end tell
+                        '"
+             :open-brave "osascript -e '
+                        set address to \"%s\"
+                        
+                        tell application \"Brave\"
+                           activate
+                                if not (exists window 1) then reopen
+                                repeat with w in windows
+                                        set i to 1
+                                        repeat with t in tabs of w
+                                        if URL of t contains address then
+                                                set active tab index of w to i
+                                                set index of w to 1
+                                                return
+                                        end if
+                                        set i to i + 1
+                                        end repeat
+                                end repeat
+                                open location \"http://\" & address
+                        end tell
+                           '"
+             :open "open \"%s\""
+             :open-new "open -n \"%s\""
+             :open-a "open -a '%s'"
+             :paste "osascript -e '
+                        set the clipboard to \"%s\"
+                        tell application \"System Events\"
+                                keystroke \"v\" using command down
+                        end tell
+                '"
+             :zsh "zsh ~/.zfunc/'%s'"
+             :modify "osascript -e '
+                        tell application \"System Events\" to keystroke \"c\" using {command down}
+                        set clipboardText to the clipboard
+                        set selectedText to the quoted form of clipboardText
+                        set output to do shell script \". ~/.jsrc; %s \" & selectedText
+                        set the clipboard to output                    
+                        tell application \"System Events\" to keystroke \"v\" using {command down}
+                     '"
+              :query "osascript -e '
+                      tell application id \"com.runningwithcrayons.Alfred\" to run trigger \"scripted-list\" in workflow \"com.johnlindquist.scripted-list\" with argument \"%s\"
+                      '"
+             ;
+             }
+
+ :applications {;
+                :chromes ["com.brave.Browser", "com.google.Chrome"]
+                :code ["com.microsoft.VSCode"]
+                :slack ["com.tinyspeck.slackmacgap"]
+                :iterm ["com.googlecode.iterm2"]
+                :messenger ["com.facebook.archon"]
+                :terminals ["com.apple.Terminal", "com.googlecode.iterm2", "io.alacritty"]
+                ;
+                }
+; Layers Are Typically "Thumb Keys" or "Pinky Keys"
+ :layers {;
+          :caps_lock-mode {:key :caps_lock :alone {:key :escape}}
+          :escape-mode {:key :escape :alone {:key :escape}}
+          :launch-mode {:key :f24 :alone {:key :spacebar :modi :left_option}}
+          :tab-mode {:key     :tab
+                     :afterup [{:set ["yabai-move-mode" 0]}]
+                     :condi   [:!comma-mode :!period-mode]}
+             :yabai-move-mode       {:key :f :condi :tab-mode}
+          }
+ :simlayers {;
+             :a-mode {:key :a} ; app specific // tmux, chrome
+             :r-mode {:key :s} ; app specific // ctrl for vim
+
+             :m-mode {:key :m} ; music mode
+             :l-mode {:key :u} ; window managment (amethyst)
+             :j-mode {:key :y} ; window managment (amethyst)
+             :tilde-mode {:key :grave_accent_and_tilde}
+             :emoji-mode {:key :z}
+             :open-mode {:key :semicolon}; "o" in colemak, project open
+
+             :shift-mode {:key :d} ; "s" on colemak
+             :movement-mode {:key :f} ; "t" on colemak
+             :delete-mode {:key :j} ; "n" on colemak
+
+             :spacebar-mode {:key :spacebar}
+             ;
+             }
+
+ :main [;
+        
+        {:des "global"
+         :rules [[:left_shift :left_shift nil {:alone :delete_or_backspace}]
+                 [:right_shift :right_shift nil {:alone :delete_forward}]
+                 ;
+                 ]}
+
+        {:des "slack-shortcuts"
+         :rules [;
+                 [:condi :slack]
+                 [:left_command :left_command nil {:alone :!Ct}]
+                 ;
+                 ]}
+
+        {:des "messenger-shortcuts"
+         :rules [;
+                 [:condi :messenger]
+                 [:left_command :left_command nil {:alone :!Ck}]
+                 ;
+                 ]}
+
+        {:des "brave-shortcuts"
+         :rules [:chromes
+                 ;;[:left_command :left_command nil {:alone [:!Ct]}]
+                 ;;[:left_option :left_option nil {:alone [:!Cw]}]
+                 [:condi :chromes :a-mode]
+                 [:-n :prev_tab]
+                 [:-e :next_tab]
+                 [:-m :tab_move_left]
+                 [:comma :tab_move_right]
+                 [:-h :zoom_in]
+                 [:-d :zoom_out]
+                 [:-s :reopen_tab]
+                 [:-t :new_tab]
+                 [:-l :focus_omnibar]
+                 [:-i :open_dev_tools]
+                 [:-r :refresh]
+                 [:-x :close_tab]
+                 [:-p :private_mode]
+                 [:-u :browser_1pass]
+                 ;
+                 ]}
+
+        {:des "code-shortcuts"
+         :rules [:code
+          [:left_command :left_command nil {:alone :command_palette}]
+          [:right_command :right_command nil {:alone :go_to_file}]
+
+
+          [:condi :code :a-mode]
+          [:-i :!Tgrave_accent_and_tilde] ;toggle terminal
+          [:-n :code_tab_prev]
+          [:-e :code_tab_next]
+          [:-x :close_tab]
+          [:-s :reopen_tab]
+          [:-t :!Cn] ;a-t creates an untitled file
+          [:comma :!Ccomma] ;settings
+          [:-v :!Cbackslash] ;vertical split
+          
+
+          [:condi :code :r-mode] ;control key - terminal
+          [:-c :!Tc]
+          [:-h :!Th]
+          [:-i :!Ti]
+          [:-j :!Tj]
+          [:-k :!Tk]
+          [:-l :!Tl]
+          [:-o :!To]
+          [:-t :!Tt]
+          [:-v :!Tv]
+          [:-x :!Tx]
+         ;
+         ]}
+        
+        {:des "iterm-shortcuts"
+         :rules [:terminals
+          [:condi :terminals :r-mode] ;control key - terminal
+          [:-c :!Tc]
+          [:-h :!Th]
+          [:-i :!Ti]
+          [:-j :!Tj]
+          [:-k :!Tk]
+          [:-l :!Tl]
+          [:-o :!To]
+          [:-t :!Tt]
+          [:-v :!Tv]
+          [:-x :!Tx]
+
+          [:condi :terminals  :a-mode] ;tmux keys
+          [:-q [:!Ta :1]] ; go to window 1
+          [:-w [:!Ta :2]]
+          [:-f [:!Ta :3]]
+          [:-p [:!Ta :4]]
+          [:-g [:!Ta :5]]
+          [:-j [:!Ta :j]] ; move between panes
+          [:-k [:!Ta :k]]
+          [:-h [:!Ta :h]]
+          [:-l [:!Ta :l]]
+          [:-z [:!Ta :z]] ; toggle max/k on a pane
+          [:-x [:!Ta :x]] ; kill pane
+          [:-c [:!Ta :c]] ; create new window
+          [:-r [:!Ta :!S5]] ; split h
+          [:-s [:!Ta :!Squote]] ; split v
+
+          [:-n [:!Ta :!Th]] ; prev window (oh-my-tmux)
+          [:-e [:!Ta :!Tl]] ; next window (oh-my-tmux)
+          [:return_or_enter [:!Ta :return_or_enter ]] ; visual mode
+         ;
+         ]}
+;
+        {:des "o-mode"
+         :rules [:open-mode
+                 [:-e [:open-brave "engadget.com"]]
+                 [:-g [:open-brave "mail.google.com"]]
+                 [:-l [:open-brave "localhost:3000"]]
+                 [:-m [:open-brave "monkeytype.com"]]
+                 [:-t [:open-brave "twitter.com"]]
+                 [:-y [:open-brave "youtube.com"]]
+                 [:-z [:open-brave "github.com/search?q=extension%3A.edn+filename%3Akarabiner.edn&type=Code&ref=advsearch&l=&l="]]
+                 [:-k [:code-project "~/work/karabiner/" "~/work/karabiner/karabiner.edn"]]
+                 ;
+                 ]}
+
+        {:des "l-mode (window managment)"
+         :rules [:l-mode
+                 [:spacebar :!OSspacebar]  ; next mode
+                 [:-q :!OSm] ; swap focus with main
+                 [:-w :!OSj] ; move focus counter clockwise
+                 [:-f :!OSk] ; move focus clockwise
+
+                 [:-a :!OSreturn_or_enter] ; swap with main
+                 [:-r :!TOSj] ; swap counter clockwise
+                 [:-s :!TOSk] ; swap clockwise
+
+                 [:-c :!OSh] ; increase main size
+                 [:-x :!OSl] ; decrease main size
+
+                 [:-t :!OSd] ; desktop mode
+                 [:-d :!OSs] ; tall mode
+
+                 [:-z :!OSz ] ;force reevaluated
+                 [:-semicolon :!TOSz ] ;restart
+                ;
+                 ]}
+
+
+        {:des "u-mode (window managment/desktop)"
+         :rules [:j-mode
+                 [:-q :!T1] ; move to desktop 1
+                 [:-w :!T2] ; move to desktop 2
+                 [:-f :!T3] ; move to desktop 3
+
+                 [:-a :!TOS1] ; throw to desktop 1
+                 [:-r :!TOS2] ; throw to desktop 2
+                 [:-s :!TOS3] ; throw to desktop 3
+                ;
+                 ]}
+         
+
+        {:des "emoji z-mode"
+         :rules [:emoji-mode
+                 [:-t [:paste "👍"]] ;thumbsup
+                 [:left_option [:paste "👎"]]
+                 [:-b [:paste "🐛"]] ;bug
+                 [:-d [:paste "📚"]] ;docs
+                 [:-p [:paste "🎉"]] ;party, tada
+                 [:-l [:paste "❤️"]] ;love
+                 [:-j [:paste "😂"]] ;joking
+                 [:-h [:paste "😀"]] ;happy
+                 [:-r [:paste "🤣"]] ;rofl
+                 [:-s [:paste "😢"]] ;sad
+                 [:-c [:paste "😭"]] ;cry
+                 ;
+                 ]}
+        {:des   "yabai mode"
+         :rules [
+          :yabai-move-mode
+          [:-l ["/usr/local/bin/yabai -m window --swap west"]]
+          [:-semicolon ["/usr/local/bin/yabai -m window --swap east"]]
+          [:-y ["/usr/local/bin/yabai -m window --swap north"]]
+          [:-u ["/usr/local/bin/yabai -m window --swap south"]]
+
+          :tab-mode
+          [:-n ["/usr/local/bin/yabai -m window --focus west"]]
+          [:-o ["/usr/local/bin/yabai -m window --focus east"]]
+          [:-i ["/usr/local/bin/yabai -m window --focus north"]]
+          [:-e ["/usr/local/bin/yabai -m window --focus south"]]
+
+          ]}
+        
+        {:des "escape-mode"
+         :rules
+         [:escape-mode
+          [:-a :!!a] ;toggle top menubar
+          [:-d :f11] ;show desktop
+          [:return_or_enter  [:open-new "/Applications/Alacritty.app"]]
+          [:period  [:open-new "/Applications/Brave Browser.app"]]
+
+          [:-n ["/usr/local/bin/yabai -m window --focus west"]]
+          [:-o ["/usr/local/bin/yabai -m window --focus east"]]
+          [:-i ["/usr/local/bin/yabai -m window --focus north"]]
+          [:-e ["/usr/local/bin/yabai -m window --focus south"]]
+
+          [:-l ["/usr/local/bin/yabai -m window --swap west"]]
+          [:-semicolon ["/usr/local/bin/yabai -m window --swap east"]]
+          [:-y ["/usr/local/bin/yabai -m window --swap north"]]
+          [:-u ["/usr/local/bin/yabai -m window --swap south"]]
+
+          [:-m ["/usr/local/bin/yabai -m window --toggle split"]]
+          [:delete ["/usr/local/bin/yabai -m window --close"]]
+          [:spacebar "/usr/local/bin/yabai -m window --toggle zoom-fullscreen"]
+          ;
+          ]}
+
+        {:des "caps_lock"
+         :rules [:caps_lock-mode
+          [:-a :!!a] ;toggle top menubar
+          [:-d :f11] ;show desktop
+          [:-i [:launch "iTerm"]]
+          [:-t [:launch "iTerm"]]
+          [:-c :!!c] ;open fantastical
+          [:-p :!!p] ;take a screenshot with snagit
+          ;restart karabiner
+          [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
+          [:-m [:launch "Spotify"]]
+          [:-s [:launch "Slack"]]
+          [:-b [:launch "Brave"]]
+          [:-o [:launch "Visual Studio Code"]]
+          [:comma [:launch "Messenger"]]
+          [:-w [:launch "WhatsApp"]]
+          [:-h :!Ch] ;hide app
+          [:-l :!!l] ;toggle 1password
+          [:-n :prev_app]
+          [:-e :next_app]
+          ;
+          ]}
+
+
+        {:des "delete n-mode"
+         :rules [:delete-mode
+                 [:hyphen :delete_line :code]
+                 [:hyphen :!Cdelete_or_backspace]
+                 [:-a :!Odelete_or_backspace]
+                 [:-r :delete_or_backspace]
+                 [:-s :delete_forward]
+                 [:-t :!Odelete_forward]
+                 [:-d :!Cdelete_forward]
+                 ;
+                 ]}
+
+        {:des "move t-mode"
+         :rules [:movement-mode
+                 [:##j :left_arrow] ;n in colemak
+                 [:##k :down_arrow] ;e in colemak  
+                 [:##l :up_arrow] ;i in colemak
+                 [:##semicolon :right_arrow] ;o in colemak
+
+                 [:##u :!Oleft_arrow] ;l in colemak
+                 [:##i :!Odown_arrow] ;u in colemak
+                 [:##o :!Oup_arrow] ;y in colemak
+                 [:##p :!Oright_arrow] ;semi-colon in colemak
+
+                 [:##m :!Cleft_arrow] ;m in colemak
+                 [:##comma :home] ;, in colemak
+                 [:##period :end] ;. in colemak
+                 [:##slash :!Cright_arrow] ;/ in colemak
+                 ;
+                 ]}
+
+        {:des "shift s-mode"
+         :rules [:shift-mode
+                 [:##j :!Sleft_arrow] ;n in colemak
+                 [:##k :!Sdown_arrow] ;e in colemak
+                 [:##l :!Sup_arrow] ;i in colemak
+                 [:##semicolon :!Sright_arrow] ;o in colemak
+                 [:##h :!Ca] ;h in colemak
+
+                 [:##u :!OSleft_arrow] ;l in colemak
+                 [:##i :!OSdown_arrow] ;u in colemak
+                 [:##o :!OSup_arrow] ;y in colemak
+                 [:##p :!OSright_arrow] ;semi-colon in colemak
+
+                 [:##m :!Shome] ;m in colemak
+                 [:##slash :!Send] ;/ in colemak
+
+                 [:left_shift :shrink_selection]
+                 [:return_or_enter :insert_line_above]
+                 ;;[:semicolon :expand_selection]
+                 ;;[:quote :shrink_selection]
+                 ;;[:##spacebar {:pkey :button1 :modi :left_command}]
+                 ;;[:##left_shift :##button2]
+                 ;
+                 ]}
+
+        {:des "spacebar space-mode"
+         :rules [:spacebar-mode
+                 [:-a :!S1]
+                 [:-r :!Shyphen]
+                 [:-s :hyphen]
+                 [:-t :!Ssemicolon]
+                 [:-c :!Sequal_sign]
+
+                 [:-n :open_brace]
+                 [:-e :close_brace]
+                 [:-i :equal_sign]
+                 [:-o :greater_than]
+                 [:-l :open_paren]
+                 [:-u :close_paren]
+
+                 [:-m :open_bracket]
+                 [:comma :close_bracket]
+
+                ;; [:j :open_brace]
+                ;; [:k :close_brace]
+
+                ;; [:l :less_than]
+                ;; [:semicolon :greater_than]
+
+                 ;symbol sequences
+                 [:left_shift [:spacebar :equal_sign :spacebar]]; =  =  =  =  =  =  =  =  =  =
+                 [:q [:!S9 :!S0 :equal_sign :greater_than :spacebar]];()=> 
+                 [:e [:!S9 :!S9 :!S0 :equal_sign :greater_than :spacebar :open_brace :close_brace :!S0 :left_arrow :left_arrow]];(()=> {})
+
+                 [:g [:spacebar :equal_sign :greater_than :spacebar]]; =>  => ={} =""
+                 [:h [:equal_sign :open_brace :close_brace :left_arrow]];={}
+                 [:b [:equal_sign :open_brace :close_brace :left_arrow]];={}
+                 [:quote [:equal_sign :!Squote :!Squote :left_arrow]];=""
+                 ;
+                 ]}
+
+        {:des "m-mode (music player)"
+         :rules [:m-mode
+                 [:-t :vk_consumer_play]
+                 [:-s :vk_consumer_next]
+                 [:-r :vk_consumer_previous]
+
+                 [:-f :volume_increment]
+                 [:-w :volume_decrement]
+                 ;
+                 ]}
+
+        {:des "a-mode (global)"
+         :rules [:a-mode
+                 [:-c :!Cc] ;copy
+                 [:-v :!Cv] ;paste
+                 [:-f :!Cf] ;find
+                 [:-o :switch_windows]
+                 ;
+                 ]}
+
+        {:des "colemak"
+         :rules [;
+                 [:##e :f]
+                 [:##r :p]
+                 [:##t :g]
+                 [:##y :j]
+                 [:##u :l]
+                 [:##i :u]
+                 [:##o :y]
+                 [:##p :semicolon]
+
+                 [:##s :r]
+                 [:##d :s]
+                 [:##f :t]
+                 [:##g :d]
+                 [:##j :n]
+                 [:##k :e]
+                 [:##l :i]
+                 [:##semicolon :o]
+
+                 [:##n :k]
+
+                 [:close_bracket :a]
+                 ;
+                 ]}
+
+
+
+        ;
+        ]}
+
+
+;; rule [:period ["media-mode" 1] nil {:afterup ["media-mode" 0] :alone :period}]
+;;       |_____| |_______________| |_| |_________________________________________|
+;;        <from>    <to>      <conditions>         <other options>
+
+    ;; !  | means mandatory
+    ;; #  | means optional
+    ;; C  | left_command
+    ;; T  | left_control
+    ;; O  | left_option
+    ;; S  | left_shift
+    ;; F  | fn
+    ;; Q  | right_command
+    ;; W  | right_control
+    ;; E  | right_option
+    ;; R  | right_shift
+    ;; 
+    ;; !! | mandatory command + control + optional + shift (hyper)
+    ;; ## | optional any
+;; 
