@@ -396,6 +396,9 @@
           [:-i ["/usr/local/bin/yabai -m window --focus north"]]
           [:-e ["/usr/local/bin/yabai -m window --focus south"]]
 
+          [:return_or_enter  [:open-new "/Applications/Alacritty.app"]]
+          [:period  [:open-new "/Applications/Brave Browser.app"]]
+
           ]}
         
         {:des "escape-mode"
@@ -403,8 +406,6 @@
          [:escape-mode
           [:-a :!!a] ;toggle top menubar
           [:-d :f11] ;show desktop
-          [:return_or_enter  [:open-new "/Applications/Alacritty.app"]]
-          [:period  [:open-new "/Applications/Brave Browser.app"]]
 
           [:-n ["/usr/local/bin/yabai -m window --focus west"]]
           [:-o ["/usr/local/bin/yabai -m window --focus east"]]
@@ -416,7 +417,13 @@
           [:-y ["/usr/local/bin/yabai -m window --swap north"]]
           [:-u ["/usr/local/bin/yabai -m window --swap south"]]
 
-          [:-m ["/usr/local/bin/yabai -m window --toggle split"]]
+          [:-m ["/usr/local/bin/yabai -m window --resize left:-50:0", "/usr/local/bin/yabai -m window --resize right:-50:0"]]
+          [:comma ["/usr/local/bin/yabai -m window --resize bottom:0:-50", "/usr/local/bin/yabai -m window --resize top:0:-50"]]
+          [:period ["/usr/local/bin/yabai -m window --resize bottom:0:50", "/usr/local/bin/yabai -m window --resize top:0:50"]]
+          [:slash ["/usr/local/bin/yabai -m window --resize right:50:0", "/usr/local/bin/yabai -m window --resize left:50:0"]]
+
+
+          [:-s ["/usr/local/bin/yabai -m window --toggle split"]]
           [:delete ["/usr/local/bin/yabai -m window --close"]]
           [:spacebar "/usr/local/bin/yabai -m window --toggle zoom-fullscreen"]
           ;
