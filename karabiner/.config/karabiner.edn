@@ -183,17 +183,14 @@
           :caps_lock-mode {:key :caps_lock :alone {:key :escape}}
           :escape-mode {:key :escape :alone {:key :escape}}
           :launch-mode {:key :f24 :alone {:key :spacebar :modi :left_option}}
-          :tab-mode {:key     :tab
-                     :afterup [{:set ["yabai-move-mode" 0]}]
-                     :condi   [:!comma-mode :!period-mode]}
-             :yabai-move-mode       {:key :f :condi :tab-mode}
           }
  :simlayers {;
              :a-mode {:key :a} ; app specific // tmux, chrome
              :r-mode {:key :s} ; app specific // ctrl for vim
-
+             :d-mode {:key :g} 
+             :tab-mode {:key :tab}
+             :c-mode {:key :c}
              :m-mode {:key :m} ; music mode
-             :l-mode {:key :u} ; window managment (amethyst)
              :j-mode {:key :y} ; window managment (amethyst)
              :tilde-mode {:key :grave_accent_and_tilde}
              :emoji-mode {:key :z}
@@ -331,29 +328,6 @@
                  ;
                  ]}
 
-        {:des "l-mode (window managment)"
-         :rules [:l-mode
-                 [:spacebar :!OSspacebar]  ; next mode
-                 [:-q :!OSm] ; swap focus with main
-                 [:-w :!OSj] ; move focus counter clockwise
-                 [:-f :!OSk] ; move focus clockwise
-
-                 [:-a :!OSreturn_or_enter] ; swap with main
-                 [:-r :!TOSj] ; swap counter clockwise
-                 [:-s :!TOSk] ; swap clockwise
-
-                 [:-c :!OSh] ; increase main size
-                 [:-x :!OSl] ; decrease main size
-
-                 [:-t :!OSd] ; desktop mode
-                 [:-d :!OSs] ; tall mode
-
-                 [:-z :!OSz ] ;force reevaluated
-                 [:-semicolon :!TOSz ] ;restart
-                ;
-                 ]}
-
-
         {:des "u-mode (window managment/desktop)"
          :rules [:j-mode
                  [:-q :!T1] ; move to desktop 1
@@ -382,54 +356,80 @@
                  [:-c [:paste "😭"]] ;cry
                  ;
                  ]}
-        {:des   "yabai mode"
-         :rules [
-          :yabai-move-mode
-          [:-l ["/usr/local/bin/yabai -m window --swap west"]]
-          [:-semicolon ["/usr/local/bin/yabai -m window --swap east"]]
-          [:-y ["/usr/local/bin/yabai -m window --swap north"]]
-          [:-u ["/usr/local/bin/yabai -m window --swap south"]]
 
-          :tab-mode
-          [:-n ["/usr/local/bin/yabai -m window --focus west"]]
-          [:-o ["/usr/local/bin/yabai -m window --focus east"]]
-          [:-i ["/usr/local/bin/yabai -m window --focus north"]]
-          [:-e ["/usr/local/bin/yabai -m window --focus south"]]
-
+        {:des   "tab mode"
+         :rules [:tab-mode
           [:return_or_enter  [:open-new "/Applications/Alacritty.app"]]
           [:period  [:open-new "/Applications/Brave Browser.app"]]
+        ]}
 
-          ]}
-        
+        ; yabai shortcuts (escape)
+        ; esc + key must be defined before "escape-mode"
+
+
+        {:des "esc + d (desktops)"
+         :rules [[:condi :escape-mode :d-mode]
+          [:-n :!T1]
+          [:-e :!T2]
+          [:-i :!T3]
+          [:-o :!T4]
+
+          [:-l "/usr/local/bin/yabai -m window --space one"]
+          [:-u "/usr/local/bin/yabai -m window --space two"]
+          [:-y "/usr/local/bin/yabai -m window --space three"]
+          [:-semicolon "/usr/local/bin/yabai -m window --space four"]
+
+          [:-m :!Tleft_arrow]
+          [:comma :!Tright_arrow]
+        ]}
+
+
+        {:des "esc + t (swap)"
+         :rules [[:condi :escape-mode :movement-mode]
+          [:-n "/usr/local/bin/yabai -m window --swap west"]
+          [:-o "/usr/local/bin/yabai -m window --swap east"]
+          [:-i "/usr/local/bin/yabai -m window --swap north"]
+          [:-e "/usr/local/bin/yabai -m window --swap south"]
+
+          [:-l "/usr/local/bin/yabai -m window --warp west"]
+          [:-semicolon "/usr/local/bin/yabai -m window --warp  east"]
+          [:-y "/usr/local/bin/yabai -m window --warp north"]
+          [:-u "/usr/local/bin/yabai -m window --warp south"]
+
+          [:-m "/usr/local/bin/yabai -m window --toggle split"]
+        ]}
+
+        {:des "esc + s (resize)"
+         :rules [[:condi :escape-mode :shift-mode]
+          [:-n "/usr/local/bin/yabai -m window --resize left:-20:0"] ; increase left
+          [:-e "/usr/local/bin/yabai -m window --resize left:20:0"] ; decrease left
+          [:-i "/usr/local/bin/yabai -m window --resize right:-20:0"] ; increase right
+          [:-o "/usr/local/bin/yabai -m window --resize right:20:0"] ; decrease right
+
+          [:-l "/usr/local/bin/yabai -m window --resize top:0:-20"] ; increase top
+          [:-u "/usr/local/bin/yabai -m window --resize top:0:20"] ; decrease top
+          [:-y "/usr/local/bin/yabai -m window --resize bottom:0:20"] ; increase bottom
+          [:-semicolon "/usr/local/bin/yabai -m window --resize bottom:0:-20"] ; decrease bottom
+        ]}
+
         {:des "escape-mode"
-         :rules
-         [:escape-mode
+         :rules [:escape-mode
           [:-a :!!a] ;toggle top menubar
-          [:-d :f11] ;show desktop
+          ;[:-d :f11] ;show desktop
 
-          [:-n ["/usr/local/bin/yabai -m window --focus west"]]
-          [:-o ["/usr/local/bin/yabai -m window --focus east"]]
-          [:-i ["/usr/local/bin/yabai -m window --focus north"]]
-          [:-e ["/usr/local/bin/yabai -m window --focus south"]]
-
-          [:-l ["/usr/local/bin/yabai -m window --swap west"]]
-          [:-semicolon ["/usr/local/bin/yabai -m window --swap east"]]
-          [:-y ["/usr/local/bin/yabai -m window --swap north"]]
-          [:-u ["/usr/local/bin/yabai -m window --swap south"]]
-
-          [:-m ["/usr/local/bin/yabai -m window --resize left:-50:0", "/usr/local/bin/yabai -m window --resize right:-50:0"]]
-          [:comma ["/usr/local/bin/yabai -m window --resize bottom:0:-50", "/usr/local/bin/yabai -m window --resize top:0:-50"]]
-          [:period ["/usr/local/bin/yabai -m window --resize bottom:0:50", "/usr/local/bin/yabai -m window --resize top:0:50"]]
-          [:slash ["/usr/local/bin/yabai -m window --resize right:50:0", "/usr/local/bin/yabai -m window --resize left:50:0"]]
+          [:-n "/usr/local/bin/yabai -m window --focus west"]
+          [:-o "/usr/local/bin/yabai -m window --focus east"]
+          [:-i "/usr/local/bin/yabai -m window --focus north"]
+          [:-e "/usr/local/bin/yabai -m window --focus south"]
 
 
-          [:-s ["/usr/local/bin/yabai -m window --toggle split"]]
-          [:delete ["/usr/local/bin/yabai -m window --close"]]
+          [:delete "/usr/local/bin/yabai -m window --close"]
           [:spacebar "/usr/local/bin/yabai -m window --toggle zoom-fullscreen"]
-          [:return_or_enter  ["/usr/local/bin/yabai -m space --balance"]]
-          ;
-          ]}
+          [:return_or_enter "/usr/local/bin/yabai -m space --balance"]
+          [:-z "launchctl kickstart -k \"gui/${UID}/homebrew.mxcl.yabai\""]
+        ]}
 
+        
         {:des "caps_lock"
          :rules [:caps_lock-mode
           [:-a :!!a] ;toggle top menubar
