@@ -182,13 +182,13 @@
  :layers {;
           :caps_lock-mode {:key :caps_lock :alone {:key :escape}}
           :escape-mode {:key :escape :alone {:key :escape}}
+          :tab-mode {:key :tab, :alone {:key :tab}}
           :launch-mode {:key :f24 :alone {:key :spacebar :modi :left_option}}
           }
  :simlayers {;
              :a-mode {:key :a} ; app specific // tmux, chrome
              :r-mode {:key :s} ; app specific // ctrl for vim
              :d-mode {:key :g} 
-             :tab-mode {:key :tab}
              :c-mode {:key :c}
              :m-mode {:key :m} ; music mode
              :j-mode {:key :y} ; window managment (amethyst)
@@ -357,18 +357,58 @@
                  ;
                  ]}
 
-        {:des   "tab mode"
-         :rules [:tab-mode
+        {:des   "escape mode"
+         :rules [:escape-mode
+          [:-d :f11] ;show desktop
           [:return_or_enter  [:open-new "/Applications/Alacritty.app"]]
           [:period  [:open-new "/Applications/Brave Browser.app"]]
+
+          [:-d :f11] ;show desktop
+          [:-i [:launch "Alacritty"]]
+          [:-c :!!c] ;open fantastical
+          [:-p :!!p] ;take a screenshot with snagit
+          ;restart karabiner
+          [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
+          [:-m [:launch "Spotify"]]
+          [:-s [:launch "Slack"]]
+          [:-b [:launch "Brave"]]
+          [:-o [:launch "Visual Studio Code"]]
+          [:comma [:launch "Messenger"]]
+          [:-w [:launch "WhatsApp"]]
+          [:-l :!!l] ;toggle 1password
+          [:-n :prev_app]
+          [:-e :next_app]
         ]}
 
-        ; yabai shortcuts (escape)
-        ; esc + key must be defined before "escape-mode"
+        ; for keyboards with capslock
+        {:des "caps_lock (same as escape-mode)"
+         :rules [:caps_lock-mode
+          [:-d :f11] ;show desktop
+          [:return_or_enter  [:open-new "/Applications/Alacritty.app"]]
+          [:period  [:open-new "/Applications/Brave Browser.app"]]
 
+          [:-d :f11] ;show desktop
+          [:-i [:launch "Alacritty"]]
+          [:-c :!!c] ;open fantastical
+          [:-p :!!p] ;take a screenshot with snagit
+          ;restart karabiner
+          [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
+          [:-m [:launch "Spotify"]]
+          [:-s [:launch "Slack"]]
+          [:-b [:launch "Brave"]]
+          [:-o [:launch "Visual Studio Code"]]
+          [:comma [:launch "Messenger"]]
+          [:-w [:launch "WhatsApp"]]
+          [:-l :!!l] ;toggle 1password
+          [:-n :prev_app]
+          [:-e :next_app]
+          ;
+          ]}
 
-        {:des "esc + d (desktops)"
-         :rules [[:condi :escape-mode :d-mode]
+        ; yabai shortcuts (tab)
+        ; tab + key must be defined before "tab-mode"
+        {:des "tab + d (desktops)"
+         :rules [[:condi :tab-mode :d-mode]
           [:-n :!T1]
           [:-e :!T2]
           [:-i :!T3]
@@ -384,8 +424,8 @@
         ]}
 
 
-        {:des "esc + t (swap)"
-         :rules [[:condi :escape-mode :movement-mode]
+        {:des "tab + t (swap)"
+         :rules [[:condi :tab-mode :movement-mode]
           [:-n "/usr/local/bin/yabai -m window --swap west"]
           [:-o "/usr/local/bin/yabai -m window --swap east"]
           [:-i "/usr/local/bin/yabai -m window --swap north"]
@@ -399,23 +439,23 @@
           [:-m "/usr/local/bin/yabai -m window --toggle split"]
         ]}
 
-        {:des "esc + s (resize)"
-         :rules [[:condi :escape-mode :shift-mode]
-          [:-n "/usr/local/bin/yabai -m window --resize left:-20:0"] ; increase left
-          [:-e "/usr/local/bin/yabai -m window --resize left:20:0"] ; decrease left
-          [:-i "/usr/local/bin/yabai -m window --resize right:-20:0"] ; increase right
-          [:-o "/usr/local/bin/yabai -m window --resize right:20:0"] ; decrease right
+        {:des "tab + s (resize)"
+         :rules [[:condi :tab-mode :shift-mode]
+          [:-n "/usr/local/bin/yabai -m window --resize left:-50:0"] ; increase left
+          [:-e "/usr/local/bin/yabai -m window --resize left:50:0"] ; decrease left
+          [:-i "/usr/local/bin/yabai -m window --resize right:-50:0"] ; increase right
+          [:-o "/usr/local/bin/yabai -m window --resize right:50:0"] ; decrease right
 
-          [:-l "/usr/local/bin/yabai -m window --resize top:0:-20"] ; increase top
-          [:-u "/usr/local/bin/yabai -m window --resize top:0:20"] ; decrease top
-          [:-y "/usr/local/bin/yabai -m window --resize bottom:0:20"] ; increase bottom
-          [:-semicolon "/usr/local/bin/yabai -m window --resize bottom:0:-20"] ; decrease bottom
+          [:-l "/usr/local/bin/yabai -m window --resize top:0:-50"] ; increase top
+          [:-u "/usr/local/bin/yabai -m window --resize top:0:50"] ; decrease top
+          [:-y "/usr/local/bin/yabai -m window --resize bottom:0:50"] ; increase bottom
+          [:-semicolon "/usr/local/bin/yabai -m window --resize bottom:0:-50"] ; decrease bottom
         ]}
 
-        {:des "escape-mode"
-         :rules [:escape-mode
-          [:-a :!!a] ;toggle top menubar
-          ;[:-d :f11] ;show desktop
+        {:des "tab-mode"
+         :rules [:tab-mode
+          [:-a :!!a] ;toggle top menubar (bartender)
+          [:-r :!Tf3] ;focus dock
 
           [:-n "/usr/local/bin/yabai -m window --focus west"]
           [:-o "/usr/local/bin/yabai -m window --focus east"]
@@ -430,30 +470,6 @@
         ]}
 
         
-        {:des "caps_lock"
-         :rules [:caps_lock-mode
-          [:-a :!!a] ;toggle top menubar
-          [:-d :f11] ;show desktop
-          [:-i [:launch "iTerm"]]
-          [:-t [:launch "iTerm"]]
-          [:-c :!!c] ;open fantastical
-          [:-p :!!p] ;take a screenshot with snagit
-          ;restart karabiner
-          [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
-          [:-m [:launch "Spotify"]]
-          [:-s [:launch "Slack"]]
-          [:-b [:launch "Brave"]]
-          [:-o [:launch "Visual Studio Code"]]
-          [:comma [:launch "Messenger"]]
-          [:-w [:launch "WhatsApp"]]
-          [:-h :!Ch] ;hide app
-          [:-l :!!l] ;toggle 1password
-          [:-n :prev_app]
-          [:-e :next_app]
-          ;
-          ]}
-
-
         {:des "delete n-mode"
          :rules [:delete-mode
                  [:hyphen :delete_line :code]
