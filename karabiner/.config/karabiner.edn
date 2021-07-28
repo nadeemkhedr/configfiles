@@ -231,6 +231,7 @@
                  ;;[:left_command :left_command nil {:alone [:!Ct]}]
                  ;;[:left_option :left_option nil {:alone [:!Cw]}]
                  [:condi :chromes :a-mode]
+                 [:-b :!Op] ;picture in picture by chrome plugin
                  [:-n :prev_tab]
                  [:-e :next_tab]
                  [:-m :tab_move_left]
