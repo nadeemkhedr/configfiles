@@ -442,15 +442,15 @@
 
         {:des "tab + s (resize)"
          :rules [[:condi :tab-mode :shift-mode]
-          [:-n "/usr/local/bin/yabai -m window --resize left:-50:0"] ; increase left
-          [:-e "/usr/local/bin/yabai -m window --resize left:50:0"] ; decrease left
-          [:-i "/usr/local/bin/yabai -m window --resize right:-50:0"] ; increase right
-          [:-o "/usr/local/bin/yabai -m window --resize right:50:0"] ; decrease right
+          [:-n "/usr/local/bin/yabai -m window --resize left:-100:0"] ; increase left
+          [:-e "/usr/local/bin/yabai -m window --resize left:100:0"] ; decrease left
+          [:-i "/usr/local/bin/yabai -m window --resize right:-100:0"] ; increase right
+          [:-o "/usr/local/bin/yabai -m window --resize right:100:0"] ; decrease right
 
-          [:-l "/usr/local/bin/yabai -m window --resize top:0:-50"] ; increase top
-          [:-u "/usr/local/bin/yabai -m window --resize top:0:50"] ; decrease top
-          [:-y "/usr/local/bin/yabai -m window --resize bottom:0:50"] ; increase bottom
-          [:-semicolon "/usr/local/bin/yabai -m window --resize bottom:0:-50"] ; decrease bottom
+          [:-l "/usr/local/bin/yabai -m window --resize top:0:-100"] ; increase top
+          [:-u "/usr/local/bin/yabai -m window --resize top:0:100"] ; decrease top
+          [:-y "/usr/local/bin/yabai -m window --resize bottom:0:100"] ; increase bottom
+          [:-semicolon "/usr/local/bin/yabai -m window --resize bottom:0:-100"] ; decrease bottom
         ]}
 
         {:des "tab-mode"
@@ -464,6 +464,7 @@
           [:-e "/usr/local/bin/yabai -m window --focus south"]
 
 
+          [:-f "/usr/local/bin/yabai -m window --toggle float"]
           [:delete "/usr/local/bin/yabai -m window --close"]
           [:spacebar "/usr/local/bin/yabai -m window --toggle zoom-fullscreen"]
           [:return_or_enter "/usr/local/bin/yabai -m space --balance"]
