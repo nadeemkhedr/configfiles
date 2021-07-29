@@ -11,8 +11,9 @@ unsetopt BEEP
 
 
 # completions
-autoload -Uz compinit && compinit
+autoload -Uz compinit
 zstyle ':completion:*' menu select
+# add smart-case auto complete
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # zstyle ':completion::complete:lsof:*' menu yes select
@@ -44,8 +45,7 @@ zsh_add_plugin "jocelynmallon/zshmarks"
 #zsh_add_plugin "zsh-users/zsh-completions"
 
 # custom completions
-#completion_path=$(ls $ZDOTDIR/completion/_*)
-#fpath+="$(dirname "${completion_path}")"
+fpath+="$ZDOTDIR/completion"
 
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
 # More completions https://github.com/zsh-users/zsh-completions
@@ -64,6 +64,8 @@ bindkey "^k" up-line-or-beginning-search # Up
 bindkey "^j" down-line-or-beginning-search # Down
 bindkey -r "^u"
 bindkey -r "^d"
+
+compinit
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
