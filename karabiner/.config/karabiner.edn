@@ -360,6 +360,7 @@
 
         {:des   "escape mode"
          :rules [:escape-mode
+          [:delete "/usr/local/bin/yabai -m window --close"]
           [:-d :f11] ;show desktop
           [:return_or_enter  [:open-new "/Applications/Alacritty.app"]]
           [:period  [:open-new "/Applications/Brave Browser.app"]]
@@ -384,6 +385,7 @@
         ; for keyboards with capslock
         {:des "caps_lock (same as escape-mode)"
          :rules [:caps_lock-mode
+          [:delete "/usr/local/bin/yabai -m window --close"]
           [:-d :f11] ;show desktop
           [:return_or_enter  [:open-new "/Applications/Alacritty.app"]]
           [:period  [:open-new "/Applications/Brave Browser.app"]]
