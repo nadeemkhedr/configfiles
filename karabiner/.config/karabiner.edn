@@ -226,7 +226,7 @@
                  ;
                  ]}
 
-        {:des "brave-shortcuts"
+        {:des "chromes-shortcuts"
          :rules [:chromes
                  ;;[:left_command :left_command nil {:alone [:!Ct]}]
                  ;;[:left_option :left_option nil {:alone [:!Cw]}]
@@ -243,7 +243,7 @@
                  [:-l :focus_omnibar]
                  [:-i :open_dev_tools]
                  [:-r :refresh]
-                 [:-x :close_tab]
+                 [:delete  :close_tab]
                  [:-p :private_mode]
                  [:-u :browser_1pass]
                  ;
@@ -360,51 +360,53 @@
 
         {:des   "escape mode"
          :rules [:escape-mode
-          [:delete "/usr/local/bin/yabai -m window --close"]
-          [:-d :f11] ;show desktop
           [:return_or_enter  [:open-new "/Applications/Alacritty.app"]]
           [:period  [:open-new "/Applications/Brave Browser.app"]]
 
-          [:-d :f11] ;show desktop
+          [:-n :prev_app]
+          [:-e :next_app]
           [:-i [:launch "Alacritty"]]
+          [:-o [:launch "Visual Studio Code"]]
+
+          [:-d :f11] ;show desktop
+          [:delete "/usr/local/bin/yabai -m window --close"]
           [:-c :!!c] ;open fantastical
           [:-p :!!p] ;take a screenshot with snagit
           ;restart karabiner
           [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
+
           [:-m [:launch "Spotify"]]
           [:-s [:launch "Slack"]]
           [:-b [:launch "Brave"]]
-          [:-o [:launch "Visual Studio Code"]]
           [:comma [:launch "Messenger"]]
           [:-w [:launch "WhatsApp"]]
           [:-l :!!l] ;toggle 1password
-          [:-n :prev_app]
-          [:-e :next_app]
         ]}
 
         ; for keyboards with capslock
         {:des "caps_lock (same as escape-mode)"
          :rules [:caps_lock-mode
-          [:delete "/usr/local/bin/yabai -m window --close"]
-          [:-d :f11] ;show desktop
           [:return_or_enter  [:open-new "/Applications/Alacritty.app"]]
           [:period  [:open-new "/Applications/Brave Browser.app"]]
 
-          [:-d :f11] ;show desktop
+          [:-n :prev_app]
+          [:-e :next_app]
           [:-i [:launch "Alacritty"]]
+          [:-o [:launch "Visual Studio Code"]]
+
+          [:-d :f11] ;show desktop
+          [:delete "/usr/local/bin/yabai -m window --close"]
           [:-c :!!c] ;open fantastical
           [:-p :!!p] ;take a screenshot with snagit
           ;restart karabiner
           [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
+
           [:-m [:launch "Spotify"]]
           [:-s [:launch "Slack"]]
           [:-b [:launch "Brave"]]
-          [:-o [:launch "Visual Studio Code"]]
           [:comma [:launch "Messenger"]]
           [:-w [:launch "WhatsApp"]]
           [:-l :!!l] ;toggle 1password
-          [:-n :prev_app]
-          [:-e :next_app]
           ;
           ]}
 
@@ -457,8 +459,9 @@
 
         {:des "tab-mode"
          :rules [:tab-mode
-          [:-a :!!a] ;toggle top menubar (bartender)
+          [:-a :!!a] ; open launchpad
           [:-r :!Tf3] ;focus dock
+          [:-s :!!s] ;toggle top menubar (bartender)
 
           [:-n "/usr/local/bin/yabai -m window --focus west"]
           [:-o "/usr/local/bin/yabai -m window --focus east"]
