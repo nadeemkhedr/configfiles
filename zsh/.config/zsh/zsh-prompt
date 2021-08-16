@@ -27,13 +27,27 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
     fi
 }
 
+function get_pwd(){
+  git_root=$PWD
+  while [[ $git_root != / && ! -e $git_root/.git ]]; do
+    git_root=$git_root:h
+  done
+  if [[ $git_root = / ]]; then
+    unset git_root
+    prompt_short_dir=%~
+  else
+    parent=${git_root%\/*}
+    prompt_short_dir=${PWD#$parent/}
+  fi
+  echo $prompt_short_dir
+}
 
 zstyle ':vcs_info:*' check-for-changes true
 # zstyle ':vcs_info:git:*' formats " %r/%S %b %m%u%c "
 zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[red]%}%m%u%c%{$fg[yellow]%}%{$fg[magenta]%} %b%{$fg[blue]%})"
 
 # format our main prompt for hostname current folder, and permissions.
-PROMPT="%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}%c%{$reset_color%}"
+PROMPT='%B%{$fg[blue]%}[%{$fg[white]%}%n%{$fg[blue]%}] %(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )%{$fg[cyan]%}$(get_pwd)%{$reset_color%}'
 # PROMPT="%{$fg[green]%}%n@%m %~ %{$reset_color%}%#> "
 PROMPT+="\$vcs_info_msg_0_ "
 # TODO look into this for more colors
