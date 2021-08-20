@@ -20,6 +20,7 @@ alias mux="tmuxinator"
 # easier to read disk
 alias df='df -h'                          # human-readable sizes
 
+alias nvim="lvim"
 case "$(uname -s)" in
 
    Darwin)
