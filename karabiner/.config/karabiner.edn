@@ -294,8 +294,8 @@
           [:-v :!Tv]
           [:-x :!Tx]
 
-          [:condi :terminals  :a-mode] ;tmux keys
           [:-q [:!Ta :1]] ; go to window 1
+          [:condi :terminals  :a-mode] ;tmux keys
           [:-w [:!Ta :2]]
           [:-f [:!Ta :3]]
           [:-p [:!Ta :4]]
@@ -306,13 +306,15 @@
           [:-l [:!Ta :l]]
           [:-z [:!Ta :z]] ; toggle max/k on a pane
           [:-x [:!Ta :x]] ; kill pane
+          [:delete [:!Ta :x]] ; kill pane
           [:-c [:!Ta :c]] ; create new window
           [:-r [:!Ta :!S5]] ; split h
           [:-s [:!Ta :!Squote]] ; split v
 
-          [:-n [:!Ta :!Th]] ; prev window (oh-my-tmux)
-          [:-e [:!Ta :!Tl]] ; next window (oh-my-tmux)
-          [:return_or_enter [:!Ta :return_or_enter ]] ; visual mode
+          [:-n [:!Ta :p]] ; prev window
+          [:-e [:!Ta :n]] ; next window
+          [:-o [:!Ta :w]] ; list windows 
+          [:return_or_enter [:!Ta :open_bracket ]] ; copy mode
          ;
          ]}
 ;
