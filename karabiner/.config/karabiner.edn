@@ -23,8 +23,7 @@
          :return {:key :return_or_enter}
          :tilde {:key :grave_accent_and_tilde}
 
-
-         ;colemak froms (for easier mnemonics)
+;colemak froms (for easier mnemonics)
          :-q {:key :q}
          :-w {:key :w}
          :-f {:key :e}
@@ -92,10 +91,10 @@
        :command_palette {:key :p :modi :command}
        :go_to_file {:key :p :modi :cs}
 
-       :code_tab_prev [{:key k :modi :command} 
+       :code_tab_prev [{:key k :modi :command}
                        {:key left_arrow :modi :co}] ;prev tab in group
        :code_tab_next [{:key k :modi :command}
-                      {:key right_arrow :modi :co}] ;next tab in group
+                       {:key right_arrow :modi :co}] ;next tab in group
        ;brave
        :prev_tab {:key tab :modi :ts}
        :next_tab {:key tab :modi :control}
@@ -110,7 +109,7 @@
        :browser_1pass {:key x :modi :cs}
        ;
        }
- 
+
  :templates {;
              :alfred "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\"'"
              :code-project "osascript -e 'tell application \"Visual Studio Code\" to activate' &&
@@ -163,7 +162,7 @@
                         set the clipboard to output                    
                         tell application \"System Events\" to keystroke \"v\" using {command down}
                      '"
-              :query "osascript -e '
+             :query "osascript -e '
                       tell application id \"com.runningwithcrayons.Alfred\" to run trigger \"scripted-list\" in workflow \"com.johnlindquist.scripted-list\" with argument \"%s\"
                       '"
              ;
@@ -183,12 +182,11 @@
           :caps_lock-mode {:key :caps_lock :alone {:key :escape}}
           :escape-mode {:key :escape :alone {:key :escape}}
           :tab-mode {:key :tab, :alone {:key :tab}}
-          :launch-mode {:key :f24 :alone {:key :spacebar :modi :left_option}}
-          }
+          :launch-mode {:key :f24 :alone {:key :spacebar :modi :left_option}}}
  :simlayers {;
              :a-mode {:key :a} ; app specific // tmux, chrome
              :r-mode {:key :s} ; app specific // ctrl for vim
-             :d-mode {:key :g} 
+             :d-mode {:key :g}
              :c-mode {:key :c}
              :m-mode {:key :m} ; music mode
              :j-mode {:key :y} ; window managment (amethyst)
@@ -205,7 +203,7 @@
              }
 
  :main [;
-        
+
         {:des "global"
          :rules [[:left_shift :left_shift nil {:alone :delete_or_backspace}]
                  [:right_shift :right_shift nil {:alone :delete_forward}]
@@ -251,72 +249,70 @@
 
         {:des "code-shortcuts"
          :rules [:code
-          [:left_command :left_command nil {:alone :command_palette}]
-          [:right_command :right_command nil {:alone :go_to_file}]
+                 [:left_command :left_command nil {:alone :command_palette}]
+                 [:right_command :right_command nil {:alone :go_to_file}]
 
+                 [:condi :code :a-mode]
+                 [:-i :!Tgrave_accent_and_tilde] ;toggle terminal
+                 [:-n :code_tab_prev]
+                 [:-e :code_tab_next]
+                 [:-x :close_tab]
+                 [:-s :reopen_tab]
+                 [:-t :!Cn] ;a-t creates an untitled file
+                 [:comma :!Ccomma] ;settings
+                 [:-v :!Cbackslash] ;vertical split
 
-          [:condi :code :a-mode]
-          [:-i :!Tgrave_accent_and_tilde] ;toggle terminal
-          [:-n :code_tab_prev]
-          [:-e :code_tab_next]
-          [:-x :close_tab]
-          [:-s :reopen_tab]
-          [:-t :!Cn] ;a-t creates an untitled file
-          [:comma :!Ccomma] ;settings
-          [:-v :!Cbackslash] ;vertical split
-          
-
-          [:condi :code :r-mode] ;control key - terminal
-          [:-c :!Tc]
-          [:-h :!Th]
-          [:-i :!Ti]
-          [:-j :!Tj]
-          [:-k :!Tk]
-          [:-l :!Tl]
-          [:-o :!To]
-          [:-t :!Tt]
-          [:-v :!Tv]
-          [:-x :!Tx]
+                 [:condi :code :r-mode] ;control key - terminal
+                 [:-c :!Tc]
+                 [:-h :!Th]
+                 [:-i :!Ti]
+                 [:-j :!Tj]
+                 [:-k :!Tk]
+                 [:-l :!Tl]
+                 [:-o :!To]
+                 [:-t :!Tt]
+                 [:-v :!Tv]
+                 [:-x :!Tx]
          ;
-         ]}
-        
+                 ]}
+
         {:des "iterm-shortcuts"
          :rules [:terminals
-          [:condi :terminals :r-mode] ;control key - terminal
-          [:-c :!Tc]
-          [:-h :!Th]
-          [:-i :!Ti]
-          [:-j :!Tj]
-          [:-k :!Tk]
-          [:-l :!Tl]
-          [:-o :!To]
-          [:-t :!Tt]
-          [:-v :!Tv]
-          [:-x :!Tx]
+                 [:condi :terminals :r-mode] ;control key - terminal
+                 [:-c :!Tc]
+                 [:-h :!Th]
+                 [:-i :!Ti]
+                 [:-j :!Tj]
+                 [:-k :!Tk]
+                 [:-l :!Tl]
+                 [:-o :!To]
+                 [:-t :!Tt]
+                 [:-v :!Tv]
+                 [:-x :!Tx]
 
-          [:-q [:!Ta :1]] ; go to window 1
-          [:condi :terminals  :a-mode] ;tmux keys
-          [:-w [:!Ta :2]]
-          [:-f [:!Ta :3]]
-          [:-p [:!Ta :4]]
-          [:-g [:!Ta :5]]
-          [:-j [:!Ta :j]] ; move between panes
-          [:-k [:!Ta :k]]
-          [:-h [:!Ta :h]]
-          [:-l [:!Ta :l]]
-          [:-z [:!Ta :z]] ; toggle max/k on a pane
-          [:-x [:!Ta :x]] ; kill pane
-          [:delete [:!Ta :x]] ; kill pane
-          [:-c [:!Ta :c]] ; create new window
-          [:-r [:!Ta :!S5]] ; split h
-          [:-s [:!Ta :!Squote]] ; split v
+                 [:-q [:!Ta :1]] ; go to window 1
+                 [:condi :terminals  :a-mode] ;tmux keys
+                 [:-w [:!Ta :2]]
+                 [:-f [:!Ta :3]]
+                 [:-p [:!Ta :4]]
+                 [:-g [:!Ta :5]]
+                 [:-j [:!Ta :j]] ; move between panes
+                 [:-k [:!Ta :k]]
+                 [:-h [:!Ta :h]]
+                 [:-l [:!Ta :l]]
+                 [:-z [:!Ta :z]] ; toggle max/k on a pane
+                 [:-x [:!Ta :x]] ; kill pane
+                 [:delete [:!Ta :x]] ; kill pane
+                 [:-c [:!Ta :c]] ; create new window
+                 [:-r [:!Ta :!S5]] ; split h
+                 [:-s [:!Ta :!Squote]] ; split v
 
-          [:-n [:!Ta :p]] ; prev window
-          [:-e [:!Ta :n]] ; next window
-          [:-o [:!Ta :w]] ; list windows 
-          [:return_or_enter [:!Ta :open_bracket ]] ; copy mode
+                 [:-n [:!Ta :p]] ; prev window
+                 [:-e [:!Ta :n]] ; next window
+                 [:-o [:!Ta :w]] ; list windows 
+                 [:return_or_enter [:!Ta :open_bracket]] ; copy mode
          ;
-         ]}
+                 ]}
 ;
         {:des "o-mode"
          :rules [:open-mode
@@ -342,8 +338,6 @@
                  [:-s :!TOS3] ; throw to desktop 3
                 ;
                  ]}
-         
-
         {:des "emoji z-mode"
          :rules [:emoji-mode
                  [:-t [:paste "👍"]] ;thumbsup
@@ -362,123 +356,117 @@
 
         {:des   "escape mode"
          :rules [:escape-mode
-          [:return_or_enter  [:open-new "/Applications/Alacritty.app"]]
-          [:period  [:open-new "/Applications/Brave Browser.app"]]
+                 [:return_or_enter  [:open-new "/Applications/Alacritty.app"]]
+                 [:period  [:open-new "/Applications/Brave Browser.app"]]
 
-          [:-n :prev_app]
-          [:-e :next_app]
-          [:-i [:launch "Alacritty"]]
-          [:-o [:launch "Visual Studio Code"]]
+                 [:-n :prev_app]
+                 [:-e :next_app]
+                 [:-i [:launch "Alacritty"]]
+                 [:-o [:launch "Visual Studio Code"]]
 
-          [:-d :f11] ;show desktop
-          [:delete "/usr/local/bin/yabai -m window --close"]
-          [:-c :!!c] ;open fantastical
-          [:-p :!!p] ;take a screenshot with snagit
+                 [:-d :f11] ;show desktop
+                 [:delete "yabai -m window --close"]
+                 [:-c :!!c] ;open fantastical
+                 [:-p :!!p] ;take a screenshot with snagit
           ;restart karabiner
-          [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
+                 [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
 
-          [:-m [:launch "Spotify"]]
-          [:-s [:launch "Slack"]]
-          [:-b [:launch "Brave"]]
-          [:comma [:launch "Messenger"]]
-          [:-w [:launch "WhatsApp"]]
-          [:-l :!!l] ;toggle 1password
-        ]}
+                 [:-m [:launch "Spotify"]]
+                 [:-s [:launch "Slack"]]
+                 [:-b [:launch "Brave"]]
+                 [:comma [:launch "Messenger"]]
+                 [:-w [:launch "WhatsApp"]]
+                 [:-l :!!l] ;toggle 1password
+                 ]}
 
         ; for keyboards with capslock
         {:des "caps_lock (same as escape-mode)"
          :rules [:caps_lock-mode
-          [:return_or_enter  [:open-new "/Applications/Alacritty.app"]]
-          [:period  [:open-new "/Applications/Brave Browser.app"]]
+                 [:return_or_enter  [:open-new "/Applications/Alacritty.app"]]
+                 [:period  [:open-new "/Applications/Brave Browser.app"]]
 
-          [:-n :prev_app]
-          [:-e :next_app]
-          [:-i [:launch "Alacritty"]]
-          [:-o [:launch "Visual Studio Code"]]
+                 [:-n :prev_app]
+                 [:-e :next_app]
+                 [:-i [:launch "Alacritty"]]
+                 [:-o [:launch "Visual Studio Code"]]
 
-          [:-d :f11] ;show desktop
-          [:delete "/usr/local/bin/yabai -m window --close"]
-          [:-c :!!c] ;open fantastical
-          [:-p :!!p] ;take a screenshot with snagit
+                 [:-d :f11] ;show desktop
+                 [:delete "yabai -m window --close"]
+                 [:-c :!!c] ;open fantastical
+                 [:-p :!!p] ;take a screenshot with snagit
           ;restart karabiner
-          [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
+                 [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
 
-          [:-m [:launch "Spotify"]]
-          [:-s [:launch "Slack"]]
-          [:-b [:launch "Brave"]]
-          [:comma [:launch "Messenger"]]
-          [:-w [:launch "WhatsApp"]]
-          [:-l :!!l] ;toggle 1password
+                 [:-m [:launch "Spotify"]]
+                 [:-s [:launch "Slack"]]
+                 [:-b [:launch "Brave"]]
+                 [:comma [:launch "Messenger"]]
+                 [:-w [:launch "WhatsApp"]]
+                 [:-l :!!l] ;toggle 1password
           ;
-          ]}
+                 ]}
 
         ; yabai shortcuts (tab)
         ; tab + key must be defined before "tab-mode"
         {:des "tab + d (desktops)"
          :rules [[:condi :tab-mode :d-mode]
-          [:-n :!T1]
-          [:-e :!T2]
-          [:-i :!T3]
-          [:-o :!T4]
+                 [:-n :!T1]
+                 [:-e :!T2]
+                 [:-i :!T3]
+                 [:-o :!T4]
 
-          [:-l "/usr/local/bin/yabai -m window --space one"]
-          [:-u "/usr/local/bin/yabai -m window --space two"]
-          [:-y "/usr/local/bin/yabai -m window --space three"]
-          [:-semicolon "/usr/local/bin/yabai -m window --space four"]
+                 [:-l "yabai -m window --space one"]
+                 [:-u "yabai -m window --space two"]
+                 [:-y "yabai -m window --space three"]
+                 [:-semicolon "yabai -m window --space four"]
 
-          [:-m :!Tleft_arrow]
-          [:comma :!Tright_arrow]
-        ]}
-
+                 [:-m :!Tleft_arrow]
+                 [:comma :!Tright_arrow]]}
 
         {:des "tab + t (swap)"
          :rules [[:condi :tab-mode :movement-mode]
-          [:-n "/usr/local/bin/yabai -m window --swap west"]
-          [:-o "/usr/local/bin/yabai -m window --swap east"]
-          [:-i "/usr/local/bin/yabai -m window --swap north"]
-          [:-e "/usr/local/bin/yabai -m window --swap south"]
+                 [:-n "yabai -m window --swap west"]
+                 [:-o "yabai -m window --swap east"]
+                 [:-i "yabai -m window --swap north"]
+                 [:-e "yabai -m window --swap south"]
 
-          [:-l "/usr/local/bin/yabai -m window --warp west"]
-          [:-semicolon "/usr/local/bin/yabai -m window --warp  east"]
-          [:-y "/usr/local/bin/yabai -m window --warp north"]
-          [:-u "/usr/local/bin/yabai -m window --warp south"]
+                 [:-l "yabai -m window --warp west"]
+                 [:-semicolon "yabai -m window --warp  east"]
+                 [:-y "yabai -m window --warp north"]
+                 [:-u "yabai -m window --warp south"]
 
-          [:-m "/usr/local/bin/yabai -m window --toggle split"]
-        ]}
+                 [:-m "yabai -m window --toggle split"]]}
 
         {:des "tab + s (resize)"
          :rules [[:condi :tab-mode :shift-mode]
-          [:-n "/usr/local/bin/yabai -m window --resize left:-100:0"] ; increase left
-          [:-e "/usr/local/bin/yabai -m window --resize left:100:0"] ; decrease left
-          [:-i "/usr/local/bin/yabai -m window --resize right:-100:0"] ; increase right
-          [:-o "/usr/local/bin/yabai -m window --resize right:100:0"] ; decrease right
+                 [:-n "yabai -m window --resize left:-100:0"] ; increase left
+                 [:-e "yabai -m window --resize left:100:0"] ; decrease left
+                 [:-i "yabai -m window --resize right:-100:0"] ; increase right
+                 [:-o "yabai -m window --resize right:100:0"] ; decrease right
 
-          [:-l "/usr/local/bin/yabai -m window --resize top:0:-100"] ; increase top
-          [:-u "/usr/local/bin/yabai -m window --resize top:0:100"] ; decrease top
-          [:-y "/usr/local/bin/yabai -m window --resize bottom:0:100"] ; increase bottom
-          [:-semicolon "/usr/local/bin/yabai -m window --resize bottom:0:-100"] ; decrease bottom
-        ]}
+                 [:-l "yabai -m window --resize top:0:-100"] ; increase top
+                 [:-u "yabai -m window --resize top:0:100"] ; decrease top
+                 [:-y "yabai -m window --resize bottom:0:100"] ; increase bottom
+                 [:-semicolon "yabai -m window --resize bottom:0:-100"] ; decrease bottom
+                 ]}
 
         {:des "tab-mode"
          :rules [:tab-mode
-          [:-a :!!a] ; open launchpad
-          [:-r :!Tf3] ;focus dock
-          [:-s :!!s] ;toggle top menubar (bartender)
+                 [:-a :!!a] ; open launchpad
+                 [:-r :!Tf3] ;focus dock
+                 [:-s :!!s] ;toggle top menubar (bartender)
+                 [:slash "~/.kenv/bin/yabai-zen-toggle"]
+                 [:-n "yabai -m window --focus west"]
+                 [:-o "yabai -m window --focus east"]
+                 [:-i "yabai -m window --focus north"]
+                 [:-e "yabai -m window --focus south"]
 
-          [:-n "/usr/local/bin/yabai -m window --focus west"]
-          [:-o "/usr/local/bin/yabai -m window --focus east"]
-          [:-i "/usr/local/bin/yabai -m window --focus north"]
-          [:-e "/usr/local/bin/yabai -m window --focus south"]
+                 [:-f "yabai -m window --toggle float"]
+                 [:delete "yabai -m window --close"]
+                 [:spacebar "yabai -m window --toggle zoom-fullscreen"]
+                 [:return_or_enter "yabai -m space --balance"]
+                 [:-z "launchctl kickstart -k \"gui/${UID}/homebrew.mxcl.yabai\""]]}
 
-
-          [:-f "/usr/local/bin/yabai -m window --toggle float"]
-          [:delete "/usr/local/bin/yabai -m window --close"]
-          [:spacebar "/usr/local/bin/yabai -m window --toggle zoom-fullscreen"]
-          [:return_or_enter "/usr/local/bin/yabai -m space --balance"]
-          [:-z "launchctl kickstart -k \"gui/${UID}/homebrew.mxcl.yabai\""]
-        ]}
-
-        
         {:des "delete n-mode"
          :rules [:delete-mode
                  [:hyphen :delete_line :code]
@@ -616,13 +604,8 @@
                  [:close_bracket :a]
                  ;
                  ]}
-
-
-
-        ;
+;
         ]}
-
-
 ;; rule [:period ["media-mode" 1] nil {:afterup ["media-mode" 0] :alone :period}]
 ;;       |_____| |_______________| |_| |_________________________________________|
 ;;        <from>    <to>      <conditions>         <other options>
