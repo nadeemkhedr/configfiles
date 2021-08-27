@@ -12,6 +12,7 @@ lvim.colorscheme = "tokyonight"
 -- Default Options
 vim.opt.relativenumber = true
 vim.opt.timeoutlen = 200
+vim.o.inccommand = "split"
 
 -- Treesitter
 lvim.builtin.treesitter.ensure_installed = "maintained"
