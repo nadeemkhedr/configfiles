@@ -30,7 +30,12 @@ M.config = function()
   vim.api.nvim_set_keymap("n", ":", ";", { noremap = true })
   vim.api.nvim_set_keymap("v", ":", ";", { noremap = true })
 
+  -- splitv go to def
+  lvim.keys.normal_mode["gv"] = "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>"
+
   -- Whichkey
+
+  lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
   lvim.builtin.which_key.mappings["a"] = {
     name = "+Actions",
     l = { "<cmd>IndentBlanklineToggle<cr>", "Toggle Indent line" },

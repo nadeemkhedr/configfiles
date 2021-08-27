@@ -31,15 +31,6 @@ lvim.builtin.telescope.defaults.mappings = {
   },
 }
 
-local components = require "core.lualine.components"
-lvim.builtin.lualine.sections.lualine_c = {
-  components.diff,
-  "filename",
-}
--- lvim.builtin.lualine.sections.lualine_b = { "filename" }
--- lvim.builtin.lualine.on_config_done = function()
--- end
-
 -- Additional Plugins
 lvim.plugins = {
   { "lunarvim/colorschemes" },
@@ -101,16 +92,7 @@ lvim.plugins = {
   {
     "lukas-reineke/indent-blankline.nvim",
     setup = function()
-      vim.g.indentLine_enabled = 1
-      vim.g.indent_blankline_char = "▏"
-      vim.g.indent_blankline_filetype_exclude = {
-        "help",
-        "terminal",
-        "dashboard",
-      }
-      vim.g.indent_blankline_buftype_exclude = { "terminal" }
-      vim.g.indent_blankline_show_trailing_blankline_indent = false
-      vim.g.indent_blankline_show_first_indent_level = true
+      require "user.indentBlankline"
     end,
   },
   {
@@ -134,11 +116,21 @@ lvim.plugins = {
       require("user.spectre").config()
     end,
   },
+  -- file exporer
   {
     "tamago324/lir.nvim",
     config = function()
       require "user.lir"
     end,
+  },
+  -- todo comments styles
+  {
+    "folke/todo-comments.nvim",
+    requires = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo-comments").setup()
+    end,
+    event = "BufRead",
   },
 }
 
