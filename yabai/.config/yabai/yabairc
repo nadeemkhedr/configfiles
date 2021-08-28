@@ -28,6 +28,7 @@ yabai -m rule --add app="^ExpressVPN$" manage=off
 yabai -m rule --add app="^Sourcetree$" manage=off
 yabai -m rule --add app="^Luck be a Landlord$" manage=off
 yabai -m rule --add app="^VLC media player$" manage=off
+yabai -m rule --add app="^Font Book$" manage=off
 
 #find ~/Library/Parallels/Applications\ Menus/ -maxdepth 3 -type f | awk -F'/' '{ print $NF; }' | awk '{$1=$1};1' | sort | uniq | tr "\n" "\0" | xargs -0 -I{} yabai -m rule --add app="^{}\$" title=".*" manage=on
 
