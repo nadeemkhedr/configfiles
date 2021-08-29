@@ -1,5 +1,3 @@
--- lvim.lsp.diagnostics.virtual_text = false "gl" to show diagnostics
-
 -- if you don't want all the parsers change this to a table of the ones you want
 
 -- General
@@ -7,12 +5,16 @@ lvim.transparent_window = false
 lvim.format_on_save = true
 lvim.lint_on_save = true
 lvim.leader = "space"
-lvim.colorscheme = "tokyonight"
+lvim.colorscheme = "onedarker"
 
 -- Default Options
 vim.opt.relativenumber = true
 vim.opt.timeoutlen = 200
 vim.o.inccommand = "split"
+
+-- LSP
+lvim.lsp.diagnostics.virtual_text = false -- "gl" to show diagnostics for each error
+require("user.json_schemas").setup()
 
 -- Treesitter
 lvim.builtin.treesitter.ensure_installed = "maintained"
@@ -35,6 +37,7 @@ lvim.builtin.telescope.defaults.mappings = {
 -- Additional Plugins
 lvim.plugins = {
   { "lunarvim/colorschemes" },
+  { "lunarvim/onedarker" },
   {
     "folke/tokyonight.nvim",
     config = function()
@@ -93,7 +96,7 @@ lvim.plugins = {
   {
     "lukas-reineke/indent-blankline.nvim",
     setup = function()
-      require "user.indentBlankline"
+      require "user.indent_blankline"
     end,
   },
   {
