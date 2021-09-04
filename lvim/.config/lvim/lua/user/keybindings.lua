@@ -35,7 +35,16 @@ M.config = function()
 
   -- Whichkey
 
-  lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+  -- Move packer keys to 'P', and update 'p' to paste from clipboard
+  lvim.builtin.which_key.mappings["P"] = lvim.builtin.which_key.mappings["p"]
+  lvim.builtin.which_key.mappings["p"] = { '"+p', "paste from clipboard" }
+  lvim.builtin.which_key.mappings["p"] = { '"+p', "paste from clipboard" }
+  lvim.builtin.which_key.mappings["y"] = {
+    name = "+yank",
+    y = { '"+y', "yank to clipboard" },
+  }
+  lvim.builtin.which_key.vmappings["y"] = { '"+y', "yank to clipboard" }
+
   lvim.builtin.which_key.mappings["a"] = {
     name = "+Actions",
     l = { "<cmd>IndentBlanklineToggle<cr>", "Toggle Indent line" },

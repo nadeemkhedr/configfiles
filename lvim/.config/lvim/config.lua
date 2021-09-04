@@ -1,5 +1,3 @@
--- if you don't want all the parsers change this to a table of the ones you want
-
 -- General
 lvim.transparent_window = false
 lvim.format_on_save = true
@@ -8,6 +6,7 @@ lvim.leader = "space"
 lvim.colorscheme = "onedarker"
 
 -- Default Options
+vim.opt.clipboard = ""
 vim.opt.relativenumber = true
 vim.opt.timeoutlen = 200
 vim.o.inccommand = "split"
@@ -37,7 +36,7 @@ lvim.builtin.telescope.defaults.mappings = {
 -- Additional Plugins
 lvim.plugins = {
   { "lunarvim/colorschemes" },
-  { "lunarvim/onedarker" },
+  { "tpope/vim-surround" },
   {
     "folke/tokyonight.nvim",
     config = function()
