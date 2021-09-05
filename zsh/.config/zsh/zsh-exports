@@ -17,6 +17,10 @@ eval "$(pyenv init --path)"
 export PATH="$PATH:/Users/nadeemkhedr/.kenv/bin"
 export PATH="$PATH:/Users/nadeemkhedr/.kit/bin"
 
+# zsh-history-substring-search
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=green"
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red"
+
 # similar to nvm
 eval "$(fnm env)"
 . /usr/local/etc/profile.d/z.sh
