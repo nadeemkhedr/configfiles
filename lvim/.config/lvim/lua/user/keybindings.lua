@@ -69,6 +69,12 @@ M.config = function()
     v = { "<cmd>e ~/.config/lvim/lv-config.lua<cr>", "open lv-config" },
     s = { "<cmd>e ~/.local/share/lunarvim/lvim/init.lua<cr>", "open lvim core project" },
   }
+  lvim.builtin.which_key.mappings["t"] = {
+    name = "Test",
+    f = { "<cmd>TestFile<cr>", "File" },
+    n = { "<cmd>TestNearest<cr>", "Nearest" },
+    s = { "<cmd>TestSuite<cr>", "Suite" },
+  }
   lvim.builtin.which_key.mappings["."] = { "<cmd>lua require('lir.float').toggle()<cr>", "Files" }
 end
 
