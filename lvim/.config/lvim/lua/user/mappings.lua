@@ -18,12 +18,6 @@ M.config = function()
   vim.api.nvim_set_keymap("i", "?", "?<c-g>u", { noremap = true })
   vim.api.nvim_set_keymap("i", "[", "[<c-g>u", { noremap = true })
 
-  -- Moving text with formating
-  vim.api.nvim_set_keymap("v", "J", ":m '>+1<CR>gv=gv", { noremap = true })
-  vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv", { noremap = true })
-  vim.api.nvim_set_keymap("i", "<C-j>", "<esc>:m .+1<CR>==a", { noremap = true })
-  vim.api.nvim_set_keymap("i", "<C-k>", "<esc>:m .-2<CR>==a", { noremap = true })
-
   -- Easy colon, shift not needed
   vim.api.nvim_set_keymap("n", ";", ":", { noremap = true })
   vim.api.nvim_set_keymap("v", ";", ":", { noremap = true })
@@ -64,6 +58,7 @@ M.config = function()
   }
   lvim.builtin.which_key.mappings["o"] = {
     name = "+Open",
+    e = { "<cmd>lua require('user.utils').open_env_file()<cr>", "open env file" },
     c = { "<cmd>e ~/configfiles/README.md<cr>", "open configfiles" },
     z = { "<cmd>e ~/.config/zsh/zshrc<cr>", "open zshrc" },
     v = { "<cmd>e ~/.config/lvim/lv-config.lua<cr>", "open lv-config" },
@@ -75,7 +70,6 @@ M.config = function()
     n = { "<cmd>TestNearest<cr>", "Nearest" },
     s = { "<cmd>TestSuite<cr>", "Suite" },
   }
-  lvim.builtin.which_key.mappings["."] = { "<cmd>lua require('lir.float').toggle()<cr>", "Files" }
 end
 
 return M

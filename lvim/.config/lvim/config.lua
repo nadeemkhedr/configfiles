@@ -12,7 +12,7 @@ vim.opt.timeoutlen = 200
 vim.o.inccommand = "split"
 
 -- LSP
-lvim.lsp.diagnostics.virtual_text = false -- "gl" to show diagnostics for each error
+lvim.lsp.diagnostics.virtual_text = true -- "gl" to show diagnostics for each error
 require("user.json_schemas").setup()
 
 -- Treesitter
@@ -122,13 +122,6 @@ lvim.plugins = {
       require("user.spectre").config()
     end,
   },
-  -- file exporer
-  {
-    "tamago324/lir.nvim",
-    config = function()
-      require "user.lir"
-    end,
-  },
   -- todo comments styles
   {
     "folke/todo-comments.nvim",
@@ -200,4 +193,4 @@ lvim.plugins = {
   },
 }
 
-require("user.keybindings").config()
+require("user.mappings").config()
