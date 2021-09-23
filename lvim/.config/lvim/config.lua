@@ -152,7 +152,23 @@ lvim.plugins = {
       })
     end,
   },
-
+  {
+    "folke/lua-dev.nvim",
+    config = function()
+      local luadev = require("lua-dev").setup {
+        library = {
+          vimruntime = true, -- runtime path
+          types = true, -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
+          plugins = false, -- installed opt or start plugins in packpath
+          -- you can also specify the list of plugins to make available as a workspace library
+          -- plugins = { "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
+        },
+        lspconfig = lvim.lang.lua.lsp.setup,
+      }
+      lvim.lang.lua.lsp.setup = luadev
+    end,
+    ft = "lua",
+  },
   -- Running unit tests
   {
     "vim-test/vim-test",
@@ -168,29 +184,7 @@ lvim.plugins = {
     end,
   },
 
-  -- package.json packages info
-  {
-    "vuki656/package-info.nvim",
-    config = function()
-      require("package-info").setup {
-        {
-          colors = {
-            up_to_date = "#3C4048", -- Text color for up to date package virtual text
-            outdated = "#6ec0fa", -- Text color for outdated package virtual text
-          },
-          icons = {
-            enable = true, -- Whether to display icons
-            style = {
-              up_to_date = "|  ", -- Icon for up to date packages
-              outdated = "|  ", -- Icon for outdated packages
-            },
-          },
-          autostart = true, -- Whether to autostart when `package.json` is opened
-        },
-      }
-    end,
-    ft = "json",
-  },
+  { "google/vim-jsonnet" },
 }
 
 require("user.mappings").config()
