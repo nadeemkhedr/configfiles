@@ -461,6 +461,10 @@
                  [:-i "yabai -m window --focus north"]
                  [:-e "yabai -m window --focus south"]
 
+                 [:-m "yabai -m display --focus recent"]
+                 [:comma "yabai -m display --focus next"]
+                 [:period "yabai -m display --focus prev"]
+
                  [:-f "yabai -m window --toggle float"]
                  [:delete "yabai -m window --close"]
                  [:spacebar "yabai -m window --toggle zoom-fullscreen"]
