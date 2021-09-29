@@ -46,7 +46,6 @@ M.config = function()
   lvim.builtin.which_key.mappings["F"] = { "<cmd>Telescope git_files<CR>", "find git files" }
   lvim.builtin.which_key.mappings["v"] = { "<cmd>vsplit<CR>", "split right" }
   lvim.builtin.which_key.mappings["x"] = { "<cmd>close<CR>", "close pane" }
-  lvim.builtin.which_key.mappings["z"] = { "<cmd>call zoom#toggle()<CR>", "zoom" }
   lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
   lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
   lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }

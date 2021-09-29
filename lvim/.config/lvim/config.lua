@@ -14,15 +14,18 @@ vim.o.inccommand = "split"
 -- LSP
 lvim.lsp.diagnostics.virtual_text = true -- "gl" to show diagnostics for each error
 require("user.json_schemas").setup()
+require("user.yaml_schemas").setup()
 
 -- Treesitter
 lvim.builtin.treesitter.ensure_installed = "maintained"
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.autotag.enable = true
+lvim.builtin.project.patterns = { ".git", ".svn" }
 
 -- Builtin
-lvim.builtin.nvimtree.hide_dotfiles = 0
+-- lvim.builtin.nvimtree.hide_dotfiles = 0
+lvim.builtin.nvimtree.setup.view.width = 60
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.dap.active = true
@@ -99,9 +102,6 @@ lvim.plugins = {
     setup = function()
       require "user.indent_blankline"
     end,
-  },
-  {
-    "dhruvasagar/vim-zoom",
   },
   {
     "kevinhwang91/rnvimr",
