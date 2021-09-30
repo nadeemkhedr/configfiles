@@ -13,6 +13,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
+
+# broot
+source /Users/nadeemkhedr/.config/broot/launcher/bash/br
+
 # kit
 export PATH="$PATH:/Users/nadeemkhedr/.kenv/bin"
 export PATH="$PATH:/Users/nadeemkhedr/.kit/bin"
