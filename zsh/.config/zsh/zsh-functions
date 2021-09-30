@@ -32,6 +32,17 @@ function zsh_add_completion() {
 	if [ "$2" = true ] && compinit "${completion_file:1}"
 }
 
+# Listing of processing listening on some port
+listening() {
+    if [ $# -eq 0 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P
+    elif [ $# -eq 1 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+    else
+        echo "Usage: listening [pattern]"
+    fi
+}
+
 clone() {
   cd ~/work/repos
   url=$(osascript -e 'tell application "Brave" to return URL of active tab of front window')
