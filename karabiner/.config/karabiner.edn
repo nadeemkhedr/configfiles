@@ -302,6 +302,7 @@
                  [:-l [:!Ta :l]]
                  [:-z [:!Ta :z]] ; toggle max/k on a pane
                  [:-x [:!Ta :x]] ; kill pane
+                 [:comma [:!Ta :comma]] ; kill pane
                  [:delete [:!Ta :x]] ; kill pane
                  [:-c [:!Ta :c]] ; create new window
                  [:-r [:!Ta :!S5]] ; split h
@@ -362,6 +363,7 @@
                  [:-n :prev_app]
                  [:-e :next_app]
                  [:-i [:launch "Alacritty"]]
+                 [:-f [:launch "Finder"]]
                  [:-o [:launch "Visual Studio Code"]]
 
                  [:-d :f11] ;show desktop
@@ -388,6 +390,7 @@
                  [:-n :prev_app]
                  [:-e :next_app]
                  [:-i [:launch "Alacritty"]]
+                 [:-f [:launch "Finder"]]
                  [:-o [:launch "Visual Studio Code"]]
 
                  [:-d :f11] ;show desktop
