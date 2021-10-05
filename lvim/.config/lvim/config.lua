@@ -13,8 +13,7 @@ vim.o.inccommand = "split"
 
 -- LSP
 lvim.lsp.diagnostics.virtual_text = true -- "gl" to show diagnostics for each error
-require("user.json_schemas").setup()
-require("user.yaml_schemas").setup()
+lvim.lsp.automatic_servers_installation = true
 
 -- Treesitter
 lvim.builtin.treesitter.ensure_installed = "maintained"
@@ -154,20 +153,20 @@ lvim.plugins = {
   },
   {
     "folke/lua-dev.nvim",
-    config = function()
-      local luadev = require("lua-dev").setup {
-        library = {
-          vimruntime = true, -- runtime path
-          types = true, -- full signature, docs and completion of vim.api, vim.treesitter, vim.lsp and others
-          plugins = false, -- installed opt or start plugins in packpath
-          -- you can also specify the list of plugins to make available as a workspace library
-          -- plugins = { "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
-        },
-        lspconfig = lvim.lang.lua.lsp.setup,
-      }
-      lvim.lang.lua.lsp.setup = luadev
-    end,
     ft = "lua",
+    before = "williamboman/nvim-lsp-installer",
+  },
+  {
+    "jose-elias-alvarez/nvim-lsp-ts-utils",
+    ft = {
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+    },
+    before = "williamboman/nvim-lsp-installer",
   },
   -- Running unit tests
   {
@@ -184,7 +183,21 @@ lvim.plugins = {
     end,
   },
 
+  -- jsonnet file support
   { "google/vim-jsonnet" },
 }
 
 require("user.mappings").config()
+
+
+  -- function/code annotation (comments)
+  -- {
+  --   "danymat/neogen",
+  --   config = function()
+  --     require("neogen").setup {
+  --       enabled = true,
+  --     }
+  --   end,
+  --   event = "BufRead",
+  --   requires = "nvim-treesitter/nvim-treesitter",
+  -- },
