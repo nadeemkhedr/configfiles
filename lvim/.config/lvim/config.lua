@@ -183,22 +183,34 @@ lvim.plugins = {
       vim.g["test#strategy"] = "toggleterm"
     end,
   },
-
+  {
+    "AckslD/nvim-neoclip.lua",
+    config = function()
+      require("neoclip").setup {
+        enable_persistant_history = true,
+        db_path = vim.fn.stdpath "data" .. "/neoclip.sqlite3",
+        keys = {
+          i = { select = "<c-p>", paste = "<CR>", paste_behind = "<c-k>" },
+          n = { select = "p", paste = "<CR>", paste_behind = "P" },
+        },
+      }
+    end,
+    requires = { "tami5/sqlite.lua", module = "sqlite" },
+  },
   -- jsonnet file support
   { "google/vim-jsonnet" },
 }
 
 require("user.mappings").config()
 
-
-  -- function/code annotation (comments)
-  -- {
-  --   "danymat/neogen",
-  --   config = function()
-  --     require("neogen").setup {
-  --       enabled = true,
-  --     }
-  --   end,
-  --   event = "BufRead",
-  --   requires = "nvim-treesitter/nvim-treesitter",
-  -- },
+-- function/code annotation (comments)
+-- {
+--   "danymat/neogen",
+--   config = function()
+--     require("neogen").setup {
+--       enabled = true,
+--     }
+--   end,
+--   event = "BufRead",
+--   requires = "nvim-treesitter/nvim-treesitter",
+-- },

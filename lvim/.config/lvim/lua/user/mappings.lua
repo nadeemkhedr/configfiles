@@ -33,9 +33,14 @@ M.config = function()
   lvim.builtin.which_key.mappings["P"] = lvim.builtin.which_key.mappings["p"]
   lvim.builtin.which_key.mappings["p"] = { '"+p', "paste from clipboard" }
   lvim.builtin.which_key.mappings["p"] = { '"+p', "paste from clipboard" }
+
+  local function clip()
+    require("telescope").extensions.neoclip.default(require("telescope.themes").get_dropdown())
+  end
   lvim.builtin.which_key.mappings["y"] = {
     name = "+yank",
     y = { '"+y', "yank to clipboard" },
+    l = { clip, "neoclip: open yank history" },
   }
   lvim.builtin.which_key.vmappings["y"] = { '"+y', "yank to clipboard" }
 
