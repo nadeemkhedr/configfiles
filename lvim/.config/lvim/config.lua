@@ -14,6 +14,7 @@ vim.o.inccommand = "split"
 -- LSP
 lvim.lsp.diagnostics.virtual_text = true -- "gl" to show diagnostics for each error
 lvim.lsp.automatic_servers_installation = true
+require("user.null_ls").config()
 
 -- Treesitter
 lvim.builtin.treesitter.ensure_installed = "maintained"
