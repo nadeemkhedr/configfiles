@@ -1,20 +1,18 @@
 # Config Files
 
-Run `stow` to symlink everything or just select what you want
+Run `stow` to symlink everything or select what you want
 
 ```bash
 stow */ # Everything (the '/' ignores the README)
 ```
 
 ```bash
-stow zsh # Just my zsh config
+stow zsh # My zsh config
 ```
-
 
 ## FAQ
 
-### Karabiner:
-
+### Karabiner
 
 #### `yabai` scripts not working in karabiner
 

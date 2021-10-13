@@ -21,7 +21,6 @@ M.config = function()
       nls.builtins.formatting.terraform_fmt, -- terraform fmt
       nls.builtins.diagnostics.hadolint, -- dockerlint
       nls.builtins.diagnostics.markdownlint, -- md lint
-      nls.builtins.diagnostics.write_good, -- md lint
     },
   }
 

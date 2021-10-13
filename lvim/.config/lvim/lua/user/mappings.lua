@@ -24,6 +24,13 @@ M.config = function()
   vim.api.nvim_set_keymap("n", ":", ";", { noremap = true })
   vim.api.nvim_set_keymap("v", ":", ";", { noremap = true })
 
+  -- remove alt j/k, doesn't play well in macos, when pressing esc-j/k quickly they do the mapping
+  lvim.keys.normal_mode["<A-j>"] = nil
+  lvim.keys.normal_mode["<A-k>"] = nil
+
+  lvim.keys.insert_mode["<A-j>"] = nil
+  lvim.keys.insert_mode["<A-k>"] = nil
+
   -- splitv go to def
   lvim.keys.normal_mode["gv"] = "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>"
 
@@ -48,14 +55,16 @@ M.config = function()
     name = "+Actions",
     l = { "<cmd>IndentBlanklineToggle<cr>", "Toggle Indent line" },
   }
-  lvim.builtin.which_key.mappings["F"] = { "<cmd>Telescope git_files<CR>", "find git files" }
+
+  -- overwrite the find files command to search for git then files
+  lvim.builtin.which_key.mappings["f"] = { "<cmd>lua require('user.telescope').project_files()<cr>", "Find Git/File" }
   lvim.builtin.which_key.mappings["v"] = { "<cmd>vsplit<CR>", "split right" }
   lvim.builtin.which_key.mappings["x"] = { "<cmd>close<CR>", "close pane" }
   lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
   lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
   lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
   lvim.builtin.which_key.mappings["r"] = {
-    name = "Replace",
+    name = "+Replace",
     r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
     w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
     f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
@@ -69,10 +78,16 @@ M.config = function()
     s = { "<cmd>e ~/.local/share/lunarvim/lvim/init.lua<cr>", "open lvim core project" },
   }
   lvim.builtin.which_key.mappings["t"] = {
-    name = "Test",
+    name = " +Test",
     f = { "<cmd>TestFile<cr>", "File" },
     n = { "<cmd>TestNearest<cr>", "Nearest" },
     s = { "<cmd>TestSuite<cr>", "Suite" },
+  }
+
+  lvim.builtin.which_key.mappings["n"] = {
+    name = "+Work",
+    l = { "<cmd>lua require('user.telescope').work_studio_lib()<cr>", "Studio lib files" },
+    d = { "<cmd>lua require('user.telescope').work_studio_deployment()<cr>", "Studio deployment files" },
   }
 end
 

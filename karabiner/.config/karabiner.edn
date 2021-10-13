@@ -324,6 +324,7 @@
                  [:-t [:open-brave "twitter.com"]]
                  [:-y [:open-brave "youtube.com"]]
                  [:-z [:open-brave "github.com/search?q=extension%3A.edn+filename%3Akarabiner.edn&type=Code&ref=advsearch&l=&l="]]
+                 [:-s [:open-brave "github.com/screencastify/castify"]]
                  [:-k [:code-project "~/work/karabiner/" "~/work/karabiner/karabiner.edn"]]
                  ;
                  ]}
@@ -370,7 +371,8 @@
                  [:delete "yabai -m window --close"]
                  [:-c :!!c] ;open fantastical
                  [:-p :!!p] ;take a screenshot with snagit
-          ;restart karabiner
+
+                 ;restart karabiner
                  [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
 
                  [:-m [:launch "Spotify"]]
@@ -397,7 +399,8 @@
                  [:delete "yabai -m window --close"]
                  [:-c :!!c] ;open fantastical
                  [:-p :!!p] ;take a screenshot with snagit
-          ;restart karabiner
+
+                 ;restart karabiner
                  [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
 
                  [:-m [:launch "Spotify"]]
