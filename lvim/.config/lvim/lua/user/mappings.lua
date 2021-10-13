@@ -60,7 +60,7 @@ M.config = function()
   lvim.builtin.which_key.mappings["f"] = { "<cmd>lua require('user.telescope').project_files()<cr>", "Find Git/File" }
   lvim.builtin.which_key.mappings["v"] = { "<cmd>vsplit<CR>", "split right" }
   lvim.builtin.which_key.mappings["x"] = { "<cmd>close<CR>", "close pane" }
-  lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
+  lvim.builtin.which_key.mappings.l.d = { "<cmd>Trouble<cr>", "Diagnostics" }
   lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
   lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
   lvim.builtin.which_key.mappings["r"] = {
@@ -86,8 +86,8 @@ M.config = function()
 
   lvim.builtin.which_key.mappings["n"] = {
     name = "+Work",
-    l = { "<cmd>lua require('user.telescope').work_studio_lib()<cr>", "Studio lib files" },
-    d = { "<cmd>lua require('user.telescope').work_studio_deployment()<cr>", "Studio deployment files" },
+    t = { "<cmd>lua require('user.telescope').work_studio_lib()<cr>", "Studio lib files" },
+    s = { "<cmd>lua require('user.telescope').work_studio_deployment()<cr>", "Studio deployment files" },
   }
 end
 

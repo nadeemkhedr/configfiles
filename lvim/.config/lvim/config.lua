@@ -125,7 +125,11 @@ lvim.plugins = {
   -- run diagnostics summary
   {
     "folke/trouble.nvim",
-    cmd = "TroubleToggle",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup()
+    end,
+    cmd = "Trouble",
   },
   -- Show outline of all the symbols in the sidebar
   {
