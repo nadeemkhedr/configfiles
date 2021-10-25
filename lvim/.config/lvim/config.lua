@@ -43,13 +43,6 @@ for _, server_name in pairs(lvim.lsp.override) do
     requested_server:setup(default_config)
   end
 end
--- here's an example to disable formatting in "tsserver" and "jsonls"
-lvim.lsp.on_attach_callback = function(client, _)
-  if client.name == "tsserver" or client.name == "jsonls" then
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-  end
-end
 
 -- Treesitter
 lvim.builtin.treesitter.ensure_installed = "maintained"
@@ -65,6 +58,7 @@ lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.dap.active = true
 lvim.builtin.telescope.defaults.path_display = {}
+
 lvim.builtin.telescope.defaults.mappings = {
   i = {
     ["<esc>"] = require("telescope.actions").close,
@@ -235,20 +229,6 @@ lvim.plugins = {
       }
     end,
     requires = { "tami5/sqlite.lua", module = "sqlite" },
-  },
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    run = "make",
-    after = "telescope.nvim",
-    config = function()
-      lvim.builtin.telescope.extensions["fzf"] = {
-        fuzzy = true,
-        override_generic_sorter = true,
-        override_file_sorter = true,
-        case_mode = "smart_case",
-      }
-      require("telescope").load_extension "fzf"
-    end,
   },
   -- jsonnet file support
   { "google/vim-jsonnet" },
