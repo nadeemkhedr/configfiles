@@ -462,10 +462,17 @@
                  [:-r :!Tf3] ;focus dock
                  [:-s :!!s] ;toggle top menubar (bartender)
                  [:slash "~/.kenv/bin/yabai-zen-toggle"]
-                 [:-n "yabai -m window --focus west"]
-                 [:-o "yabai -m window --focus east"]
-                 [:-i "yabai -m window --focus north"]
-                 [:-e "yabai -m window --focus south"]
+
+                 ; temp
+                 [:-n :!!1]
+                 [:-e :!!2]
+                 [:-i :!!3]
+
+                 ; temp disable until yabai works
+                 ; [:-n "yabai -m window --focus west"]
+                 ; [:-o "yabai -m window --focus east"]
+                 ; [:-i "yabai -m window --focus north"]
+                 ; [:-e "yabai -m window --focus south"]
 
                  [:-m "yabai -m display --focus recent"]
                  [:comma "yabai -m display --focus next"]
