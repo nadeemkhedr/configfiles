@@ -34,6 +34,9 @@ M.config = function()
   -- splitv go to def
   lvim.keys.normal_mode["gv"] = "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>"
 
+  -- harpoon
+  lvim.keys.normal_mode["<C-Space>"] = "<cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<CR>"
+
   -- Whichkey
 
   -- Move packer keys to 'P', and update 'p' to paste from clipboard

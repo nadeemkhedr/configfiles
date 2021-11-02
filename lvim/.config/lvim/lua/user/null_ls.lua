@@ -11,7 +11,7 @@ M.config = function()
     debounce = 150,
     save_after_format = false,
     sources = {
-      nls.builtins.formatting.prettierd, -- daemon prettier
+      nls.builtins.formatting.prettier_d_slim, -- prettier
       nls.builtins.diagnostics.eslint_d, -- daemon eslint
       nls.builtins.formatting.stylua, -- lua format
       nls.builtins.diagnostics.luacheck, -- lua lint
