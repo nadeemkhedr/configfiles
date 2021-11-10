@@ -172,7 +172,6 @@
                 :chromes ["com.brave.Browser", "com.google.Chrome"]
                 :code ["com.microsoft.VSCode"]
                 :slack ["com.tinyspeck.slackmacgap"]
-                :iterm ["com.googlecode.iterm2"]
                 :messenger ["com.facebook.archon"]
                 :terminals ["com.apple.Terminal", "com.googlecode.iterm2", "io.alacritty"]
                 ;
@@ -276,7 +275,7 @@
          ;
                  ]}
 
-        {:des "iterm-shortcuts"
+        {:des "terminals-shortcuts"
          :rules [:terminals
                  [:condi :terminals :r-mode] ;control key - terminal
                  [:-c :!Tc]
@@ -289,6 +288,8 @@
                  [:-t :!Tt]
                  [:-v :!Tv]
                  [:-x :!Tx]
+                 [:-u :!Tu]
+                 [:-d :!Td]
 
                  [:-q [:!Ta :1]] ; go to window 1
                  [:condi :terminals  :a-mode] ;tmux keys
@@ -365,8 +366,7 @@
                  [:-e :next_app]
                  [:-i [:launch "Alacritty"]]
                  [:-f [:launch "Finder"]]
-                 [:-o [:launch "Visual Studio Code"]]
-
+                 [:-o :switch_windows]
                  [:-d :f11] ;show desktop
                  [:delete "yabai -m window --close"]
                  [:-c :!!c] ;open fantastical
@@ -393,7 +393,7 @@
                  [:-e :next_app]
                  [:-i [:launch "Alacritty"]]
                  [:-f [:launch "Finder"]]
-                 [:-o [:launch "Visual Studio Code"]]
+                 [:-o :switch_windows]
 
                  [:-d :f11] ;show desktop
                  [:delete "yabai -m window --close"]
@@ -592,7 +592,6 @@
                  [:-c :!Cc] ;copy
                  [:-v :!Cv] ;paste
                  [:-f :!Cf] ;find
-                 [:-o :switch_windows]
                  ;
                  ]}
 

@@ -34,11 +34,12 @@ M.config = function()
   -- splitv go to def
   lvim.keys.normal_mode["gv"] = "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>"
 
-  -- harpoon
-  lvim.keys.normal_mode["<C-Space>"] = "<cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<CR>"
-
   -- Whichkey
 
+  lvim.builtin.which_key.mappings["<leader>"] = {
+    "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",
+    "Harpoon",
+  }
   -- Move packer keys to 'P', and update 'p' to paste from clipboard
   lvim.builtin.which_key.mappings["P"] = lvim.builtin.which_key.mappings["p"]
   lvim.builtin.which_key.mappings["p"] = { '"+p', "paste from clipboard" }
@@ -56,7 +57,18 @@ M.config = function()
 
   lvim.builtin.which_key.mappings["a"] = {
     name = "+Actions",
+    a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add Mark harpoon" },
     l = { "<cmd>IndentBlanklineToggle<cr>", "Toggle Indent line" },
+  }
+  local whk_status, whk = pcall(require, "which-key")
+  if not whk_status then
+    return
+  end
+  whk.register {
+    ["<leader>1"] = { "<CMD>lua require('harpoon.ui').nav_file(1)<CR>", "goto1" },
+    ["<leader>2"] = { "<CMD>lua require('harpoon.ui').nav_file(2)<CR>", "goto2" },
+    ["<leader>3"] = { "<CMD>lua require('harpoon.ui').nav_file(3)<CR>", "goto3" },
+    ["<leader>4"] = { "<CMD>lua require('harpoon.ui').nav_file(4)<CR>", "goto4" },
   }
 
   -- overwrite the find files command to search for git then files
