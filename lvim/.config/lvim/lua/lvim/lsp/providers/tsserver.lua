@@ -20,7 +20,7 @@ ts_utils.setup {
 
   -- formatting
   enable_formatting = false,
-  formatter = "prettier_d_slim",
+  formatter = "prettierd",
   formatter_config_fallback = nil,
 
   -- parentheses completion
