@@ -21,6 +21,7 @@ lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.project.patterns = { ".git", ".svn" }
+lvim.builtin.lualine.sections.lualine_b = { "filename" }
 
 -- Builtin
 lvim.builtin.nvimtree.hide_dotfiles = 0
