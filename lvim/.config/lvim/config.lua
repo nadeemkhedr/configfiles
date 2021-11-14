@@ -231,7 +231,19 @@ lvim.plugins = {
 
   -- json schema stores
   { "b0o/schemastore.nvim" },
-  { "caenrique/nvim-maximize-window-toggle", cmd = "ToggleOnly" },
+  {
+    "caenrique/nvim-maximize-window-toggle",
+    cmd = "ToggleOnly",
+  },
+  {
+    "f-person/git-blame.nvim",
+    cmd = "GitBlameToggle",
+    config = function()
+      vim.g.gitblame_enabled = 0
+      vim.g.gitblame_message_template = "<summary> • <date> • <author>"
+      vim.g.gitblame_highlight_group = "LineNr"
+    end,
+  },
 
   -- {
   --   "beauwilliams/focus.nvim",

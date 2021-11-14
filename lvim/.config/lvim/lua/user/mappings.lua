@@ -72,6 +72,7 @@ M.config = function()
     l = { "<cmd>IndentBlanklineToggle<cr>", "Toggle Indent line" },
   }
 
+  lvim.builtin.which_key.mappings.g.l = { "<cmd>GitBlameToggle<cr>", "Git blame" }
   lvim.builtin.which_key.mappings.g.d = { "<cmd>DiffviewOpen<cr>", "Diffview HEAD" }
   lvim.builtin.which_key.mappings.g.h = { "<cmd>DiffviewFileHistory<cr>", "Diffview file history" }
   lvim.builtin.which_key.mappings.l.d = { "<cmd>Trouble<cr>", "Diagnostics" }
