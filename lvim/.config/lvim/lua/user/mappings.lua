@@ -3,7 +3,6 @@ local M = {}
 M.config = function()
   -- keymappings
   lvim.leader = "space"
-  lvim.keys.normal_mode["<esc><esc>"] = "<cmd>nohlsearch<cr>"
   lvim.keys.normal_mode["Y"] = "y$"
   lvim.keys.visual_mode["p"] = [["_dP]]
 
@@ -36,14 +35,26 @@ M.config = function()
 
   -- Whichkey
 
-  lvim.builtin.which_key.mappings["<leader>"] = {
-    "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>",
-    "Harpoon",
+  local whk_status, whk = pcall(require, "which-key")
+  if not whk_status then
+    return
+  end
+  whk.register {
+    ["<leader><leader>"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", "Harpoon" },
+    ["<leader>1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", "goto1" },
+    ["<leader>2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", "goto2" },
+    ["<leader>3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", "goto3" },
+    ["<leader>4"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", "goto4" },
+    ["<leader>v"] = { "<cmd>vsplit<cr>", "split right" },
+    ["<leader>x"] = { "<cmd>close<cr>", "close pane" },
+    ["<leader>z"] = { "<cmd>ToggleOnly<cr>", "Toggle only pane" },
   }
+
   -- Move packer keys to 'P', and update 'p' to paste from clipboard
   lvim.builtin.which_key.mappings["P"] = lvim.builtin.which_key.mappings["p"]
   lvim.builtin.which_key.mappings["p"] = { '"+p', "paste from clipboard" }
-  lvim.builtin.which_key.mappings["p"] = { '"+p', "paste from clipboard" }
+  -- overwrite the find files command to search for git then files
+  lvim.builtin.which_key.mappings["f"] = { "<cmd>lua require('user.telescope').project_files()<cr>", "Find Git/File" }
 
   local function clip()
     require("telescope").extensions.neoclip.default(require("telescope.themes").get_dropdown())
@@ -60,21 +71,9 @@ M.config = function()
     a = { "<cmd>lua require('harpoon.mark').add_file()<cr>", "Add Mark harpoon" },
     l = { "<cmd>IndentBlanklineToggle<cr>", "Toggle Indent line" },
   }
-  local whk_status, whk = pcall(require, "which-key")
-  if not whk_status then
-    return
-  end
-  whk.register {
-    ["<leader>1"] = { "<CMD>lua require('harpoon.ui').nav_file(1)<CR>", "goto1" },
-    ["<leader>2"] = { "<CMD>lua require('harpoon.ui').nav_file(2)<CR>", "goto2" },
-    ["<leader>3"] = { "<CMD>lua require('harpoon.ui').nav_file(3)<CR>", "goto3" },
-    ["<leader>4"] = { "<CMD>lua require('harpoon.ui').nav_file(4)<CR>", "goto4" },
-  }
 
-  -- overwrite the find files command to search for git then files
-  lvim.builtin.which_key.mappings["f"] = { "<cmd>lua require('user.telescope').project_files()<cr>", "Find Git/File" }
-  lvim.builtin.which_key.mappings["v"] = { "<cmd>vsplit<CR>", "split right" }
-  lvim.builtin.which_key.mappings["x"] = { "<cmd>close<CR>", "close pane" }
+  lvim.builtin.which_key.mappings.g.d = { "<cmd>DiffviewOpen<cr>", "Diffview HEAD" }
+  lvim.builtin.which_key.mappings.g.h = { "<cmd>DiffviewFileHistory<cr>", "Diffview file history" }
   lvim.builtin.which_key.mappings.l.d = { "<cmd>Trouble<cr>", "Diagnostics" }
   lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
   lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }

@@ -23,7 +23,7 @@ lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.project.patterns = { ".git", ".svn" }
 
 -- Builtin
--- lvim.builtin.nvimtree.hide_dotfiles = 0
+lvim.builtin.nvimtree.hide_dotfiles = 0
 lvim.builtin.nvimtree.setup.view.width = 60
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
@@ -91,7 +91,19 @@ lvim.plugins = {
   },
   {
     "sindrets/diffview.nvim",
-    cmd = "DiffviewOpen",
+    opt = true,
+    cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+    setup = function() end,
+    config = function()
+      require("diffview").setup {
+        enhanced_diff_hl = true,
+        key_bindings = {
+          file_panel = { q = "<Cmd>DiffviewClose<CR>" },
+          view = { q = "<Cmd>DiffviewClose<CR>" },
+          file_history_panel = { q = "<Cmd>DiffviewClose<CR>" },
+        },
+      }
+    end,
   },
   -- run diagnostics summary
   {
@@ -219,6 +231,14 @@ lvim.plugins = {
 
   -- json schema stores
   { "b0o/schemastore.nvim" },
+  { "caenrique/nvim-maximize-window-toggle", cmd = "ToggleOnly" },
+
+  -- {
+  --   "beauwilliams/focus.nvim",
+  --   config = function()
+  --     require("focus").setup()
+  --   end,
+  -- },
 }
 
 require("user.mappings").config()
