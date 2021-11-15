@@ -291,8 +291,8 @@
                  [:-u :!Tu]
                  [:-d :!Td]
 
-                 [:-q [:!Ta :1]] ; go to window 1
                  [:condi :terminals  :a-mode] ;tmux keys
+                 [:-q [:!Ta :1]] ; go to window 1
                  [:-w [:!Ta :2]]
                  [:-f [:!Ta :3]]
                  [:-p [:!Ta :4]]
@@ -303,11 +303,12 @@
                  [:-l [:!Ta :l]]
                  [:-z [:!Ta :z]] ; toggle max/k on a pane
                  [:-x [:!Ta :x]] ; kill pane
-                 [:comma [:!Ta :comma]] ; kill pane
                  [:delete [:!Ta :x]] ; kill pane
+                 [:comma [:!Ta :comma]] ; rename pane
                  [:-c [:!Ta :c]] ; create new window
                  [:-r [:!Ta :!S5]] ; split h
                  [:-s [:!Ta :!Squote]] ; split v
+                 [:spacebar [:!Ta :spacebar]] ; cycle layouts
 
                  [:-n [:!Ta :p]] ; prev window
                  [:-e [:!Ta :n]] ; next window
