@@ -30,6 +30,7 @@ lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.dap.active = true
 lvim.builtin.telescope.defaults.path_display = {}
+lvim.builtin.bufferline.active = false
 
 lvim.builtin.telescope.defaults.mappings = {
   i = {
@@ -113,7 +114,7 @@ lvim.plugins = {
     config = function()
       require("trouble").setup()
     end,
-    cmd = "Trouble",
+    cmd = { "Trouble", "TroubleToggle" },
   },
   -- Show outline of all the symbols in the sidebar
   {
@@ -245,7 +246,19 @@ lvim.plugins = {
       vim.g.gitblame_highlight_group = "LineNr"
     end,
   },
-
+  {
+    "filipdutescu/renamer.nvim",
+    config = function()
+      require("renamer").setup()
+    end,
+  },
+  {
+    "akinsho/bufferline.nvim",
+    config = function()
+      require("user.bufferline").config()
+    end,
+    requires = "nvim-web-devicons",
+  },
   -- {
   --   "beauwilliams/focus.nvim",
   --   config = function()

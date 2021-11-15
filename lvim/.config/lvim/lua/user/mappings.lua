@@ -33,6 +33,13 @@ M.config = function()
   -- splitv go to def
   lvim.keys.normal_mode["gv"] = "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>"
 
+  -- Bufferline commands
+  lvim.keys.normal_mode["<S-l>"] = "<Cmd>BufferLineCycleNext<CR>"
+  lvim.keys.normal_mode["<S-h>"] = "<Cmd>BufferLineCyclePrev<CR>"
+  lvim.keys.normal_mode["[b"] = "<Cmd>BufferLineMoveNext<CR>"
+  lvim.keys.normal_mode["]b"] = "<Cmd>BufferLineMovePrev<CR>"
+  lvim.builtin.which_key.mappings["c"] = { "<CMD>bdelete!<CR>", "Close Buffer" }
+
   -- Whichkey
 
   local whk_status, whk = pcall(require, "which-key")
@@ -75,9 +82,10 @@ M.config = function()
   lvim.builtin.which_key.mappings.g.l = { "<cmd>GitBlameToggle<cr>", "Git blame" }
   lvim.builtin.which_key.mappings.g.d = { "<cmd>DiffviewOpen<cr>", "Diffview HEAD" }
   lvim.builtin.which_key.mappings.g.h = { "<cmd>DiffviewFileHistory<cr>", "Diffview file history" }
-  lvim.builtin.which_key.mappings.l.d = { "<cmd>Trouble<cr>", "Diagnostics" }
+  lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
   lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
   lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
+  lvim.builtin.which_key.mappings.l.r = { "<cmd>lua require('renamer').rename()<cr>", "Rename" }
   lvim.builtin.which_key.mappings["r"] = {
     name = "+Replace",
     r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
