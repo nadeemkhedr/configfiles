@@ -220,6 +220,12 @@
          :rules [;
                  [:condi :messenger]
                  [:left_command :left_command nil {:alone :!Ck}]
+                 [:condi :messenger :a-mode]
+                 [:-n :!C1]
+                 [:-e :!C2]
+                 [:-i :!C3]
+                 [:-o :!C4]
+                 [:quote :!C5]
                  ;
                  ]}
 
@@ -231,6 +237,7 @@
                  [:-b :!Op] ;picture in picture by chrome plugin
                  [:-n :prev_tab]
                  [:-e :next_tab]
+                 [:-o :!CSa] ;search tabs
                  [:-m :tab_move_left]
                  [:comma :tab_move_right]
                  [:-h :zoom_in]
@@ -290,6 +297,7 @@
                  [:-x :!Tx]
                  [:-u :!Tu]
                  [:-d :!Td]
+                 [:-semicolon :!Tq]
 
                  [:condi :terminals  :a-mode] ;tmux keys
                  [:-q [:!Ta :1]] ; go to window 1
