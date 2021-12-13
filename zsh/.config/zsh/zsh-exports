@@ -20,6 +20,9 @@ source /Users/nadeemkhedr/.config/broot/launcher/bash/br
 export PATH="$PATH:/Users/nadeemkhedr/.kenv/bin"
 export PATH="$PATH:/Users/nadeemkhedr/.kit/bin"
 
+# krew
+export PATH="${PATH}:${HOME}/.krew/bin"
+
 # zsh-history-substring-search
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=green"
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red"

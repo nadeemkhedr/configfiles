@@ -32,8 +32,9 @@ highlight: Convert source code to formatted text with syntax highlighting
 htop: Improved top (interactive process viewer)
 httpie: User-friendly cURL replacement (command-line HTTP client)
 jq: Lightweight and flexible command-line JSON processor
+k9s: Kubernetes CLI To Manage Your Clusters In Style!
 yabai: A tiling window manager for macOS based on binary space partitioning.
-kubernetes-cli: Kubernetes command-line interface
+krew: Package manager for kubectl plugins
 lazydocker: Lazier way to manage everything docker
 lazygit: Simple terminal UI for git commands
 lf: Terminal file manager
@@ -46,6 +47,7 @@ mongodb-community: High-performance, schema-free, document-oriented database
 neofetch: Fast, highly customisable system info script
 neovim: Ambitious Vim-fork focused on extensibility and agility
 nudoku: Ncurses based sudoku game
+pacvim: Learn vim commands via a game
 prettyping: Wrapper to colorize and simplify ping's output
 pyenv-virtualenv: Pyenv plugin to manage virtualenv
 python@3.8: Interpreted, interactive, object-oriented programming language
