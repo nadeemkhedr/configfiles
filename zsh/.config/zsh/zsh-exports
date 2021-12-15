@@ -1,12 +1,15 @@
 #!/bin/sh
+. "$HOME/.cargo/env"
+
+export PATH="$PATH:/opt/homebrew/bin"
 
 export BAT_THEME="OneHalfDark"
 
-export PATH="$HOME/.local/bin":$PATH
+export PATH="$HOME/.local/bin:$PATH"
 
 # Go
-export PATH=$HOME/.local/share/go/bin:$PATH
-export GOPATH=$HOME/.local/share/go
+export PATH="$HOME/.local/share/go/bin:$PATH"
+export GOPATH="$HOME/.local/share/go"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -14,7 +17,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
 # broot
-source /Users/nadeemkhedr/.config/broot/launcher/bash/br
+# source /Users/nadeemkhedr/.config/broot/launcher/bash/br
 
 # kit
 export PATH="$PATH:/Users/nadeemkhedr/.kenv/bin"
@@ -29,5 +32,6 @@ export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red"
 
 # similar to nvm
 eval "$(fnm env)"
-. /usr/local/etc/profile.d/z.sh
+
+# . /usr/local/etc/profile.d/z.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -368,7 +368,7 @@
 
         {:des   "escape mode"
          :rules [:escape-mode
-                 [:return_or_enter  [:open-new "/Applications/Alacritty.app"]]
+                 [:return_or_enter "~/repos/alacritty/target/release/alacritty msg create-window"]
                  [:period  [:open-new "/Applications/Brave Browser.app"]]
 
                  [:-n :prev_app]

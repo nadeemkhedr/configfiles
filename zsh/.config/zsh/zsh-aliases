@@ -32,7 +32,7 @@ alias df='df -h' # human-readable sizes
 # Add git root command
 git config --global alias.root 'rev-parse --show-toplevel'
 
-alias nvim="lvim"
+# alias nvim="lvim"
 case "$(uname -s)" in
 
   Darwin)
