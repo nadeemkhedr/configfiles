@@ -2,11 +2,11 @@ asciiquarium: Aquarium animation in ASCII art
 automake: Tool for generating GNU Standards-compliant Makefiles
 bat: Clone of cat(1) with syntax highlighting and Git integration
 audiowaveform: C++ program to generate waveform data and render waveform images from audio files
-bento4: Full-featured MP4 format and MPEG DASH library and tools
 bison: Parser generator
 bluetoothconnector: Connect and disconnect Bluetooth devices
 boxes: Draw boxes around text
 broot: New way to see and navigate directory trees
+bzip2: Freely available high-quality data compressor
 chruby: Ruby environment tool
 cliclick: Tool for emulating mouse and keyboard events
 cmatrix: Console Matrix
@@ -32,14 +32,12 @@ highlight: Convert source code to formatted text with syntax highlighting
 htop: Improved top (interactive process viewer)
 httpie: User-friendly cURL replacement (command-line HTTP client)
 jq: Lightweight and flexible command-line JSON processor
-k9s: Kubernetes CLI To Manage Your Clusters In Style!
 yabai: A tiling window manager for macOS based on binary space partitioning.
-krew: Package manager for kubectl plugins
+kubernetes-cli: Kubernetes command-line interface
 lazydocker: Lazier way to manage everything docker
 lazygit: Simple terminal UI for git commands
 lf: Terminal file manager
 lolcat: Rainbows and unicorns in your console!
-luajit: Just-In-Time Compiler (JIT) for the Lua programming language
 luarocks: Package manager for the Lua programming language
 m-cli: Swiss Army Knife for macOS
 markdownlint-cli: CLI for Node.js style checker and lint tool for Markdown files
