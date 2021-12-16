@@ -33,7 +33,7 @@ htop: Improved top (interactive process viewer)
 httpie: User-friendly cURL replacement (command-line HTTP client)
 jq: Lightweight and flexible command-line JSON processor
 yabai: A tiling window manager for macOS based on binary space partitioning.
-kubernetes-cli: Kubernetes command-line interface
+krew: Package manager for kubectl plugins
 lazydocker: Lazier way to manage everything docker
 lazygit: Simple terminal UI for git commands
 lf: Terminal file manager
