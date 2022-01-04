@@ -1,4 +1,2 @@
-export EDITOR="lvim"
-export TERMINAL="alacritty"
-
+export EDITOR="nvim"
 export ZDOTDIR=$HOME/.config/zsh

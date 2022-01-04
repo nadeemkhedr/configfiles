@@ -173,7 +173,7 @@
                 :code ["com.microsoft.VSCode"]
                 :slack ["com.tinyspeck.slackmacgap"]
                 :messenger ["com.facebook.archon"]
-                :terminals ["com.apple.Terminal", "com.googlecode.iterm2", "io.alacritty"]
+                :terminals ["com.apple.Terminal", "com.googlecode.iterm2", "io.alacritty", "net.kovidgoyal.kitty"]
                 ;
                 }
 ; Layers Are Typically "Thumb Keys" or "Pinky Keys"
@@ -368,12 +368,12 @@
 
         {:des   "escape mode"
          :rules [:escape-mode
-                 [:return_or_enter "alacritty msg create-window"]
+                 [:return_or_enter [:open-new "/Applications/kitty.app"]]
                  [:period  [:open-new "/Applications/Brave Browser.app"]]
 
                  [:-n :prev_app]
                  [:-e :next_app]
-                 [:-i [:launch "Alacritty"]]
+                 [:-i [:launch "kitty"]]
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
                  [:-d :f11] ;show desktop
@@ -400,7 +400,7 @@
 
                  [:-n :prev_app]
                  [:-e :next_app]
-                 [:-i [:launch "Alacritty"]]
+                 [:-i [:launch "kitty"]]
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
 
