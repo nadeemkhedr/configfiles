@@ -70,6 +70,9 @@ bindkey -s '^o' 'ranger^M'
 
 compinit
 
+# this has to be called after compinit
+zsh_add_plugin "jscutlery/nx-completion"
+
 # Edit line in vim with ctrl-e:
 autoload edit-command-line
 zle -N edit-command-line

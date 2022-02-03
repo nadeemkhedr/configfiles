@@ -30,8 +30,13 @@ export PATH="${PATH}:${HOME}/.krew/bin"
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=green"
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red"
 
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/nadeemkhedr/work/screencastify/castify/service-account.json"
+
 # similar to nvm
 eval "$(fnm env)"
+
+# br function
+source /Users/nadeemkhedr/.config/broot/launcher/bash/br
 
 # . /usr/local/etc/profile.d/z.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
