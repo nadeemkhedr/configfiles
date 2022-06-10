@@ -334,8 +334,7 @@
                  [:-t [:open-brave "twitter.com"]]
                  [:-y [:open-brave "youtube.com"]]
                  [:-z [:open-brave "github.com/search?q=extension%3A.edn+filename%3Akarabiner.edn&type=Code&ref=advsearch&l=&l="]]
-                 [:-s [:open-brave "github.com/screencastify/castify"]]
-                 [:-k [:code-project "~/work/karabiner/" "~/work/karabiner/karabiner.edn"]]
+                 [:-s [:open-brave "github.com/screencastify/screencastify"]]
                  ;
                  ]}
 
@@ -395,7 +394,7 @@
         ; for keyboards with capslock
         {:des "caps_lock (same as escape-mode)"
          :rules [:caps_lock-mode
-                 [:return_or_enter  [:open-new "/Applications/Alacritty.app"]]
+                 [:return_or_enter [:open-new "/Applications/kitty.app"]]
                  [:period  [:open-new "/Applications/Brave Browser.app"]]
 
                  [:-n :prev_app]
@@ -430,68 +429,31 @@
                  [:-i :!T3]
                  [:-o :!T4]
 
-                 [:-l "yabai -m window --space one"]
-                 [:-u "yabai -m window --space two"]
-                 [:-y "yabai -m window --space three"]
-                 [:-semicolon "yabai -m window --space four"]
+
+                 [:-semicolon :!Cequal_sign] ;zoom in
+                 [:-y :!Chyphen] ;zoom out
+                 [:-u :!C0] ;reset zoom
 
                  [:-m :!Tleft_arrow]
                  [:comma :!Tright_arrow]]}
 
-        {:des "tab + t (swap)"
-         :rules [[:condi :tab-mode :movement-mode]
-                 [:-n "yabai -m window --swap west"]
-                 [:-o "yabai -m window --swap east"]
-                 [:-i "yabai -m window --swap north"]
-                 [:-e "yabai -m window --swap south"]
-
-                 [:-l "yabai -m window --warp west"]
-                 [:-semicolon "yabai -m window --warp  east"]
-                 [:-y "yabai -m window --warp north"]
-                 [:-u "yabai -m window --warp south"]
-
-                 [:-m "yabai -m window --toggle split"]]}
-
-        {:des "tab + s (resize)"
-         :rules [[:condi :tab-mode :shift-mode]
-                 [:-n "yabai -m window --resize left:-100:0"] ; increase left
-                 [:-e "yabai -m window --resize left:100:0"] ; decrease left
-                 [:-i "yabai -m window --resize right:-100:0"] ; increase right
-                 [:-o "yabai -m window --resize right:100:0"] ; decrease right
-
-                 [:-l "yabai -m window --resize top:0:-100"] ; increase top
-                 [:-u "yabai -m window --resize top:0:100"] ; decrease top
-                 [:-y "yabai -m window --resize bottom:0:100"] ; increase bottom
-                 [:-semicolon "yabai -m window --resize bottom:0:-100"] ; decrease bottom
-                 ]}
-
+        
         {:des "tab-mode"
          :rules [:tab-mode
                  [:-a :!!a] ; open launchpad
                  [:-r :!Tf3] ;focus dock
                  [:-s :!!s] ;toggle top menubar (bartender)
-                 [:slash "~/.kenv/bin/yabai-zen-toggle"]
 
                  ; temp
                  [:-n :!!1]
                  [:-e :!!2]
                  [:-i :!!3]
+                 [:-l :!!8]
+                 [:-y :!!6]
 
-                 ; temp disable until yabai works
-                 ; [:-n "yabai -m window --focus west"]
-                 ; [:-o "yabai -m window --focus east"]
-                 ; [:-i "yabai -m window --focus north"]
-                 ; [:-e "yabai -m window --focus south"]
-
-                 [:-m "yabai -m display --focus recent"]
-                 [:comma "yabai -m display --focus next"]
-                 [:period "yabai -m display --focus prev"]
-
-                 [:-f "yabai -m window --toggle float"]
-                 [:delete "yabai -m window --close"]
-                 [:spacebar "yabai -m window --toggle zoom-fullscreen"]
-                 [:return_or_enter "yabai -m space --balance"]
-                 [:-z "launchctl kickstart -k \"gui/${UID}/homebrew.mxcl.yabai\""]]}
+                 [:-u :!!2]
+                 ;
+                 ]}
 
         {:des "delete n-mode"
          :rules [:delete-mode
