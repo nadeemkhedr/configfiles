@@ -1,5 +1,11 @@
 #!/bin/sh
 
+alias screen-1='screenresolution set 3840x1600x32@60 3840x1600x32@60'
+alias screen-2='screenresolution set 1920x1600x32@60 1920x1600x32@60'
+alias screen-only='screenresolution set 1920x1080x32@60' 
+alias screen-wide='screenresolution set 3840x1600x32@60' 
+
+
 alias f='zi'
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
 
@@ -28,6 +34,8 @@ alias rg="rg --hidden --glob '!.git'"
 
 # easier to read disk
 alias df='df -h' # human-readable sizes
+
+alias starttest='for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done'
 
 # Add git root command
 git config --global alias.root 'rev-parse --show-toplevel'
