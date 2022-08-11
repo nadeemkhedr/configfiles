@@ -5,7 +5,7 @@
  :held 500
  :sim 200
  :simlayer-threshold 222
- :modifiers {;
+ :modifiers {;;
              :super-hyper [:command :shift :control :option :fn]
              :hyper [:command :shift :control :option]
              :cos [:command :shift :option]
@@ -16,14 +16,14 @@
              :to [:control :option]
              :ts [:control :shift]
              :os [:option :shift]
-             ;
+             ;;
              }
- :froms {;alias
+ :froms {;; alias
          :delete {:key :delete_or_backspace}
          :return {:key :return_or_enter}
          :tilde {:key :grave_accent_and_tilde}
 
-;colemak froms (for easier mnemonics)
+         ;; colemak froms (for easier mnemonics)
          :-q {:key :q}
          :-w {:key :w}
          :-f {:key :e}
@@ -53,24 +53,23 @@
          :-b {:key :b}
          :-k {:key :n}
          :-m {:key :m}
-
-         ;
+         ;;
          }
 
- :tos {;
+ :tos {;;
        :delete {:key :delete_or_backspace}
        :return {:key :return_or_enter}
        :tilde {:key :grave_accent_and_tilde}
 
-       :delete_line {:key :k :modi :cs} ;!CSk
+       :delete_line {:key :k :modi :cs} ; !CSk
 
        :expand_selection {:key :right_arrow :modi :cst}
        :shrink_selection {:key :left_arrow :modi :cst}
 
-       :insert_line_below {:key :return_or_enter :modi :command} ;!Creturn_or_enter
-       :insert_line_above {:key :return_or_enter :modi :cs} ;!Creturn_or_enter
+       :insert_line_below {:key :return_or_enter :modi :command} ; !Creturn_or_enter
+       :insert_line_above {:key :return_or_enter :modi :cs} ; !Creturn_or_enter
 
-       ;named symbols
+       ;; named symbols
        :open_brace {:key :open_bracket :modi :shift}
        :close_brace {:key :close_bracket :modi :shift}
        :open_paren {:key :9 :modi :shift}
@@ -78,39 +77,39 @@
        :less_than {:key :comma :modi :shift}
        :greater_than {:key :period :modi :shift}
 
-       ;general
-       :emoji_picker {:key :spacebar :modi :ct} ;!CTspacebar
+       ;; general
+       :emoji_picker {:key :spacebar :modi :ct} ; !CTspacebar
        :switch_windows {:key :grave_accent_and_tilde :modi :command}
        :prev_app {:key :tab :modi :cs :lazy true}
        :next_app {:key :tab :modi :command :lazy true}
-       :reopen_tab {:key t :modi :cs} ;brave/code
+       :reopen_tab {:key t :modi :cs} ; brave/code
        :zoom_in {:key :equal_sign :modi :co}
        :zoom_out {:key :hyphen :modi :co}
 
-       ;vscode
-       :command_palette {:key :p :modi :command}
-       :go_to_file {:key :p :modi :cs}
+       ;; vscode
+       :go_to_file {:key :p :modi :command}
+       :command_palette {:key :p :modi :cs}
 
        :code_tab_prev [{:key k :modi :command}
-                       {:key left_arrow :modi :co}] ;prev tab in group
+                       {:key left_arrow :modi :co}] ; prev tab in group
        :code_tab_next [{:key k :modi :command}
-                       {:key right_arrow :modi :co}] ;next tab in group
-       ;brave
+                       {:key right_arrow :modi :co}] ; next tab in group
+       ;; brave
        :prev_tab {:key tab :modi :ts}
        :next_tab {:key tab :modi :control}
        :tab_move_left {:key page_up :modi :ts}
        :tab_move_right {:key page_down :modi :ts}
        :new_tab {:key t :modi :command}
        :close_tab {:key w :modi :command}
-       :open_dev_tools {:key :i :modi :co} ;:!COl
+       :open_dev_tools {:key :i :modi :co} ; :!COl
        :focus_omnibar {:key :l :modi :command}
        :refresh {:key r :modi :command}
        :private_mode {:key n :modi :cs}
        :browser_1pass {:key x :modi :cs}
-       ;
+       ;;
        }
 
- :templates {;
+ :templates {;;
              :alfred "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\"'"
              :code-project "osascript -e 'tell application \"Visual Studio Code\" to activate' &&
                             open -a 'Visual Studio Code' %s -g %s
@@ -165,24 +164,25 @@
              :query "osascript -e '
                       tell application id \"com.runningwithcrayons.Alfred\" to run trigger \"scripted-list\" in workflow \"com.johnlindquist.scripted-list\" with argument \"%s\"
                       '"
-             ;
+             ;;
              }
 
- :applications {;
+ :applications {;;
                 :chromes ["com.brave.Browser", "com.google.Chrome"]
                 :code ["com.microsoft.VSCode"]
                 :slack ["com.tinyspeck.slackmacgap"]
                 :messenger ["com.facebook.archon"]
                 :terminals ["com.apple.Terminal", "com.googlecode.iterm2", "io.alacritty", "net.kovidgoyal.kitty"]
-                ;
+                :obsidian ["md.obsidian"]
+                ;;
                 }
-; Layers Are Typically "Thumb Keys" or "Pinky Keys"
- :layers {;
+ ;; Layers Are Typically "Thumb Keys" or "Pinky Keys"
+ :layers {;;
           :caps_lock-mode {:key :caps_lock :alone {:key :escape}}
           :escape-mode {:key :escape :alone {:key :escape}}
           :tab-mode {:key :tab, :alone {:key :tab}}
           :launch-mode {:key :f24 :alone {:key :spacebar :modi :left_option}}}
- :simlayers {;
+ :simlayers {;;
              :a-mode {:key :a} ; app specific // tmux, chrome
              :r-mode {:key :s} ; app specific // ctrl for vim
              :d-mode {:key :g}
@@ -198,26 +198,26 @@
              :delete-mode {:key :j} ; "n" on colemak
 
              :spacebar-mode {:key :spacebar}
-             ;
+             ;;
              }
 
- :main [;
+ :main [;;
 
         {:des "global"
          :rules [[:left_shift :left_shift nil {:alone :delete_or_backspace}]
                  [:right_shift :right_shift nil {:alone :delete_forward}]
-                 ;
+                 ;;
                  ]}
 
         {:des "slack-shortcuts"
-         :rules [;
+         :rules [;;
                  [:condi :slack]
                  [:left_command :left_command nil {:alone :!Ct}]
-                 ;
+                 ;;
                  ]}
 
         {:des "messenger-shortcuts"
-         :rules [;
+         :rules [;;
                  [:condi :messenger]
                  [:left_command :left_command nil {:alone :!Ck}]
                  [:condi :messenger :a-mode]
@@ -226,18 +226,18 @@
                  [:-i :!C3]
                  [:-o :!C4]
                  [:quote :!C5]
-                 ;
+                 ;;
                  ]}
 
         {:des "chromes-shortcuts"
          :rules [:chromes
-                 ;;[:left_command :left_command nil {:alone [:!Ct]}]
-                 ;;[:left_option :left_option nil {:alone [:!Cw]}]
+                 ;; [:left_command :left_command nil {:alone [:!Ct]}]
+                 ;; [:left_option :left_option nil {:alone [:!Cw]}]
                  [:condi :chromes :a-mode]
-                 [:-b :!Op] ;picture in picture by chrome plugin
+                 [:-b :!Op] ; picture in picture by chrome plugin
                  [:-n :prev_tab]
                  [:-e :next_tab]
-                 [:-o :!CSa] ;search tabs
+                 [:-o :!CSa] ; search tabs
                  [:-m :tab_move_left]
                  [:comma :tab_move_right]
                  [:-h :zoom_in]
@@ -250,7 +250,7 @@
                  [:delete  :close_tab]
                  [:-p :private_mode]
                  [:-u :browser_1pass]
-                 ;
+                 ;;
                  ]}
 
         {:des "code-shortcuts"
@@ -259,16 +259,16 @@
                  [:right_command :right_command nil {:alone :go_to_file}]
 
                  [:condi :code :a-mode]
-                 [:-i :!Tgrave_accent_and_tilde] ;toggle terminal
+                 [:-i :!Tgrave_accent_and_tilde] ; toggle terminal
                  [:-n :code_tab_prev]
                  [:-e :code_tab_next]
                  [:-x :close_tab]
                  [:-s :reopen_tab]
-                 [:-t :!Cn] ;a-t creates an untitled file
-                 [:comma :!Ccomma] ;settings
-                 [:-v :!Cbackslash] ;vertical split
+                 [:-t :!Cn] ; a-t creates an untitled file
+                 [:comma :!Ccomma] ; settings
+                 [:-v :!Cbackslash] ; vertical split
 
-                 [:condi :code :r-mode] ;control key - terminal
+                 [:condi :code :r-mode] ; control key - terminal
                  [:-c :!Tc]
                  [:-h :!Th]
                  [:-i :!Ti]
@@ -279,12 +279,19 @@
                  [:-t :!Tt]
                  [:-v :!Tv]
                  [:-x :!Tx]
-         ;
+                 ;;
+                 ]}
+
+        {:des "obsidian"
+         :rules [:obsidian
+                 [:left_command :left_command nil {:alone {:key :p :modi :command}}]
+                 [:right_command :right_command nil {:alone {:key :o :modi :command}}]
+                 ;;
                  ]}
 
         {:des "terminals-shortcuts"
          :rules [:terminals
-                 [:condi :terminals :r-mode] ;control key - terminal
+                 [:condi :terminals :r-mode] ; control key - terminal
                  [:-c :!Tc]
                  [:-h :!Th]
                  [:-i :!Ti]
@@ -299,7 +306,7 @@
                  [:-d :!Td]
                  [:-semicolon :!Tq]
 
-                 [:condi :terminals  :a-mode] ;tmux keys
+                 [:condi :terminals  :a-mode] ; tmux keys
                  [:-q [:!Ta :1]] ; go to window 1
                  [:-w [:!Ta :2]]
                  [:-f [:!Ta :3]]
@@ -322,9 +329,9 @@
                  [:-e [:!Ta :n]] ; next window
                  [:-o [:!Ta :w]] ; list windows 
                  [:return_or_enter [:!Ta :open_bracket]] ; copy mode
-         ;
+                 ;;
                  ]}
-;
+        ;;
         {:des "o-mode"
          :rules [:open-mode
                  [:-e [:open-brave "engadget.com"]]
@@ -335,7 +342,7 @@
                  [:-y [:open-brave "youtube.com"]]
                  [:-z [:open-brave "github.com/search?q=extension%3A.edn+filename%3Akarabiner.edn&type=Code&ref=advsearch&l=&l="]]
                  [:-s [:open-brave "github.com/screencastify/screencastify"]]
-                 ;
+                 ;;
                  ]}
 
         {:des "u-mode (window managment/desktop)"
@@ -347,22 +354,22 @@
                  [:-a :!TOS1] ; throw to desktop 1
                  [:-r :!TOS2] ; throw to desktop 2
                  [:-s :!TOS3] ; throw to desktop 3
-                ;
+                 ;;
                  ]}
         {:des "emoji z-mode"
          :rules [:emoji-mode
-                 [:-t [:paste "👍"]] ;thumbsup
+                 [:-t [:paste "👍"]] ; thumbsup
                  [:left_option [:paste "👎"]]
-                 [:-b [:paste "🐛"]] ;bug
-                 [:-d [:paste "📚"]] ;docs
-                 [:-p [:paste "🎉"]] ;party, tada
-                 [:-l [:paste "❤️"]] ;love
-                 [:-j [:paste "😂"]] ;joking
-                 [:-h [:paste "😀"]] ;happy
-                 [:-r [:paste "🤣"]] ;rofl
-                 [:-s [:paste "😢"]] ;sad
-                 [:-c [:paste "😭"]] ;cry
-                 ;
+                 [:-b [:paste "🐛"]] ; bug
+                 [:-d [:paste "📚"]] ; docs
+                 [:-p [:paste "🎉"]] ; party, tada
+                 [:-l [:paste "❤️"]] ; love
+                 [:-j [:paste "😂"]] ; joking
+                 [:-h [:paste "😀"]] ; happy
+                 [:-r [:paste "🤣"]] ; rofl
+                 [:-s [:paste "😢"]] ; sad
+                 [:-c [:paste "😭"]] ; cry
+                 ;;
                  ]}
 
         {:des   "escape mode"
@@ -375,12 +382,12 @@
                  [:-i [:launch "kitty"]]
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
-                 [:-d :f11] ;show desktop
+                 [:-d :f11] ; show desktop
                  [:delete "yabai -m window --close"]
-                 [:-c :!!c] ;open fantastical
-                 [:-p :!!p] ;take a screenshot with snagit
+                 [:-c :!!c] ; open fantastical
+                 [:-p :!!p] ; take a screenshot with snagit
 
-                 ;restart karabiner
+                 ;; restart karabiner
                  [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
 
                  [:-m [:launch "Spotify"]]
@@ -388,10 +395,10 @@
                  [:-b [:launch "Brave"]]
                  [:comma [:launch "Messenger"]]
                  [:-w [:launch "WhatsApp"]]
-                 [:-l :!!l] ;toggle 1password
+                 [:-l :!!l] ; toggle 1password
                  ]}
 
-        ; for keyboards with capslock
+        ;; for keyboards with capslock
         {:des "caps_lock (same as escape-mode)"
          :rules [:caps_lock-mode
                  [:return_or_enter [:open-new "/Applications/kitty.app"]]
@@ -403,12 +410,12 @@
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
 
-                 [:-d :f11] ;show desktop
+                 [:-d :f11] ; show desktop
                  [:delete "yabai -m window --close"]
-                 [:-c :!!c] ;open fantastical
-                 [:-p :!!p] ;take a screenshot with snagit
+                 [:-c :!!c] ; open fantastical
+                 [:-p :!!p] ; take a screenshot with snagit
 
-                 ;restart karabiner
+                 ;; restart karabiner
                  [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
 
                  [:-m [:launch "Spotify"]]
@@ -416,12 +423,12 @@
                  [:-b [:launch "Brave"]]
                  [:comma [:launch "Messenger"]]
                  [:-w [:launch "WhatsApp"]]
-                 [:-l :!!l] ;toggle 1password
-          ;
+                 [:-l :!!l] ; toggle 1password
+                 ;;
                  ]}
 
-        ; yabai shortcuts (tab)
-        ; tab + key must be defined before "tab-mode"
+        ;; yabai shortcuts (tab)
+        ;; tab + key must be defined before "tab-mode"
         {:des "tab + d (desktops)"
          :rules [[:condi :tab-mode :d-mode]
                  [:-n :!T1]
@@ -430,29 +437,30 @@
                  [:-o :!T4]
 
 
-                 [:-semicolon :!Cequal_sign] ;zoom in
-                 [:-y :!Chyphen] ;zoom out
-                 [:-u :!C0] ;reset zoom
+                 [:-semicolon :!Cequal_sign] ; zoom in
+                 [:-y :!Chyphen] ; zoom out
+                 [:-u :!C0] ; reset zoom
 
                  [:-m :!Tleft_arrow]
                  [:comma :!Tright_arrow]]}
 
-        
+
         {:des "tab-mode"
          :rules [:tab-mode
                  [:-a :!!a] ; open launchpad
-                 [:-r :!Tf3] ;focus dock
-                 [:-s :!!s] ;toggle top menubar (bartender)
+                 [:-r :!Tf3] ; focus dock
+                 [:-s :!!s] ; toggle top menubar (bartender)
 
-                 ; temp
+                 ;; temp
                  [:-n :!!1]
                  [:-e :!!2]
                  [:-i :!!3]
                  [:-l :!!8]
                  [:-y :!!6]
+                 [:comma :!!5]
 
                  [:-u :!!2]
-                 ;
+                 ;;
                  ]}
 
         {:des "delete n-mode"
@@ -464,51 +472,51 @@
                  [:-s :delete_forward]
                  [:-t :!Odelete_forward]
                  [:-d :!Cdelete_forward]
-                 ;
+                 ;;
                  ]}
 
         {:des "move t-mode"
          :rules [:movement-mode
-                 [:##j :left_arrow] ;n in colemak
-                 [:##k :down_arrow] ;e in colemak  
-                 [:##l :up_arrow] ;i in colemak
-                 [:##semicolon :right_arrow] ;o in colemak
+                 [:##j :left_arrow] ; n in colemak
+                 [:##k :down_arrow] ; e in colemak
+                 [:##l :up_arrow] ; i in colemak
+                 [:##semicolon :right_arrow] ; o in colemak
 
-                 [:##u :!Oleft_arrow] ;l in colemak
-                 [:##i :!Odown_arrow] ;u in colemak
-                 [:##o :!Oup_arrow] ;y in colemak
-                 [:##p :!Oright_arrow] ;semi-colon in colemak
+                 [:##u :!Oleft_arrow] ; l in colemak
+                 [:##i :!Odown_arrow] ; u in colemak
+                 [:##o :!Oup_arrow] ; y in colemak
+                 [:##p :!Oright_arrow] ; semi-colon in colemak
 
-                 [:##m :!Cleft_arrow] ;m in colemak
-                 [:##comma :home] ;, in colemak
-                 [:##period :end] ;. in colemak
-                 [:##slash :!Cright_arrow] ;/ in colemak
-                 ;
+                 [:##m :!Cleft_arrow] ; m in colemak
+                 [:##comma :home] ; , in colemak
+                 [:##period :end] ; . in colemak
+                 [:##slash :!Cright_arrow] ; / in colemak
+                 ;;
                  ]}
 
         {:des "shift s-mode"
          :rules [:shift-mode
-                 [:##j :!Sleft_arrow] ;n in colemak
-                 [:##k :!Sdown_arrow] ;e in colemak
-                 [:##l :!Sup_arrow] ;i in colemak
-                 [:##semicolon :!Sright_arrow] ;o in colemak
-                 [:##h :!Ca] ;h in colemak
+                 [:##j :!Sleft_arrow] ; n in colemak
+                 [:##k :!Sdown_arrow] ; e in colemak
+                 [:##l :!Sup_arrow] ; i in colemak
+                 [:##semicolon :!Sright_arrow] ; o in colemak
+                 [:##h :!Ca] ; h in colemak
 
-                 [:##u :!OSleft_arrow] ;l in colemak
-                 [:##i :!OSdown_arrow] ;u in colemak
-                 [:##o :!OSup_arrow] ;y in colemak
-                 [:##p :!OSright_arrow] ;semi-colon in colemak
+                 [:##u :!OSleft_arrow] ; l in colemak
+                 [:##i :!OSdown_arrow] ; u in colemak
+                 [:##o :!OSup_arrow] ; y in colemak
+                 [:##p :!OSright_arrow] ; semi-colon in colemak
 
-                 [:##m :!Shome] ;m in colemak
-                 [:##slash :!Send] ;/ in colemak
+                 [:##m :!Shome] ; m in colemak
+                 [:##slash :!Send] ; / in colemak
 
                  [:left_shift :shrink_selection]
                  [:return_or_enter :insert_line_above]
-                 ;;[:semicolon :expand_selection]
-                 ;;[:quote :shrink_selection]
-                 ;;[:##spacebar {:pkey :button1 :modi :left_command}]
-                 ;;[:##left_shift :##button2]
-                 ;
+                 ;; [:semicolon :expand_selection]
+                 ;; [:quote :shrink_selection]
+                 ;; [:##spacebar {:pkey :button1 :modi :left_command}]
+                 ;; [:##left_shift :##button2]
+                 ;;
                  ]}
 
         {:des "spacebar space-mode"
@@ -529,22 +537,22 @@
                  [:-m :open_bracket]
                  [:comma :close_bracket]
 
-                ;; [:j :open_brace]
-                ;; [:k :close_brace]
+                 ;; [:j :open_brace]
+                 ;; [:k :close_brace]
 
-                ;; [:l :less_than]
-                ;; [:semicolon :greater_than]
+                 ;; [:l :less_than]
+                 ;; [:semicolon :greater_than]
 
-                 ;symbol sequences
+                 ;; symbol sequences
                  [:left_shift [:spacebar :equal_sign :spacebar]]; =  =  =  =  =  =  =  =  =  =
-                 [:q [:!S9 :!S0 :equal_sign :greater_than :spacebar]];()=> 
-                 [:e [:!S9 :!S9 :!S0 :equal_sign :greater_than :spacebar :open_brace :close_brace :!S0 :left_arrow :left_arrow]];(()=> {})
+                 [:q [:!S9 :!S0 :equal_sign :greater_than :spacebar]]; ()=>
+                 [:e [:!S9 :!S9 :!S0 :equal_sign :greater_than :spacebar :open_brace :close_brace :!S0 :left_arrow :left_arrow]]; (()=> {})
 
                  [:g [:spacebar :equal_sign :greater_than :spacebar]]; =>  => ={} =""
-                 [:h [:equal_sign :open_brace :close_brace :left_arrow]];={}
-                 [:b [:equal_sign :open_brace :close_brace :left_arrow]];={}
-                 [:quote [:equal_sign :!Squote :!Squote :left_arrow]];=""
-                 ;
+                 [:h [:equal_sign :open_brace :close_brace :left_arrow]]; ={}
+                 [:b [:equal_sign :open_brace :close_brace :left_arrow]]; ={}
+                 [:quote [:equal_sign :!Squote :!Squote :left_arrow]]; =""
+                 ;;
                  ]}
 
         {:des "m-mode (music player)"
@@ -555,19 +563,19 @@
 
                  [:-f :volume_increment]
                  [:-w :volume_decrement]
-                 ;
+                 ;;
                  ]}
 
         {:des "a-mode (global)"
          :rules [:a-mode
-                 [:-c :!Cc] ;copy
-                 [:-v :!Cv] ;paste
-                 [:-f :!Cf] ;find
-                 ;
+                 [:-c :!Cc] ; copy
+                 [:-v :!Cv] ; paste
+                 [:-f :!Cf] ; find
+                 ;;
                  ]}
 
         {:des "colemak"
-         :rules [;
+         :rules [;;
                  [:##e :f]
                  [:##r :p]
                  [:##t :g]
@@ -589,26 +597,28 @@
                  [:##n :k]
 
                  [:close_bracket :a]
-                 ;
+                 ;;
                  ]}
-;
+        ;;
         ]}
+
+
 ;; rule [:period ["media-mode" 1] nil {:afterup ["media-mode" 0] :alone :period}]
 ;;       |_____| |_______________| |_| |_________________________________________|
 ;;        <from>    <to>      <conditions>         <other options>
 
-    ;; !  | means mandatory
-    ;; #  | means optional
-    ;; C  | left_command
-    ;; T  | left_control
-    ;; O  | left_option
-    ;; S  | left_shift
-    ;; F  | fn
-    ;; Q  | right_command
-    ;; W  | right_control
-    ;; E  | right_option
-    ;; R  | right_shift
-    ;; 
-    ;; !! | mandatory command + control + optional + shift (hyper)
-    ;; ## | optional any
+;; !  | means mandatory
+;; #  | means optional
+;; C  | left_command
+;; T  | left_control
+;; O  | left_option
+;; S  | left_shift
+;; F  | fn
+;; Q  | right_command
+;; W  | right_control
+;; E  | right_option
+;; R  | right_shift
+;; 
+;; !! | mandatory command + control + optional + shift (hyper)
+;; ## | optional any
 ;; 
