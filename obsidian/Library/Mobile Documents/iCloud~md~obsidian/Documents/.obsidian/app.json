@@ -1,0 +1,11 @@
+{
+  "promptDelete": false,
+  "spellcheck": true,
+  "vimMode": true,
+  "legacyEditor": false,
+  "livePreview": false,
+  "useMarkdownLinks": true,
+  "communityPluginSortOrder": "download",
+  "useTab": true,
+  "tabSize": 4
+}

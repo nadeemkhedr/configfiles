@@ -1,0 +1,42 @@
+{
+  "editor:focus-bottom": [
+    {
+      "modifiers": [
+        "Alt",
+        "Ctrl",
+        "Shift"
+      ],
+      "key": "J"
+    }
+  ],
+  "editor:focus-left": [
+    {
+      "modifiers": [
+        "Alt",
+        "Ctrl",
+        "Shift"
+      ],
+      "key": "H"
+    }
+  ],
+  "editor:focus-right": [
+    {
+      "modifiers": [
+        "Alt",
+        "Ctrl",
+        "Shift"
+      ],
+      "key": "L"
+    }
+  ],
+  "editor:focus-top": [
+    {
+      "modifiers": [
+        "Alt",
+        "Ctrl",
+        "Shift"
+      ],
+      "key": "K"
+    }
+  ]
+}
