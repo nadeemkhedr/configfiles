@@ -1,7 +1,8 @@
 #!/bin/sh
 . "$HOME/.cargo/env"
 
-export PATH="$PATH:/opt/homebrew/bin"
+# export PATH="$PATH:/opt/homebrew/bin"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
 
 export BAT_THEME="OneHalfDark"
 
