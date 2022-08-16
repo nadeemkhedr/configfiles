@@ -1,2 +1,2 @@
-noremap ; :
-noremap : ;
+# noremap ; :
+# noremap : ;
