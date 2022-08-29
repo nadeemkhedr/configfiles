@@ -10,7 +10,7 @@
   "tabSize": 4,
   "showLineNumber": true,
   "foldIndent": true,
-  "newFileLocation": "folder",
+  "newFileLocation": "root",
   "newFileFolderPath": "Mind",
   "showUnsupportedFiles": false,
   "alwaysUpdateLinks": true,
