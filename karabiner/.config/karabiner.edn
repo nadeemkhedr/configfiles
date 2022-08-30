@@ -466,15 +466,19 @@
                  [:-r :!Tf3] ; focus dock
                  [:-s :!!s] ; toggle top menubar (bartender)
 
-                 ;; temp
+                 ;; moom
                  [:-n :!!1]
+                 [:-u :!!2]
                  [:-e :!!2]
                  [:-i :!!3]
-                 [:-l :!!8]
-                 [:-y :!!6]
-                 [:comma :!!5]
 
-                 [:-u :!!2]
+                 [:-m :!!4]
+                 [:comma :!!5]
+                 [:period :!!6]
+
+                 [:-y :!!7]
+                 [:-l :!!8]
+
                  ;;
                  ]}
 
