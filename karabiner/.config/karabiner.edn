@@ -222,11 +222,14 @@
                  [:condi :messenger]
                  [:left_command :left_command nil {:alone :!Ck}]
                  [:condi :messenger :a-mode]
-                 [:-n :!C1]
-                 [:-e :!C2]
-                 [:-i :!C3]
-                 [:-o :!C4]
-                 [:quote :!C5]
+
+                 [:-n :!Copen_bracket]
+                 [:-e :!Cclose_bracket]
+
+                 [:-l :!C1]
+                 [:-u :!C2]
+                 [:-y :!C3]
+                 [:-semicolon :!C4]
                  ;;
                  ]}
 
