@@ -173,7 +173,7 @@
                 :code ["com.microsoft.VSCode"]
                 :slack ["com.tinyspeck.slackmacgap"]
                 :messenger ["com.facebook.archon"]
-                :terminals ["com.apple.Terminal", "com.googlecode.iterm2", "io.alacritty", "net.kovidgoyal.kitty"]
+                :terminals ["com.apple.Terminal", "com.googlecode.iterm2", "io.alacritty", "net.kovidgoyal.kitty", "com.github.wez.wezterm"]
                 :obsidian ["md.obsidian"]
                 :todoist ["com.todoist.mac.Todoist"]
                 ;;
@@ -386,12 +386,12 @@
 
         {:des   "escape mode"
          :rules [:escape-mode
-                 [:return_or_enter [:open-new "/Applications/kitty.app"]]
+                 [:return_or_enter [:open-new "/Applications/WezTerm.app"]]
                  [:period  [:open-new "/Applications/Brave Browser.app"]]
 
                  [:-n :prev_app]
                  [:-e :next_app]
-                 [:-i [:launch "kitty"]]
+                 [:-i [:launch "wezterm"]]
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
                  [:-d :f11] ; show desktop
@@ -418,12 +418,12 @@
         ;; for keyboards with capslock
         {:des "caps_lock (same as escape-mode)"
          :rules [:caps_lock-mode
-                 [:return_or_enter [:open-new "/Applications/kitty.app"]]
+                 [:return_or_enter [:open-new "/Applications/WezTerm.app"]]
                  [:period  [:open-new "/Applications/Brave Browser.app"]]
 
                  [:-n :prev_app]
                  [:-e :next_app]
-                 [:-i [:launch "kitty"]]
+                 [:-i [:launch "wezterm"]]
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
                  [:-d :f11] ; show desktop
