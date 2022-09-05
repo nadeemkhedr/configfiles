@@ -145,6 +145,7 @@
                            '"
              :open "open \"%s\""
              :open-new "open -n \"%s\""
+             :open-new-args "open -n \"%s\" %s"
              :open-a "open -a '%s'"
              :paste "osascript -e '
                         set the clipboard to \"%s\"
@@ -345,7 +346,8 @@
         {:des "o-mode"
          :rules [:open-mode
                  [:-e [:open-brave "engadget.com"]]
-                 [:-g [:open-brave "mail.google.com"]]
+                 [:-g [:open-brave "mail.google.com/mail/u/1"]]
+                 [:-p [:open-brave "mail.google.com/mail/u/0"]]
                  [:-l [:open-brave "localhost:3000"]]
                  [:-m [:open-brave "monkeytype.com"]]
                  [:-t [:open-brave "twitter.com"]]

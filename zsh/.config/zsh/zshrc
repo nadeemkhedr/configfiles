@@ -79,3 +79,8 @@ zsh_add_plugin "jscutlery/nx-completion"
 autoload edit-command-line
 zle -N edit-command-line
 # bindkey '^e' edit-command-line
+
+export TERRAFORM_ENVIRONMENT=nadeemtest
+export TERRAFORM_REGION=us-central1
+export TERRAFORM_MULTIREGION=us
+export GOOGLE_APPLICATION_CREDENTIALS=/Users/nadeemkhedr/.config/gcloud/application_default_credentials.json
