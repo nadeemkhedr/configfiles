@@ -5,8 +5,8 @@ local wezterm = require("wezterm")
 local padding = {
 	left = "1cell",
 	right = "1cell",
-	top = "0.5cell",
-	bottom = "0.5cell",
+	top = "0cell",
+	bottom = "0cell",
 }
 
 -- Reload the configuration every ten minutes
@@ -101,17 +101,17 @@ return {
 	-- 	{ key = "w", mods = "LEADER", action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
 	-- 	-- { key = "z", mods = "LEADER", action = "ToggleFullScreen" },
 	-- },
-	initial_cols = 128,
-	initial_rows = 32,
+	initial_cols = 150,
+	initial_rows = 40,
 	use_dead_keys = false,
 	window_padding = padding,
 	window_decorations = "RESIZE",
 	hide_tab_bar_if_only_one_tab = true,
 	selection_word_boundary = " \t\n{}[]()\"'`,;:@",
 	-- disable_default_key_bindings = true,
-	line_height = 1.25,
+	line_height = 1.125,
 	font_size = 16,
-	window_background_opacity = 0.95,
+	window_background_opacity = 0.9,
 	bold_brightens_ansi_colors = false,
 	-- swap_backspace_and_delete = false,
 	term = "wezterm",

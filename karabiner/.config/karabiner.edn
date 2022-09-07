@@ -176,6 +176,7 @@
                 :terminals ["com.apple.Terminal", "com.googlecode.iterm2", "io.alacritty", "net.kovidgoyal.kitty", "com.github.wez.wezterm"]
                 :obsidian ["md.obsidian"]
                 :todoist ["com.todoist.mac.Todoist"]
+                :finder ["com.apple.finder"]
                 ;;
                 }
  ;; Layers Are Typically "Thumb Keys" or "Pinky Keys"
@@ -211,6 +212,15 @@
                  ;;
                  ]}
 
+        {:des "finder"
+         :rules [:finder
+                 [:condi :finder :a-mode]
+                 [:-t :!Ct]
+                 [:-n :prev_tab]
+                 [:-e :next_tab]
+                 [:delete  :close_tab]
+                 ;;
+                 ]}
         {:des "slack-shortcuts"
          :rules [;;
                  [:condi :slack]
