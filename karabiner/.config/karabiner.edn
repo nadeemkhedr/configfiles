@@ -398,6 +398,7 @@
          :rules [:escape-mode
                  [:return_or_enter [:open-new "/Applications/WezTerm.app"]]
                  [:period  [:open-new "/Applications/Brave Browser.app"]]
+                 [:spacebar :!Csemicolon]
 
                  [:-n :prev_app]
                  [:-e :next_app]
