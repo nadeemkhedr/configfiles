@@ -209,6 +209,9 @@
         {:des "global"
          :rules [[:left_shift :left_shift nil {:alone :delete_or_backspace}]
                  [:right_shift :right_shift nil {:alone :delete_forward}]
+                 [:!!open_bracket "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'QWERTY'"]
+                 [:!!equal_sign "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Colemak pure'"]
+                 [:!!close_bracket "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Default'"]
                  ;;
                  ]}
 
@@ -326,6 +329,7 @@
                  [:-u :!Tu]
                  [:-d :!Td]
                  [:-semicolon :!Tq]
+                 [:spacebar :!Tspacebar]
 
                  [:condi :terminals  :a-mode] ; tmux keys
                  [:-q [:!Ta :1]] ; go to window 1
@@ -414,7 +418,7 @@
                  ;; restart karabiner
                  [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
 
-                 [:-m [:launch "Spotify"]]
+                 [:-m [:launch "Music"]]
                  [:-s [:launch "Slack"]]
                  [:-b [:launch "Brave"]]
                  [:comma [:launch "Messenger"]]
@@ -446,7 +450,7 @@
                  ;; restart karabiner
                  [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
 
-                 [:-m [:launch "Spotify"]]
+                 [:-m [:launch "Music"]]
                  [:-s [:launch "Slack"]]
                  [:-b [:launch "Brave"]]
                  [:comma [:launch "Messenger"]]
