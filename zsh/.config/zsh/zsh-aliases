@@ -5,6 +5,7 @@ alias screen-2='screenresolution set 1920x1600x32@60 1920x1600x32@60'
 alias screen-only='screenresolution set 1920x1080x32@60' 
 alias screen-wide='screenresolution set 3840x1600x32@60' 
 
+alias copilot='eval "$(github-copilot-cli alias -- "$0")"'
 
 alias f='zi'
 alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"

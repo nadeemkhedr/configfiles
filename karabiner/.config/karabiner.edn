@@ -123,7 +123,7 @@
                            activate
                         end tell
                         '"
-             :open-brave "osascript -e '
+             :open-browser "osascript -e '
                         set address to \"%s\"
                         
                         tell application \"Brave\"
@@ -170,6 +170,7 @@
 
  :applications {;;
                 :chromes ["com.brave.Browser", "com.google.Chrome"]
+                :ark ["company.thebrowser.Browser"]
                 :code ["com.microsoft.VSCode"]
                 :slack ["com.tinyspeck.slackmacgap"]
                 :messenger ["com.facebook.archon"]
@@ -271,6 +272,22 @@
                  ;;
                  ]}
 
+        {:des "ark-shortcuts"
+         :rules [:ark
+                 [:condi :ark :a-mode]
+                 [:-n :prev_tab]
+                 [:-e :next_tab]
+                 [:-s :reopen_tab]
+                 [:-t :new_tab]
+                 [:-l :focus_omnibar]
+                 [:-i :open_dev_tools]
+                 [:-r :refresh]
+                 [:delete  :close_tab]
+                 [:-p :private_mode]
+                 [:-u :browser_1pass]
+                 [:-d :!TSequal_sign] ; split in arc
+                 ]}
+
         {:des "code-shortcuts"
          :rules [:code
                  [:left_command :left_command nil {:alone :command_palette}]
@@ -359,15 +376,15 @@
         ;;
         {:des "o-mode"
          :rules [:open-mode
-                 [:-e [:open-brave "engadget.com"]]
-                 [:-g [:open-brave "mail.google.com/mail/u/1"]]
-                 [:-p [:open-brave "mail.google.com/mail/u/0"]]
-                 [:-l [:open-brave "localhost:3000"]]
-                 [:-m [:open-brave "monkeytype.com"]]
-                 [:-t [:open-brave "twitter.com"]]
-                 [:-y [:open-brave "youtube.com"]]
-                 [:-z [:open-brave "github.com/search?q=extension%3A.edn+filename%3Akarabiner.edn&type=Code&ref=advsearch&l=&l="]]
-                 [:-s [:open-brave "github.com/screencastify/screencastify"]]
+                 [:-e [:open-browser "engadget.com"]]
+                 [:-g [:open-browser "mail.google.com/mail/u/1"]]
+                 [:-p [:open-browser "mail.google.com/mail/u/0"]]
+                 [:-l [:open-browser "localhost:3000"]]
+                 [:-m [:open-browser "monkeytype.com"]]
+                 [:-t [:open-browser "twitter.com"]]
+                 [:-y [:open-browser "youtube.com"]]
+                 [:-z [:open-browser "github.com/search?q=extension%3A.edn+filename%3Akarabiner.edn&type=Code&ref=advsearch&l=&l="]]
+                 [:-s [:open-browser "github.com/screencastify/screencastify"]]
                  ;;
                  ]}
 
@@ -471,14 +488,12 @@
                  [:-i :!T3]
                  [:-o :!T4]
 
-
                  [:-semicolon :!Cequal_sign] ; zoom in
                  [:-y :!Chyphen] ; zoom out
                  [:-u :!C0] ; reset zoom
 
                  [:-m :!Tleft_arrow]
                  [:comma :!Tright_arrow]]}
-
 
         {:des "tab-mode"
          :rules [:tab-mode
@@ -640,8 +655,6 @@
                  ]}
         ;;
         ]}
-
-
 ;; rule [:period ["media-mode" 1] nil {:afterup ["media-mode" 0] :alone :period}]
 ;;       |_____| |_______________| |_| |_________________________________________|
 ;;        <from>    <to>      <conditions>         <other options>
