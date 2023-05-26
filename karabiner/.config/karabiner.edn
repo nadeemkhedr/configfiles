@@ -117,6 +117,11 @@
              :delay "osascript -e 'delay \"%s\"'"
              :km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
              :type "osascript -e 'tell application \"System Events\" to keystroke \"%s\"'"
+             :activate "osascript -e '
+                        tell application \"%s\" 
+                           activate
+                        end tell
+                        '"
              :launch "osascript -e '
                         tell application \"%s\" 
                            reopen
@@ -423,7 +428,7 @@
 
                  [:-n :prev_app]
                  [:-e :next_app]
-                 [:-i [:launch "wezterm"]]
+                 [:-i [:activate "wezterm"]]
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
                  [:-d :f11] ; show desktop
