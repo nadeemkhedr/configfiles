@@ -45,6 +45,10 @@ sudo launchctl config user path "/usr/local/bin:$PATH"
 
 ### Need to run the following:
 
+**Install Zap** 
+
+Link to download Zap: [here](https://www.zapzsh.org/#repos-container)
+
 **Used nerdfonts**
 brew install --cask "font-fira-code-nerd-font"
 brew install --cask "font-iosevka-nerd-font"
