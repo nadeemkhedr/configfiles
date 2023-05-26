@@ -2,7 +2,7 @@
 . "$HOME/.cargo/env"
 
 # export PATH="$PATH:/opt/homebrew/bin"
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
+# export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
 
 export BAT_THEME="OneHalfDark"
 
@@ -30,9 +30,6 @@ export GOOGLE_APPLICATION_CREDENTIALS="/Users/nadeemkhedr/work/screencastify/cas
 
 # similar to nvm
 eval "$(fnm env)"
-
-# br function
-source /Users/nadeemkhedr/.config/broot/launcher/bash/br
 
 # . /usr/local/etc/profile.d/z.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
