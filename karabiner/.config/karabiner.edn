@@ -388,8 +388,8 @@
                  [:-m [:open-browser "monkeytype.com"]]
                  [:-t [:open-browser "twitter.com"]]
                  [:-y [:open-browser "youtube.com"]]
-                 [:-z [:open-browser "github.com/search?q=extension%3A.edn+filename%3Akarabiner.edn&type=Code&ref=advsearch&l=&l="]]
-                 [:-s [:open-browser "github.com/screencastify/screencastify"]]
+                 [:-z [:open-browser "https://github.com/search?q=path%3A*.edn+path%3A**%2Fkarabiner.edn&type=code"]]
+                 [:-c [:open-browser "github.com"]]
                  ;;
                  ]}
 
