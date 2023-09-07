@@ -131,7 +131,7 @@
              :open-browser "osascript -e '
                         set address to \"%s\"
                         
-                        tell application \"Brave\"
+                        tell application \"Arc\"
                            activate
                                 if not (exists window 1) then reopen
                                 repeat with w in windows
@@ -215,9 +215,11 @@
         {:des "global"
          :rules [[:left_shift :left_shift nil {:alone :delete_or_backspace}]
                  [:right_shift :right_shift nil {:alone :delete_forward}]
+                 ; change profiles in karabiner
                  [:!!open_bracket "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'QWERTY'"]
                  [:!!equal_sign "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Colemak pure'"]
                  [:!!close_bracket "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Default'"]
+                 [:!Cspacebar :!Csemicolon]
                  ;;
                  ]}
 
@@ -280,8 +282,10 @@
         {:des "ark-shortcuts"
          :rules [:ark
                  [:condi :ark :a-mode]
-                 [:-n :prev_tab]
-                 [:-e :next_tab]
+
+                 [:-n :!COup_arrow]
+                 [:-e :!COdown_arrow]
+
                  [:-s :reopen_tab]
                  [:-t :new_tab]
                  [:-l :focus_omnibar]
@@ -291,6 +295,10 @@
                  [:-p :private_mode]
                  [:-u :browser_1pass]
                  [:-d :!TSequal_sign] ; split in arc
+                 ; focus splits
+                 [:-m :!TS1]
+                 [:comma :!TS2]
+                 [:period :!TS3]
                  ]}
 
         {:des "code-shortcuts"
@@ -423,7 +431,7 @@
         {:des   "escape mode"
          :rules [:escape-mode
                  [:return_or_enter [:open-new "/Applications/WezTerm.app"]]
-                 [:period  [:open-new "/Applications/Brave Browser.app"]]
+                 [:period  [:open-new "/Applications/Arc.app"]]
                  [:spacebar :!Csemicolon]
 
                  [:-n :prev_app]
@@ -442,7 +450,7 @@
 
                  [:-m [:launch "Music"]]
                  [:-s [:launch "Slack"]]
-                 [:-b [:launch "Brave"]]
+                 [:-b [:launch "Arc"]]
                  [:comma [:launch "Messenger"]]
                  [:-w [:launch "WhatsApp"]]
                  [:-l :!!l] ; toggle 1password
@@ -456,7 +464,7 @@
         {:des "caps_lock (same as escape-mode)"
          :rules [:caps_lock-mode
                  [:return_or_enter [:open-new "/Applications/WezTerm.app"]]
-                 [:period  [:open-new "/Applications/Brave Browser.app"]]
+                 [:period  [:open-new "/Applications/Arc.app"]]
 
                  [:-n :prev_app]
                  [:-e :next_app]
@@ -474,7 +482,7 @@
 
                  [:-m [:launch "Music"]]
                  [:-s [:launch "Slack"]]
-                 [:-b [:launch "Brave"]]
+                 [:-b [:launch "Arc"]]
                  [:comma [:launch "Messenger"]]
                  [:-w [:launch "WhatsApp"]]
                  [:-l :!!l] ; toggle 1password
