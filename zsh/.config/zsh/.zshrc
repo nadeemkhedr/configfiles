@@ -5,6 +5,7 @@
 HISTFILE=~/.zsh_history
 
 # sources
+plug "$HOME/.config/zsh/zsh-functions"
 plug "$HOME/.config/zsh/zsh-prompt"
 plug "$HOME/.config/zsh/zsh-aliases"
 plug "$HOME/.config/zsh/zsh-exports"
