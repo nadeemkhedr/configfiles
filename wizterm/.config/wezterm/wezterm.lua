@@ -56,7 +56,7 @@ return {
 			italic = true,
 			intensity = "Bold",
 			font = font_with_fallback({
-				family = "Iosevka Nerd Font",
+				family = "Iosevka NF",
 				-- family = "Dank Mono",
 				weight = "Medium",
 				italic = true,
@@ -66,7 +66,7 @@ return {
 			italic = true,
 			font = font_with_fallback({
 				-- family = "Dank Mono",
-				family = "Iosevka Nerd Font",
+				family = "Iosevka NF",
 				weight = "Regular",
 				italic = true,
 			}),
