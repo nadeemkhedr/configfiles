@@ -175,7 +175,7 @@
 
  :applications {;;
                 :chromes ["com.brave.Browser", "com.google.Chrome"]
-                :ark ["company.thebrowser.Browser"]
+                :arc ["company.thebrowser.Browser"]
                 :code ["com.microsoft.VSCode"]
                 :slack ["com.tinyspeck.slackmacgap"]
                 :messenger ["com.facebook.archon"]
@@ -183,6 +183,7 @@
                 :obsidian ["md.obsidian"]
                 :todoist ["com.todoist.mac.Todoist"]
                 :finder ["com.apple.finder"]
+                :godot ["org.godotengine.godot"]
                 ;;
                 }
  ;; Layers Are Typically "Thumb Keys" or "Pinky Keys"
@@ -279,9 +280,9 @@
                  ;;
                  ]}
 
-        {:des "ark-shortcuts"
-         :rules [:ark
-                 [:condi :ark :a-mode]
+        {:des "arc-shortcuts"
+         :rules [:arc
+                 [:condi :arc :a-mode]
 
                  [:-n :!COup_arrow]
                  [:-e :!COdown_arrow]
@@ -294,11 +295,20 @@
                  [:delete  :close_tab]
                  [:-p :private_mode]
                  [:-u :browser_1pass]
+                 [:-c :!COg] ;chatgpt
                  [:-d :!TSequal_sign] ; split in arc
                  ; focus splits
                  [:-m :!TS1]
                  [:comma :!TS2]
                  [:period :!TS3]
+                 ]}
+
+        {:des "godot-shortcuts"
+         :rules [:godot
+                 [:condi :godot :a-mode]
+
+                 [:-o :!CTo] ; go to files
+                 [:-h :f1] ; need to remap search help in godot to f1
                  ]}
 
         {:des "code-shortcuts"
