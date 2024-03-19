@@ -8,6 +8,9 @@ export BAT_THEME="OneHalfDark"
 
 export PATH="$HOME/.local/bin:$PATH"
 
+# python
+export PATH="/opt/homebrew/opt/python@3.12/libexec/bin:$PATH"
+
 # Go
 export PATH="$HOME/.local/share/go/bin:$PATH"
 export GOPATH="$HOME/.local/share/go"

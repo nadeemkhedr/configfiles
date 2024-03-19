@@ -20,7 +20,15 @@ plug "zap-zsh/exa"
 plug "zsh-users/zsh-syntax-highlighting"
 
 plug "jocelynmallon/zshmarks"
-
 # custom completions
 fpath+="$ZDOTDIR/completion"
-compinit
+
+#compinit
+
+# try this for aws instead of just using compinit
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+
+# this has to be initialized after bashcompinit
+complete -C '/usr/local/bin/aws_completer' aws
+source <(kubectl completion zsh)
