@@ -672,8 +672,6 @@
                  [:##semicolon :o]
 
                  [:##n :k]
-
-                 [:close_bracket :a]
                  ;;
                  ]}
         ;;
