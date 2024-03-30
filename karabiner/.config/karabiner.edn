@@ -131,7 +131,7 @@
              :open-browser "osascript -e '
                         set address to \"%s\"
                         
-                        tell application \"Arc\"
+                        tell application \"Brave\"
                            activate
                                 if not (exists window 1) then reopen
                                 repeat with w in windows
@@ -404,7 +404,7 @@
                  [:-p [:open-browser "mail.google.com/mail/u/0"]]
                  [:-l [:open-browser "localhost:3000"]]
                  [:-m [:open-browser "monkeytype.com"]]
-                 [:-t [:open-browser "twitter.com"]]
+                 [:-t [:open-browser "toucharcade.com"]]
                  [:-y [:open-browser "youtube.com"]]
                  [:-z [:open-browser "https://github.com/search?q=path%3A*.edn+path%3A**%2Fkarabiner.edn&type=code"]]
                  [:-c [:open-browser "github.com"]]
@@ -441,7 +441,7 @@
         {:des   "escape mode"
          :rules [:escape-mode
                  [:return_or_enter [:open-new "/Applications/WezTerm.app"]]
-                 [:period  [:open-new "/Applications/Arc.app"]]
+                 [:period  [:open-new "/Applications/Brave Browser.app"]]
                  [:spacebar :!Csemicolon]
 
                  [:-n :prev_app]
@@ -460,7 +460,7 @@
 
                  [:-m [:launch "Music"]]
                  [:-s [:launch "Slack"]]
-                 [:-b [:launch "Arc"]]
+                 [:-b [:launch "Brave"]]
                  [:comma [:launch "Messenger"]]
                  [:-w [:launch "WhatsApp"]]
                  [:-l :!!l] ; toggle 1password
