@@ -221,6 +221,7 @@
                  [:!!equal_sign "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Colemak pure'"]
                  [:!!close_bracket "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Default'"]
                  [:!Cspacebar :!Csemicolon]
+                 [:!Ospacebar :!Cspacebar]
                  ;;
                  ]}
 
@@ -474,7 +475,7 @@
         {:des "caps_lock (same as escape-mode)"
          :rules [:caps_lock-mode
                  [:return_or_enter [:open-new "/Applications/WezTerm.app"]]
-                 [:period  [:open-new "/Applications/Arc.app"]]
+                 [:period  [:open-new "/Applications/Brave Browser.app"]]
 
                  [:-n :prev_app]
                  [:-e :next_app]
@@ -492,7 +493,7 @@
 
                  [:-m [:launch "Music"]]
                  [:-s [:launch "Slack"]]
-                 [:-b [:launch "Arc"]]
+                 [:-b [:launch "Brave"]]
                  [:comma [:launch "Messenger"]]
                  [:-w [:launch "WhatsApp"]]
                  [:-l :!!l] ; toggle 1password
