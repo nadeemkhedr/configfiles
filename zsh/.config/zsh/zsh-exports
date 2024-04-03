@@ -19,8 +19,8 @@ export GOPATH="$HOME/.local/share/go"
 # source /Users/nadeemkhedr/.config/broot/launcher/bash/br
 
 # kit
-export PATH="$PATH:/Users/nadeemkhedr/.kenv/bin"
-export PATH="$PATH:/Users/nadeemkhedr/.kit/bin"
+export PATH="$PATH:/Users/$USER/.kenv/bin"
+export PATH="$PATH:/Users/$USER/.kit/bin"
 
 # krew
 export PATH="${PATH}:${HOME}/.krew/bin"
@@ -28,8 +28,6 @@ export PATH="${PATH}:${HOME}/.krew/bin"
 # zsh-history-substring-search
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=green"
 export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red"
-
-export GOOGLE_APPLICATION_CREDENTIALS="/Users/nadeemkhedr/work/screencastify/castify/service-account.json"
 
 # similar to nvm
 eval "$(fnm env)"

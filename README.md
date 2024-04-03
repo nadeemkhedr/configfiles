@@ -19,7 +19,6 @@ cd ./brew
 brew bundle
 ```
 
-## FAQ
 
 ### Karabiner
 
@@ -43,17 +42,12 @@ sudo launchctl config user path "/usr/local/bin:$PATH"
 - `brew leaves --installed-on-request | xargs -n1 brew desc > ./brew/brew-description`
 
 
-### Need to run the following:
+### Zap
 
-**Install Zap** 
+Install Zap for the terminal to work [here](https://www.zapzsh.org/#repos-container)
 
-Link to download Zap: [here](https://www.zapzsh.org/#repos-container)
 
-**Used nerdfonts**
-brew install --cask "font-fira-code-nerd-font"
-brew install --cask "font-iosevka-nerd-font"
-
-**Wezterm custom terminfo**
+### Wezterm custom terminfo
 
 Need to install custom wezterm terminfo [here](https://wezfurlong.org/wezterm/config/lua/config/term.html)
 ```
@@ -62,3 +56,7 @@ tempfile=$(mktemp) \
   && tic -x -o ~/.terminfo $tempfile \
   && rm $tempfile
 ```
+
+### Rust
+
+For cargo to run install rust [here](https://www.rust-lang.org/tools/install)
