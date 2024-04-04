@@ -385,11 +385,16 @@
                  [:-z [:!Ta :z]] ; toggle max/k on a pane
                  [:-x [:!Ta :x]] ; kill pane
                  [:delete [:!Ta :x]] ; kill pane
-                 [:comma [:!Ta :comma]] ; rename pane
+                 [:-r [:!Ta :comma]] ; rename pane
                  [:-c [:!Ta :c]] ; create new window
-                 [:-r [:!Ta :!S5]] ; split h
-                 [:-s [:!Ta :!Squote]] ; split v
+                 [:-s [:!Ta :!S5]] ; split h
+                 [:-v [:!Ta :!Squote]] ; split v
                  [:spacebar [:!Ta :spacebar]] ; cycle layouts
+
+
+                 ; move window left/right (require custom config)
+                 [:-m [:!Ta :!Tj]] ; move between panes
+                 [:comma [:!Ta :!Tk]] ; move between panes
 
                  [:-n [:!Ta :p]] ; prev window
                  [:-e [:!Ta :n]] ; next window
