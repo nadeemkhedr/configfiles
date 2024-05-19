@@ -3,6 +3,10 @@
 
 # history
 HISTFILE=~/.zsh_history
+HISTSIZE=10000
+HISTCONTROL=ignoredups:erasedups
+setopt share_history
+
 
 # sources
 plug "$HOME/.config/zsh/zsh-functions"
