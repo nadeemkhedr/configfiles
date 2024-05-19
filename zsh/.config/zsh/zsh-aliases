@@ -63,3 +63,7 @@ case "$(uname -s)" in
     # echo 'Other OS'
     ;;
 esac
+
+# up and down commands for  zsh-users/zsh-history-substring-search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
