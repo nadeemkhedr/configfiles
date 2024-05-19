@@ -265,6 +265,7 @@
                  [:-b :!Op] ; picture in picture by chrome plugin
                  [:-n :prev_tab]
                  [:-e :next_tab]
+                 [:-w :!CTSw] ; this is a custom shortcut in chrome to move tab to new window
                  [:-o :!CSa] ; search tabs
                  [:-m :tab_move_left]
                  [:comma :tab_move_right]
@@ -387,8 +388,8 @@
                  [:delete [:!Ta :x]] ; kill pane
                  [:-r [:!Ta :comma]] ; rename pane
                  [:-c [:!Ta :c]] ; create new window
-                 [:-s [:!Ta :!S5]] ; split h
-                 [:-v [:!Ta :!Squote]] ; split v
+                 [:-s [:!Ta :!Squote]] ; split v
+                 [:-v [:!Ta :!S5]] ; split h
                  [:spacebar [:!Ta :spacebar]] ; cycle layouts
 
 
