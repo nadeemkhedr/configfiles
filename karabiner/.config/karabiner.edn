@@ -365,7 +365,7 @@
                  [:-k :!Tk]
                  [:-l :!Tl]
                  [:-o :!To]
-                 [:-t :!Tt]
+                 [:-t :!Tslash] ; toggle terminal in lazyvim
                  [:-v :!Tv]
                  [:-x :!Tx]
                  [:-u :!Tu]
@@ -383,7 +383,7 @@
                  [:-k [:!Ta :k]]
                  [:-h [:!Ta :h]]
                  [:-l [:!Ta :l]]
-                 [:-z [:!Ta :z]] ; toggle max/k on a pane
+                 [:-o [:!Ta :z]] ; toggle max/k on a pane
                  [:-x [:!Ta :x]] ; kill pane
                  [:delete [:!Ta :x]] ; kill pane
                  [:-r [:!Ta :comma]] ; rename pane
@@ -399,7 +399,7 @@
 
                  [:-n [:!Ta :p]] ; prev window
                  [:-e [:!Ta :n]] ; next window
-                 [:-o [:!Ta :w]] ; list windows 
+                 ;[:-o [:!Ta :w]] ; list windows 
                  [:return_or_enter [:!Ta :open_bracket]] ; copy mode
                  ;;
                  ]}
