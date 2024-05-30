@@ -19,7 +19,6 @@ cd ./brew
 brew bundle
 ```
 
-
 ### Karabiner
 
 #### `yabai` scripts not working in karabiner
@@ -29,6 +28,10 @@ solution is to run this command:
 
 ```bash
 sudo launchctl config user path "/usr/local/bin:$PATH"
+
+# Updated brew location do this instead
+sudo launchctl config user path "/opt/homebrew/bin:$PATH"
+
 ```
 
 ### Brew
@@ -41,15 +44,14 @@ sudo launchctl config user path "/usr/local/bin:$PATH"
 
 - `brew leaves --installed-on-request | xargs -n1 brew desc > ./brew/brew-description`
 
-
 ### Zap
 
 Install Zap for the terminal to work [here](https://www.zapzsh.org/#repos-container)
 
-
 ### Wezterm custom terminfo
 
 Need to install custom wezterm terminfo [here](https://wezfurlong.org/wezterm/config/lua/config/term.html)
+
 ```
 tempfile=$(mktemp) \
   && curl -o $tempfile https://raw.githubusercontent.com/wez/wezterm/main/termwiz/data/wezterm.terminfo \
