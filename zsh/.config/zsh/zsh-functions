@@ -56,3 +56,14 @@ function obsidian_note() {
   nvim $filePath
 }
 alias on=obsidian_note
+
+# open in quick look (preview) on macos
+function preview() {
+  if [ -z "$1" ]; then
+    echo "Please provide a file name"
+    return 1
+  fi
+
+  qlmanage -p $1 >/dev/null 2>/dev/null &
+}
+alias p=preview
