@@ -39,3 +39,20 @@ function nvims() {
   fi
   NVIM_APPNAME=$config nvim $@
 }
+
+
+function obsidian_note() {
+  if [ -z "$1" ]; then
+    echo "Please provide a file name"
+    return 1
+  fi
+  fileName=$1
+  today=$(date +"%Y-%m-%d")
+
+  # want to touch a new file with today's date and the argument the user added
+  # and then create the file in ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Mind/inbox and open it in nvim
+  filePath=~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Mind/inbox/$today-$fileName.md
+  touch $filePath
+  nvim $filePath
+}
+alias on=obsidian_note
