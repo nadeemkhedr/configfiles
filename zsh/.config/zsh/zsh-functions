@@ -51,7 +51,7 @@ function obsidian_note() {
 
   # want to touch a new file with today's date and the argument the user added
   # and then create the file in ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Mind/inbox and open it in nvim
-  filePath=~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Mind/inbox/$today-$fileName.md
+  filePath=~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Mind/01\ -\ Inbox/$today-$fileName.md
   touch $filePath
   nvim $filePath
 }
