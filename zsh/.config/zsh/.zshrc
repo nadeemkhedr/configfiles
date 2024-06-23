@@ -23,6 +23,7 @@ plug "zap-zsh/fzf"
 plug "zap-zsh/exa"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "zsh-users/zsh-history-substring-search"
+plug "junegunn/fzf-git.sh"
 
 plug "jocelynmallon/zshmarks"
 # custom completions
