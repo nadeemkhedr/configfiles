@@ -19,6 +19,14 @@ cd ./brew
 brew bundle
 ```
 
+### Bat
+
+In order for `bat` to use the new theme you need to run this command:
+
+```bash
+bat cache --build
+```
+
 ### Karabiner
 
 #### `yabai` scripts not working in karabiner
