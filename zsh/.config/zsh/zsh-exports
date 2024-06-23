@@ -13,9 +13,6 @@ export PATH="/opt/homebrew/opt/python@3.12/libexec/bin:$PATH"
 export PATH="$HOME/.local/share/go/bin:$PATH"
 export GOPATH="$HOME/.local/share/go"
 
-# broot
-# source /Users/nadeemkhedr/.config/broot/launcher/bash/br
-
 # kit
 export PATH="$PATH:/Users/$USER/.kenv/bin"
 export PATH="$PATH:/Users/$USER/.kit/bin"

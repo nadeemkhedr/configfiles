@@ -1,0 +1,19 @@
+[alias]
+	root = rev-parse --show-toplevel
+[core]
+	excludesfile = ~/.gitignore_global
+[difftool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
+[user]
+	name = Nadeem Khedr
+	email = nadeemkhedr@gmail.com
+[commit]
+	template = ~/.stCommitMsg
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
