@@ -32,5 +32,8 @@ export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=red"
 # similar to nvm
 eval "$(fnm env)"
 
+# enable z
+eval "$(zoxide init zsh)"
+
 # . /usr/local/etc/profile.d/z.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
