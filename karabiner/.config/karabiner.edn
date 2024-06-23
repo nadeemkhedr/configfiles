@@ -344,8 +344,8 @@
 
         {:des "obsidian"
          :rules [:obsidian
-                 [:left_command :left_command nil {:alone {:key :p :modi :command}}]
-                 [:right_command :right_command nil {:alone {:key :o :modi :command}}]
+                 [:left_command :left_command nil {:alone {:key :o :modi :command}}]
+                 [:right_command :right_command nil {:alone {:key :p :modi :command}}]
                  ;;
                  ]}
 
@@ -365,7 +365,8 @@
                  [:-k :!Tk]
                  [:-l :!Tl]
                  [:-o :!To]
-                 [:-t :!Tslash] ; toggle terminal in lazyvim
+                 [:-t :!Tt] ; toggle terminal in lazyvim
+                 [:slash :!Tslash] ; toggle terminal in lazyvim
                  [:-v :!Tv]
                  [:-x :!Tx]
                  [:-u :!Tu]
