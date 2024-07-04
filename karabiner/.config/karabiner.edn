@@ -459,7 +459,8 @@
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
                  [:-d :f11] ; show desktop
-                 [:delete "yabai -m window --close"]
+                 [:delete :!Cw]
+                 ; [:delete "yabai -m window --close"]
 
                  [:-c :!!c] ; open fantastical
                  [:-p :!!p] ; take a screenshot with snagit
@@ -484,6 +485,7 @@
          :rules [:caps_lock-mode
                  [:return_or_enter [:open-new "/Applications/WezTerm.app"]]
                  [:period  [:open-new "/Applications/Brave Browser.app"]]
+                 [:spacebar :!Csemicolon]
 
                  [:-n :prev_app]
                  [:-e :next_app]
@@ -491,7 +493,8 @@
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
                  [:-d :f11] ; show desktop
-                 [:delete "yabai -m window --close"]
+                 [:delete :!Cw]
+                 ; [:delete "yabai -m window --close"]
 
                  [:-c :!!c] ; open fantastical
                  [:-p :!!p] ; take a screenshot with snagit
