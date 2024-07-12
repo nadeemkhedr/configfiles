@@ -22,7 +22,8 @@ plug "zap-zsh/vim"
 plug "zap-zsh/fzf"
 plug "zap-zsh/exa"
 plug "zsh-users/zsh-syntax-highlighting"
-plug "zsh-users/zsh-history-substring-search"
+# use atuin instead
+# plug "zsh-users/zsh-history-substring-search"
 plug "junegunn/fzf-git.sh"
 
 plug "jocelynmallon/zshmarks"

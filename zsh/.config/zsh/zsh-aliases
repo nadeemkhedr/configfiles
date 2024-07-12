@@ -28,6 +28,13 @@ alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
 alias nvim-kick="NVIM_APPNAME=kickstart nvim"
 alias fvim="NVIM_APPNAME=LazyVim nvim"
 
+# disable to use atuin
 # up and down commands for  zsh-users/zsh-history-substring-search
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
+
+
+# bindings for atuin 
+bindkey '^o' atuin-search
+bindkey '^[[A' atuin-up-search
+bindkey '^[OA' atuin-up-search
