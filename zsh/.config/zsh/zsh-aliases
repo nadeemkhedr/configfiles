@@ -30,3 +30,7 @@ alias fvim="NVIM_APPNAME=LazyVim nvim"
 # up and down commands for  zsh-users/zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+
+# dadjoke using cowsay
+alias joke='cowsay $(http https://icanhazdadjoke.com/ "accept: text/plain" -b)'

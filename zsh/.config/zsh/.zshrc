@@ -19,6 +19,7 @@ plug "zsh-users/zsh-syntax-highlighting"
 # we could use atuin instead, but I like this better
 plug "zsh-users/zsh-history-substring-search"
 plug "junegunn/fzf-git.sh"
+plug "Aloxaf/fzf-tab"
 plug "jocelynmallon/zshmarks"
 
 
