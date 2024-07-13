@@ -1,12 +1,6 @@
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 
-# history
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-HISTCONTROL=ignoredups:erasedups
-setopt share_history
-
 
 # sources
 plug "$HOME/.config/zsh/zsh-functions"
@@ -22,11 +16,28 @@ plug "zap-zsh/vim"
 plug "zap-zsh/fzf"
 plug "zap-zsh/exa"
 plug "zsh-users/zsh-syntax-highlighting"
-# use atuin instead
-# plug "zsh-users/zsh-history-substring-search"
+# we could use atuin instead, but I like this better
+plug "zsh-users/zsh-history-substring-search"
 plug "junegunn/fzf-git.sh"
-
 plug "jocelynmallon/zshmarks"
+
+
+# history
+export HISTFILE=$ZDOTDIR/.zsh_history
+export HISTSIZE=5000000
+export SAVEHIST=$HISTSIZE
+# HISTORY
+setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
+setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
+setopt HIST_IGNORE_ALL_DUPS      # Delete an old recorded event if a new event is a duplicate.
+setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
+setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
+setopt SHARE_HISTORY             # Share history between all sessions.
+# END HISTORY
+
+
 # custom completions
 fpath+="$ZDOTDIR/completion"
 
