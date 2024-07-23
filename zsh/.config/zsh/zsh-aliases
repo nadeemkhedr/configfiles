@@ -23,6 +23,10 @@ alias mux="tmuxinator"
 
 alias starttest='for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done'
 
+# Terraform aliases
+alias tf="terraform"
+alias tg="terragrunt"
+
 alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
 alias nvim-kick="NVIM_APPNAME=kickstart nvim"
 alias fvim="NVIM_APPNAME=LazyVim nvim"
