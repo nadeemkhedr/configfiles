@@ -415,7 +415,7 @@
                  [:-t [:open-browser "toucharcade.com"]]
                  [:-y [:open-browser "youtube.com"]]
                  [:-z [:open-browser "https://github.com/search?q=path%3Akarabiner.edn+&type=code"]]
-                 [:-c [:open-browser "github.com"]]
+                 [:-c [:open-browser "calendar.google.com/calendar/u/1/r"]]
                  [:-i [:open-browser "github.com/Sixergame/sixer-infra"]]
                  ;;
                  ]}
