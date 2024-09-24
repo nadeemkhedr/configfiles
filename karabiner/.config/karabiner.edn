@@ -152,6 +152,15 @@
              :open-new "open -n \"%s\""
              :open-new-args "open -n \"%s\" %s"
              :open-a "open -a '%s'"
+             :restart "osascript -e '
+                        tell application \"%s\" 
+                          if its running then
+                            quit
+                            delay 0.5
+                          end if
+                          activate
+                        end tell
+                      '"
              :paste "osascript -e '
                         set the clipboard to \"%s\"
                         tell application \"System Events\"
@@ -220,8 +229,9 @@
                  [:!!open_bracket "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'QWERTY'"]
                  [:!!equal_sign "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Colemak pure'"]
                  [:!!close_bracket "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Default'"]
-                 [:!Cspacebar :!Csemicolon]
-                 [:!Ospacebar :!Cspacebar]
+                 ; this is for kit
+                 ; [:!Cspacebar :!Csemicolon]
+                 ; [:!Ospacebar :!Cspacebar]
                  ;;
                  ]}
 
@@ -451,7 +461,6 @@
          :rules [:escape-mode
                  [:return_or_enter [:open-new "/Applications/WezTerm.app"]]
                  [:period  [:open-new "/Applications/Brave Browser.app"]]
-                 [:spacebar :!Csemicolon]
 
                  [:-n :prev_app]
                  [:-e :next_app]
@@ -477,6 +486,7 @@
 
                  [:-t [:launch "Todoist"]]
                  [:slash [:launch "Obsidian"]]
+                 [:spacebar :!Csemicolon] ; for kit
                  ;;
                  ]}
 
@@ -485,7 +495,6 @@
          :rules [:caps_lock-mode
                  [:return_or_enter [:open-new "/Applications/WezTerm.app"]]
                  [:period  [:open-new "/Applications/Brave Browser.app"]]
-                 [:spacebar :!Csemicolon]
 
                  [:-n :prev_app]
                  [:-e :next_app]
@@ -511,6 +520,7 @@
 
                  [:-t [:launch "Todoist"]]
                  [:slash [:launch "Obsidian"]]
+                 [:spacebar :!Csemicolon] ; for kit
                  ;;
                  ]}
 
@@ -646,6 +656,7 @@
 
         {:des "m-mode (music player)"
          :rules [:m-mode
+                 [:-q [:restart "Music"]]
                  [:-t :vk_consumer_play]
                  [:-s :vk_consumer_next]
                  [:-r :vk_consumer_previous]
