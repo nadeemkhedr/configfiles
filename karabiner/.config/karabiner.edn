@@ -152,6 +152,13 @@
              :open-new "open -n \"%s\""
              :open-new-args "open -n \"%s\" %s"
              :open-a "open -a '%s'"
+             :quit "osascript -e '
+                        tell application \"%s\" 
+                          if its running then
+                            quit
+                          end if
+                        end tell
+                      '"
              :restart "osascript -e '
                         tell application \"%s\" 
                           if its running then
@@ -487,6 +494,7 @@
                  [:-t [:launch "Todoist"]]
                  [:slash [:launch "Obsidian"]]
                  [:spacebar :!Csemicolon] ; for kit
+                 [:-z [:quit "logioptionsplus_agent"]]
                  ;;
                  ]}
 
