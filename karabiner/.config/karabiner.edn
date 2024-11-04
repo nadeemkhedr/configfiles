@@ -474,7 +474,7 @@
                  [:-i [:activate "wezterm"]]
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
-                 [:-d :f11] ; show desktop
+                 [:-d :!Ff11] ; show desktop
                  [:delete :!Cw]
                  ; [:delete "yabai -m window --close"]
 
@@ -509,7 +509,7 @@
                  [:-i [:activate "wezterm"]]
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
-                 [:-d :f11] ; show desktop
+                 [:-d :!Ff11] ; show desktop
                  [:delete :!Cw]
                  ; [:delete "yabai -m window --close"]
 
