@@ -52,6 +52,20 @@ sudo launchctl config user path "/opt/homebrew/bin:$PATH"
 
 - `brew leaves --installed-on-request | xargs -n1 brew desc > ./brew/brew-description`
 
+### Config commands
+
+```bash
+# Disable animations
+defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
+
+# Ctrl + CMD and drag any part of the window
+defaults write -g NSWindowShouldDragOnGesture -bool true
+
+# Fast key repeat
+defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
+defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
+```
+
 ### Zap
 
 Install Zap for the terminal to work [here](https://www.zapzsh.org/#repos-container)
@@ -60,11 +74,11 @@ Install Zap for the terminal to work [here](https://www.zapzsh.org/#repos-contai
 
 Need to install custom wezterm terminfo [here](https://wezfurlong.org/wezterm/config/lua/config/term.html)
 
-```
+```bash
 tempfile=$(mktemp) \
-  && curl -o $tempfile https://raw.githubusercontent.com/wez/wezterm/main/termwiz/data/wezterm.terminfo \
-  && tic -x -o ~/.terminfo $tempfile \
-  && rm $tempfile
+ && curl -o $tempfile <https://raw.githubusercontent.com/wez/wezterm/main/termwiz/data/wezterm.terminfo> \
+ && tic -x -o ~/.terminfo $tempfile \
+ && rm $tempfile
 ```
 
 ### Rust
