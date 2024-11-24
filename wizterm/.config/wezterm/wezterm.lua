@@ -72,9 +72,15 @@ return {
 			}),
 		},
 	},
-  keys = {
-    { mods = "CTRL", key = "q", action=wezterm.action{ SendString="\x11" } }, -- ctrl+q to send ctrl+q
-  },
+	keys = {
+		{ mods = "CTRL", key = "q", action = wezterm.action({ SendString = "\x11" }) }, -- ctrl+q to send ctrl+q
+		-- by default alt-enter is bound to toggle_fullscreen, disable it
+		{
+			key = "Enter",
+			mods = "ALT",
+			action = wezterm.action.DisableDefaultAssignment,
+		},
+	},
 	-- leader = { key = "a", mods = "CTRL" },
 	-- keys = {
 	-- 	-- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
