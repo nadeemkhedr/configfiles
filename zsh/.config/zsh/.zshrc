@@ -1,3 +1,6 @@
+# enable this and last line to profile start up time
+# zmodload zsh/zprof
+
 # Created by Zap installer
 [ -f "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh" ] && source "${XDG_DATA_HOME:-$HOME/.local/share}/zap/zap.zsh"
 
@@ -51,3 +54,6 @@ autoload -Uz compinit && compinit
 # this has to be initialized after bashcompinit
 complete -C '/usr/local/bin/aws_completer' aws
 source <(kubectl completion zsh)
+
+# Enable this and first time to profile startup time
+# zprof
