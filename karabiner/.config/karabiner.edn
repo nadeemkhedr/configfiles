@@ -478,8 +478,10 @@
                  [:delete :!Cw]
                  ; [:delete "yabai -m window --close"]
 
-                 [:-c :!!c] ; open fantastical
-                 [:-p :!!p] ; take a screenshot with snagit
+                 [:-c :!!c] ; open calendar
+                 [:-w :!!w] ; open desk (bartender)
+                 [:-a :!!a] ; toggle menubar (bartenter)
+                 [:-p :!!p] ; take a screenshot 
 
                  ;; restart karabiner
                  [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
@@ -488,7 +490,6 @@
                  [:-s [:launch "Slack"]]
                  [:-b [:launch "Brave"]]
                  [:comma [:launch "Messenger"]]
-                 [:-w [:launch "WhatsApp"]]
                  [:-l :!!l] ; toggle 1password
 
                  [:-t [:launch "Todoist"]]
@@ -513,8 +514,10 @@
                  [:delete :!Cw]
                  ; [:delete "yabai -m window --close"]
 
-                 [:-c :!!c] ; open fantastical
-                 [:-p :!!p] ; take a screenshot with snagit
+                 [:-c :!!c] ; open calendar
+                 [:-w :!!w] ; open desk (bartender)
+                 [:-a :!!a] ; toggle menubar (bartenter)
+                 [:-p :!!p] ; take a screenshot 
 
                  ;; restart karabiner
                  [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
@@ -523,7 +526,6 @@
                  [:-s [:launch "Slack"]]
                  [:-b [:launch "Brave"]]
                  [:comma [:launch "Messenger"]]
-                 [:-w [:launch "WhatsApp"]]
                  [:-l :!!l] ; toggle 1password
 
                  [:-t [:launch "Todoist"]]
