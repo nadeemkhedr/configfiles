@@ -79,3 +79,11 @@ function yazi_cd() {
 	rm -f -- "$tmp"
 }
 alias yy=yazi_cd
+
+
+
+# list windows in aerospace and switch on enter
+function ff() {
+  aerospace list-windows --all | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
+}
+
