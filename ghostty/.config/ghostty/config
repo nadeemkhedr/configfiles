@@ -1,0 +1,15 @@
+# UI
+font-size = 18
+background-opacity = 0.9
+theme = nightfox
+
+# UI Config
+macos-titlebar-style = hidden
+window-padding-x = 0
+window-padding-y = 0
+
+# Config
+quit-after-last-window-closed = true
+
+# Shortcuts
+keybind = global:cmd+ctrl+option+/=toggle_quick_terminal

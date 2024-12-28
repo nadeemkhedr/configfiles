@@ -148,6 +148,16 @@
                                 open location \"http://\" & address
                         end tell
                            '"
+             :open-new-osa "osascript -e '
+                        tell application \"%s\" 
+                          if it is running then
+                            activate
+                            tell application \"System Events\" to keystroke \"n\" using {command down}
+                          else
+                            activate
+                          end if
+                        end tell
+                      '"
              :open "open \"%s\""
              :open-new "open -n \"%s\""
              :open-new-args "open -n \"%s\" %s"
@@ -195,7 +205,7 @@
                 :code ["com.microsoft.VSCode"]
                 :slack ["com.tinyspeck.slackmacgap"]
                 :messenger ["com.facebook.archon"]
-                :terminals ["com.apple.Terminal", "com.googlecode.iterm2", "io.alacritty", "net.kovidgoyal.kitty", "com.github.wez.wezterm"]
+                :terminals ["com.apple.Terminal", "com.googlecode.iterm2", "io.alacritty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "com.mitchellh.ghostty"]
                 :obsidian ["md.obsidian"]
                 :todoist ["com.todoist.mac.Todoist"]
                 :finder ["com.apple.finder"]
@@ -466,12 +476,12 @@
 
         {:des   "escape mode"
          :rules [:escape-mode
-                 [:return_or_enter [:open-new "/Applications/WezTerm.app"]]
+                 [:return_or_enter [:open-new-osa "Ghostty"]]
                  [:period  [:open-new "/Applications/Brave Browser.app"]]
 
                  [:-n :prev_app]
                  [:-e :next_app]
-                 [:-i [:activate "wezterm"]]
+                 [:-i [:activate "Ghostty"]]
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
                  [:-d :!Ff11] ; show desktop
@@ -491,9 +501,8 @@
                  [:-b [:launch "Brave"]]
                  [:comma [:launch "Messenger"]]
                  [:-l :!!l] ; toggle 1password
-
-                 [:-t [:launch "Todoist"]]
-                 [:slash [:launch "Obsidian"]]
+                 [:-t [:launch "Obsidian"]]
+                 [:slash [:!CTOslash]]
                  [:spacebar :!Csemicolon] ; for kit
                  [:-z [:quit "logioptionsplus_agent"]]
                  ;;
@@ -502,12 +511,12 @@
         ;; for keyboards with capslock
         {:des "caps_lock (same as escape-mode)"
          :rules [:caps_lock-mode
-                 [:return_or_enter [:open-new "/Applications/WezTerm.app"]]
+                 [:return_or_enter [:open-new-osa "Ghostty"]]
                  [:period  [:open-new "/Applications/Brave Browser.app"]]
 
                  [:-n :prev_app]
                  [:-e :next_app]
-                 [:-i [:activate "wezterm"]]
+                 [:-i [:activate "Ghostty"]]
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
                  [:-d :!Ff11] ; show desktop
@@ -527,10 +536,10 @@
                  [:-b [:launch "Brave"]]
                  [:comma [:launch "Messenger"]]
                  [:-l :!!l] ; toggle 1password
-
-                 [:-t [:launch "Todoist"]]
-                 [:slash [:launch "Obsidian"]]
+                 [:-t [:launch "Obsidian"]]
+                 [:slash [:!CTOslash]]
                  [:spacebar :!Csemicolon] ; for kit
+                 [:-z [:quit "logioptionsplus_agent"]]
                  ;;
                  ]}
 
