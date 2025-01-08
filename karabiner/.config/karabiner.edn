@@ -501,8 +501,7 @@
                  [:-b [:launch "Brave"]]
                  [:comma [:launch "Messenger"]]
                  [:-l :!!l] ; toggle 1password
-                 [:-t [:launch "Obsidian"]]
-                 [:slash [:!CTOslash]]
+                 [:slash [:launch "Obsidian"]]
                  [:spacebar :!Csemicolon] ; for kit
                  [:-z [:quit "logioptionsplus_agent"]]
                  ;;
@@ -536,8 +535,7 @@
                  [:-b [:launch "Brave"]]
                  [:comma [:launch "Messenger"]]
                  [:-l :!!l] ; toggle 1password
-                 [:-t [:launch "Obsidian"]]
-                 [:slash [:!CTOslash]]
+                 [:slash [:launch "Obsidian"]]
                  [:spacebar :!Csemicolon] ; for kit
                  [:-z [:quit "logioptionsplus_agent"]]
                  ;;
