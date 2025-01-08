@@ -4,6 +4,9 @@
 # export PATH="$PATH:/opt/homebrew/bin"
 # export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
 
+# Homebrew config
+export HOMEBREW_BUNDLE_DUMP_NO_VSCODE="true"
+
 export PATH="$HOME/.local/bin:$PATH"
 
 # python
