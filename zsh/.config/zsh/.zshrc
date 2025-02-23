@@ -16,12 +16,10 @@ plug "zsh-users/zsh-autosuggestions"
 plug "hlissner/zsh-autopair"
 plug "zap-zsh/supercharge"
 plug "zap-zsh/vim"
-plug "zap-zsh/fzf"
 plug "zap-zsh/exa"
 plug "zsh-users/zsh-syntax-highlighting"
 # we could use atuin instead, but I like this better
 plug "zsh-users/zsh-history-substring-search"
-plug "junegunn/fzf-git.sh"
 plug "Aloxaf/fzf-tab"
 plug "jocelynmallon/zshmarks"
 
@@ -48,11 +46,11 @@ fpath+="$ZDOTDIR/completion"
 #compinit
 
 # try this for aws instead of just using compinit
-autoload bashcompinit && bashcompinit
+# autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 
 # this has to be initialized after bashcompinit
-complete -C '/usr/local/bin/aws_completer' aws
+# complete -C '/usr/local/bin/aws_completer' aws
 source <(kubectl completion zsh)
 
 # Enable this and first time to profile startup time
