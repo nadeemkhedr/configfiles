@@ -15,4 +15,3 @@ quit-after-last-window-closed = true
 
 # Shortcuts
 keybind = global:cmd+ctrl+option+/=toggle_quick_terminal
-keybind = shift+enter=text:\n
