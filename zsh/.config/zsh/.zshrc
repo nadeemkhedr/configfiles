@@ -17,11 +17,14 @@ plug "hlissner/zsh-autopair"
 plug "zap-zsh/supercharge"
 plug "zap-zsh/vim"
 plug "zap-zsh/exa"
-plug "zsh-users/zsh-syntax-highlighting"
 # we could use atuin instead, but I like this better
 plug "zsh-users/zsh-history-substring-search"
-plug "Aloxaf/fzf-tab"
 plug "jocelynmallon/zshmarks"
+
+# Disable fzf-tab as it can cause slowdowns
+# plug "Aloxaf/fzf-tab"
+# Load syntax highlighting last
+plug "zsh-users/zsh-syntax-highlighting"
 
 
 # history
