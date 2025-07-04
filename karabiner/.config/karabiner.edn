@@ -493,6 +493,8 @@
                  [:-a :!!a] ; toggle menubar (bartenter)
                  [:-p :!!p] ; take a screenshot 
 
+                 [:-g :!!g] ; used for presentify
+
                  ;; restart karabiner
                  [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
 
