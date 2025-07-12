@@ -1,0 +1,6 @@
+[gaps]
+outer.right = 80
+outer.left = 80
+
+[mode.main.binding]
+alt-g = 'exec-and-forget ~/.config/aerospace/switch-config.sh gaps'

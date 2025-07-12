@@ -1,2 +1,4 @@
 .clj-kondo
 .lsp/.cache/db.transit.json
+aerospace-gaps.toml
+aerospace-nogaps.toml

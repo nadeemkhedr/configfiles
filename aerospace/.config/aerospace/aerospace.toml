@@ -65,16 +65,18 @@ preset = 'qwerty'
 [gaps]
 inner.horizontal = 40
 inner.vertical = 40
-outer.left = 80
 outer.bottom = 20
 outer.top = 20
-outer.right = 80
+outer.left = 500
+outer.right = 500
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
 # Fallback value (if you omit the key): mode.main.binding = {}
 [mode.main.binding]
+
+alt-g = 'exec-and-forget ~/.config/aerospace/switch-config.sh nogaps'
 
 # All possible keys:
 # - Letters.        a, b, c, ..., z
