@@ -13,6 +13,6 @@ Anytime aerospace config is updated run this command
 
 ```
 # in ~/.config/aerospace
-cp aerospace.toml aerospace-gaps.toml
-toml-cli merge aerospace.toml nogaps-override.toml -o aerospace-nogaps.toml
+cp ~/.config/aerospace/aerospace.toml ~/.config/aerospace/aerospace-gaps.toml
+toml-cli merge ~/.config/aerospace/aerospace.toml ~/.config/aerospace/nogaps-override.toml -o ~/.config/aerospace/aerospace-nogaps.toml
 ```
