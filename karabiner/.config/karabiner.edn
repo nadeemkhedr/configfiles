@@ -411,6 +411,8 @@
                  [:-k [:!Ta :k]]
                  [:-h [:!Ta :h]]
                  [:-l [:!Ta :l]]
+                 [:-t [:!Ta :t]]
+                 [:-semicolon [:!Ta :!Sl]] ; move between sessions
                  [:-o [:!Ta :z]] ; toggle max/k on a pane
                  [:-x [:!Ta :x]] ; kill pane
                  [:delete [:!Ta :x]] ; kill pane
