@@ -1,6 +1,7 @@
 # UI
 font-size = 18
-background-opacity = 0.9
+background-opacity = 0.8
+background-blur = 50
 theme = nightfox
 
 # UI Config
