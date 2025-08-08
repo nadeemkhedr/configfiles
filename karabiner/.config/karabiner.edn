@@ -202,7 +202,7 @@
  :applications {;;
                 :chromes ["com.brave.Browser", "com.google.Chrome"]
                 :arc ["company.thebrowser.Browser"]
-                :code ["com.microsoft.VSCode"]
+                :code ["com.microsoft.VSCode", "com.todesktop.230313mzl4w4u92"] ; vscode , cursor
                 :slack ["com.tinyspeck.slackmacgap"]
                 :messenger ["com.facebook.archon"]
                 :terminals ["com.apple.Terminal", "com.googlecode.iterm2", "io.alacritty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "com.mitchellh.ghostty"]
