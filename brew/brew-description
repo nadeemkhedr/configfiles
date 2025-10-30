@@ -1,0 +1,61 @@
+argocd: GitOps Continuous Delivery for Kubernetes
+asciinema: Record and share terminal sessions
+asciiquarium: Aquarium animation in ASCII art
+atuin: Improved shell history for zsh, bash, fish and nushell
+bat: Clone of cat(1) with syntax highlighting and Git integration
+audiowaveform: Generate waveform data and render waveform images from audio files
+chafa: Versatile and fast Unicode/ASCII/ANSI graphics renderer
+cmatrix: Console Matrix
+cowsay: Apjanke's fork of the classic cowsay project
+curl: Get a file from an HTTP, HTTPS or FTP server
+eza: Modern, maintained replacement for ls
+fastfetch: Like neofetch, but much faster because written mostly in C
+fd: Simple, fast and user-friendly alternative to find
+borders: A window border system for macOS
+ffmpeg: Play, record, convert, and stream audio and video
+fish: User-friendly command-line shell for UNIX-like operating systems
+fnm: Fast and simple Node.js version manager
+fpp: CLI program that accepts piped input and presents files for selection
+fzf: Command-line fuzzy finder written in Go
+gh: GitHub command-line tool
+git: Distributed revision control system
+git-delta: Syntax-highlighting pager for git and diff output
+gnu-sed: GNU implementation of the famous stream editor
+go: Open source programming language to build simple/reliable/efficient software
+greed: Game of consumption
+hadolint: Smarter Dockerfile linter to validate best practices
+terraform: Terraform
+helm: Kubernetes package manager
+httpie: User-friendly cURL replacement (command-line HTTP client)
+jq: Lightweight and flexible command-line JSON processor
+k9s: Kubernetes CLI To Manage Your Clusters In Style!
+krew: Package manager for kubectl plugins
+lazygit: Simple terminal UI for git commands
+libpq: Postgres C API library
+lolcat: Rainbows and unicorns in your console!
+luarocks: Package manager for the Lua programming language
+markdownlint-cli: CLI for Node.js style checker and lint tool for Markdown files
+neofetch: Fast, highly customisable system info script
+ninja: Small build system for use with gyp or CMake
+bun: Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+pipx: Execute binaries from Python packages in isolated environments
+python@3.11: Interpreted, interactive, object-oriented programming language
+python@3.12: Interpreted, interactive, object-oriented programming language
+ripgrep: Search tool like grep and The Silver Searcher
+rom-tools: Tools for Multiple Arcade Machine Emulator
+sesh: Smart session manager for the terminal
+shellcheck: Static analysis and lint tool, for (ba)sh scripts
+sshuttle: Proxy server that works as a poor man's VPN
+stow: Organize software neatly under a single directory tree (e.g. /usr/local)
+taplo: TOML toolkit written in Rust
+terragrunt: Thin wrapper for Terraform e.g. for locking state
+ascii-image-converter: Convert images into ascii art
+tldr: Simplified and community-driven man pages
+tmuxinator: Manage complex tmux sessions easily
+tokei: Program that allows you to count code, quickly
+wget: Internet file retriever
+xcodegen: Generate your Xcode project from a spec file and your folder structure
+yazi: Blazing fast terminal file manager written in Rust, based on async I/O
+goku: karabiner configurator
+zoxide: Shell extension to navigate your filesystem faster
+zsh: UNIX shell (command interpreter)
