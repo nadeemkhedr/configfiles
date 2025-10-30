@@ -58,3 +58,6 @@ source <(kubectl completion zsh)
 
 # Enable this and first time to profile startup time
 # zprof
+
+# bun completions
+[ -s "/Users/nadeemkhedr/.bun/_bun" ] && source "/Users/nadeemkhedr/.bun/_bun"
