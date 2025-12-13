@@ -63,20 +63,18 @@ preset = 'qwerty'
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 40
-inner.vertical = 40
-outer.bottom = 20
-outer.top = 20
-outer.left = 500
-outer.right = 500
+inner.horizontal = 20
+inner.vertical = 20
+outer.bottom = 0
+outer.top = 0
+outer.left = 20
+outer.right = 20
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
 # Fallback value (if you omit the key): mode.main.binding = {}
 [mode.main.binding]
-
-alt-g = 'exec-and-forget ~/.config/aerospace/switch-config.sh nogaps'
 
 # All possible keys:
 # - Letters.        a, b, c, ..., z
