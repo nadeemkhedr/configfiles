@@ -491,14 +491,13 @@
                  ; [:delete "yabai -m window --close"]
 
                  [:-c :!!c] ; open calendar
-                 [:-w :!!w] ; open desk (bartender)
+                 [:-w :!!w]                 
                  [:-a :!!a] ; toggle menubar (bartenter)
                  [:-p :!!p] ; take a screenshot 
 
                  [:-g :!!g] ; used for presentify
 
-                 ;; restart karabiner
-                 [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
+                 [:-k :!!k]
 
                  [:-m [:launch "Music"]]
                  [:-s [:launch "Slack"]]
@@ -527,12 +526,11 @@
                  ; [:delete "yabai -m window --close"]
 
                  [:-c :!!c] ; open calendar
-                 [:-w :!!w] ; open desk (bartender)
+                 [:-w :!!w]
                  [:-a :!!a] ; toggle menubar (bartenter)
                  [:-p :!!p] ; take a screenshot 
 
-                 ;; restart karabiner
-                 [:-k "launchctl kickstart -k org.pqrs.karabiner.karabiner_console_user_server"]
+                 [:-k :!!k]
 
                  [:-m [:launch "Music"]]
                  [:-s [:launch "Slack"]]
