@@ -4,6 +4,9 @@ background-opacity = 0.8
 background-blur = 50
 theme = nightfox
 
+# required to use key bindings involving Alt
+macos-option-as-alt = true
+
 # UI Config
 macos-titlebar-style = hidden
 window-padding-x = 0
