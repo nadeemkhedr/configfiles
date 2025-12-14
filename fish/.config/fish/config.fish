@@ -1,6 +1,3 @@
-alias j="jump"
-alias k="kubectl"
-
 fish_vi_key_bindings
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
 
@@ -8,6 +5,16 @@ fzf --fish | source
 starship init fish | source
 zoxide init fish | source
 atuin init fish --disable-up-arrow | source
+
+# Bindings
+
+alias j="jump"
+alias k="kubectl"
+# eza
+alias ls='eza --group-directories-first --icons=auto'
+alias ll='ls -lh --git'
+alias la='ll -a'
+alias tree='ll --tree --level=2'
 
 abbr s 'sesh connect "$(sesh list -i | gum filter --limit 1 --placeholder \'Pick a sesh\' --prompt=\'⚡\')"'
 
