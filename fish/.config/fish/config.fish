@@ -9,6 +9,8 @@ starship init fish | source
 zoxide init fish | source
 atuin init fish --disable-up-arrow | source
 
+abbr s 'sesh connect "$(sesh list -i | gum filter --limit 1 --placeholder \'Pick a sesh\' --prompt=\'⚡\')"'
+
 # Change default pager
 # TODO: fix colors of nvimpager
 # set -Ux PAGER "~/.local/bin/nvimpager" # 'lucc/nvimpager'
