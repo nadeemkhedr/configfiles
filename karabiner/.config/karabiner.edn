@@ -597,13 +597,13 @@
          :rules [:movement-mode
                  [:##j :left_arrow] ; n in colemak
                  [:##k :down_arrow] ; e in colemak
-                 [:##l :up_arrow] ; i in colemak
-                 [:##semicolon :right_arrow] ; o in colemak
+                 [:##i :up_arrow] ; u in colemak
+                 [:##l :right_arrow] ; i in colemak
 
                  [:##u :!Oleft_arrow] ; l in colemak
-                 [:##i :!Odown_arrow] ; u in colemak
-                 [:##o :!Oup_arrow] ; y in colemak
-                 [:##p :!Oright_arrow] ; semi-colon in colemak
+                 [:##o :!Oright_arrow] ; y in colemak
+                 [:##y :!Odown_arrow] ; j in colemak
+                 [:##h :!Oup_arrow] ; h in colemak
 
                  [:##m :!Cleft_arrow] ; m in colemak
                  [:##comma :home] ; , in colemak
