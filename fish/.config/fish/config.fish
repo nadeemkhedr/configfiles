@@ -15,6 +15,7 @@ alias ls='eza --group-directories-first --icons=auto'
 alias ll='ls -lh --git'
 alias la='ll -a'
 alias tree='ll --tree --level=2'
+alias oo='cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Mind'
 
 abbr s 'sesh connect "$(sesh list -i | gum filter --limit 1 --placeholder \'Pick a sesh\' --prompt=\'⚡\')"'
 
