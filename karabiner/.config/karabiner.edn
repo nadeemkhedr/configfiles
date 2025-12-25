@@ -227,7 +227,6 @@
              :j-mode {:key :y} ; window managment (amethyst)
              :tilde-mode {:key :grave_accent_and_tilde}
              :emoji-mode {:key :z}
-             :open-mode {:key :semicolon}; "o" in colemak, project open
 
              :shift-mode {:key :d} ; "s" on colemak
              :movement-mode {:key :f} ; "t" on colemak
@@ -244,12 +243,9 @@
                  [:right_shift :right_shift nil {:alone :delete_forward}]
                  ; change profiles in karabiner
                  [:!!open_bracket "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'QWERTY'"]
-                 [:!!equal_sign "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Colemak pure'"]
                  [:!!close_bracket "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Default'"]
-                 ; this is for kit
-                 ; [:!Cspacebar :!Csemicolon]
-                 ; [:!Ospacebar :!Cspacebar]
-                 ;;
+                 ; both cmds will be f12
+                 [{:key :right_command :modi {:mandatory [:left_command] :optional  [:any]}} :f12]
                  ]}
 
         {:des "finder"
@@ -433,21 +429,6 @@
                  [:return_or_enter [:!Ta :open_bracket]] ; copy mode
                  ;;
                  ]}
-        ;;
-        {:des "o-mode"
-         :rules [:open-mode
-                 [:-e [:open-browser "engadget.com"]]
-                 [:-g [:open-browser "mail.google.com/mail/u/1"]]
-                 [:-p [:open-browser "mail.google.com/mail/u/0"]]
-                 [:-l [:open-browser "localhost:3000"]]
-                 [:-m [:open-browser "monkeytype.com"]]
-                 [:-t [:open-browser "toucharcade.com"]]
-                 [:-y [:open-browser "youtube.com"]]
-                 [:-z [:open-browser "https://github.com/search?q=path%3Akarabiner.edn+&type=code"]]
-                 [:-c [:open-browser "calendar.google.com/calendar/u/1/r"]]
-                 [:-i [:open-browser "github.com/Sixergame/sixer-infra"]]
-                 ;;
-                 ]}
 
         {:des "u-mode (window managment/desktop)"
          :rules [:j-mode
@@ -486,7 +467,7 @@
                  [:-i [:activate "Ghostty"]]
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
-                 [:-d :!Ff11] ; show desktop
+                 [:-d :f11] ; show desktop
                  [:delete :!Cw]
                  ; [:delete "yabai -m window --close"]
 
@@ -500,7 +481,7 @@
                  [:-k :!!k]
 
                  [:-m [:launch "Music"]]
-                 [:-s [:launch "Slack"]]
+                 [:-s [:launch "Discord"]] ; active work chat app
                  [:-b [:launch "Brave"]]
                  [:comma [:launch "Messenger"]]
                  [:-l :!!l] ; toggle 1password
@@ -521,7 +502,7 @@
                  [:-i [:activate "Ghostty"]]
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
-                 [:-d :!Ff11] ; show desktop
+                 [:-d :f11] ; show desktop
                  [:delete :!Cw]
                  ; [:delete "yabai -m window --close"]
 
