@@ -1,0 +1,165 @@
+{
+  "actions" : [
+    {
+      "key" : "/",
+      "type" : "application",
+      "value" : "/Applications/Obsidian.app"
+    },
+    {
+      "actions" : [
+        {
+          "iconPath" : "/Applications/ChatGPT.app",
+          "key" : "a",
+          "label" : "ChatGPT (Quick Chat)",
+          "type" : "command",
+          "value" : "send-keys cmd+opt+ctrl+a"
+        },
+        {
+          "iconPath" : "/Applications/superwhisper.app",
+          "key" : "r",
+          "label" : "Superwhisper",
+          "type" : "command",
+          "value" : "send-keys 'cmd+opt+ctrl+;'"
+        },
+        {
+          "key" : "s",
+          "type" : "application",
+          "value" : "/Applications/ChatGPT.app"
+        }
+      ],
+      "iconPath" : "theatermasks.fill",
+      "key" : "a",
+      "label" : "AI",
+      "type" : "group"
+    },
+    {
+      "key" : "b",
+      "type" : "application",
+      "value" : "/Applications/Brave Browser.app"
+    },
+    {
+      "key" : "c",
+      "label" : "Calender",
+      "type" : "command",
+      "value" : "send-keys hyper+c"
+    },
+    {
+      "key" : "g",
+      "type" : "application",
+      "value" : "/Applications/Steam.app"
+    },
+    {
+      "key" : "i",
+      "type" : "application",
+      "value" : "/Applications/Ghostty.app"
+    },
+    {
+      "actions" : [
+        {
+          "iconPath" : "speaker.plus.fill",
+          "key" : "f",
+          "label" : "Music Volume up",
+          "type" : "command",
+          "value" : "music-player vol_up"
+        },
+        {
+          "key" : "m",
+          "type" : "application",
+          "value" : "/System/Applications/Music.app"
+        },
+        {
+          "iconPath" : "backward.fill",
+          "key" : "r",
+          "label" : "Prev Track",
+          "type" : "command",
+          "value" : "music-player next"
+        },
+        {
+          "iconPath" : "forward.fill",
+          "key" : "s",
+          "label" : "Next Track",
+          "type" : "command",
+          "value" : "music-player next"
+        },
+        {
+          "iconPath" : "playpause.fill",
+          "key" : "t",
+          "label" : "Play/Pause",
+          "type" : "command",
+          "value" : "music-player playpause"
+        },
+        {
+          "iconPath" : "speaker.minus.fill",
+          "key" : "w",
+          "label" : "Music Volume down",
+          "type" : "command",
+          "value" : "music-player vol_down"
+        }
+      ],
+      "iconPath" : "/System/Applications/Music.app",
+      "key" : "m",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "c",
+          "label" : "Work Calendar",
+          "type" : "command",
+          "value" : "open-browser calendar.google.com/calendar/u/1/r"
+        },
+        {
+          "key" : "e",
+          "label" : "Engadget",
+          "type" : "command",
+          "value" : "open-browser engadget.com"
+        },
+        {
+          "key" : "g",
+          "label" : "Work Email",
+          "type" : "command",
+          "value" : "open-browser \"mail.google.com/mail/u/1\""
+        },
+        {
+          "key" : "m",
+          "label" : "Monkeytype",
+          "type" : "command",
+          "value" : "open-browser monkeytype.com"
+        },
+        {
+          "key" : "p",
+          "label" : "Personal Email",
+          "type" : "command",
+          "value" : "open-browser \"mail.google.com/mail/u/0\""
+        },
+        {
+          "key" : "y",
+          "label" : "Youtube",
+          "type" : "command",
+          "value" : "open-browser youtube.com"
+        },
+        {
+          "key" : "z",
+          "label" : "Github",
+          "type" : "command",
+          "value" : "open-browser github.com"
+        },
+        {
+          "key" : "x",
+          "type" : "command",
+          "value" : "open-browser x.com"
+        }
+      ],
+      "iconPath" : "globe",
+      "key" : "o",
+      "label" : "Open website",
+      "type" : "group"
+    },
+    {
+      "key" : "d",
+      "type" : "application",
+      "value" : "/Applications/Discord.app"
+    }
+  ],
+  "type" : "group"
+}
