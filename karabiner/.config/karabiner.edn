@@ -245,7 +245,12 @@
                  [:!!open_bracket "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'QWERTY'"]
                  [:!!close_bracket "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Default'"]
                  ; both cmds will be f12
-                 [{:key :right_command :modi {:mandatory [:left_command] :optional  [:any]}} :f12]
+                 ;[{:key :right_command :modi {:mandatory [:left_command] :optional  [:any]}} :f12]
+                 
+
+                 ; map clicking on right-command or clicking on left option would show `leaderkey`
+                 [:right_command :right_command nil {:alone :!Ospacebar}] 
+                 [:left_option :left_option nil {:alone :!Ospacebar}]
                  ]}
 
         {:des "finder"

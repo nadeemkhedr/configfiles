@@ -22,6 +22,8 @@ chsh -s $(which fish)
 
 ## leader-key
 
+Assign `options+space` to leaderkey
+
 After installing leader-key using `brew` need to configure it from the GUI
 to look for the config in `~/.config/leaderkey`
 
