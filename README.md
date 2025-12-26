@@ -12,14 +12,34 @@ stow */ # Everything (the '/' ignores the README)
 stow zsh # My zsh config
 ```
 
-## Install brew packages
+## Fish
+
+Make fish the default terminal
 
 ```bash
-cd ./brew
-brew bundle
+chsh -s $(which fish)
 ```
 
-### Bat
+## leader-key
+
+After installing leader-key using `brew` need to configure it from the GUI
+to look for the config in `~/.config/leaderkey`
+
+## Scripts
+
+I am using different scripts to use with different apps
+need to soft link the scripts to be used globally.
+These scripts are mainly used with `leaderkey` and `kando`
+
+```bash
+cd ./scripts
+sudo ln -s ./music-player.sh /usr/local/bin/music-player
+sudo ln -s ./open-browser.sh /usr/local/bin/open-browser
+sudo ln -s ./send-keys.sh /usr/local/bin/send-keys
+sudo ln -s ./toggle-desk.sh /usr/local/bin/toggle-desk
+```
+
+## Bat
 
 In order for `bat` to use the new theme you need to run this command:
 
@@ -27,9 +47,9 @@ In order for `bat` to use the new theme you need to run this command:
 bat cache --build
 ```
 
-### Karabiner
+## Karabiner
 
-#### `yabai` scripts not working in karabiner
+### `yabai` scripts not working in karabiner
 
 Check this issue [here](https://github.com/yqrashawn/GokuRakuJoudo/issues/67),
 solution is to run this command:
@@ -42,17 +62,24 @@ sudo launchctl config user path "/opt/homebrew/bin:$PATH"
 
 ```
 
-### Brew
+## Brew
 
-#### Create a new dump in brew
+### Install brew packages
+
+```bash
+cd ./brew
+brew bundle
+```
+
+### Create a new dump in brew
 
 - `brew bundle dump`
 
-#### Generate `brew-description`
+### Generate `brew-description`
 
 - `brew leaves --installed-on-request | xargs -n1 brew desc > ./brew/brew-description`
 
-### Config commands
+## Macos config commands
 
 ```bash
 # Disable animations
@@ -66,21 +93,6 @@ defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
 defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 ```
 
-### Zap
-
-Install Zap for the terminal to work [here](https://www.zapzsh.org/#repos-container)
-
-### Wezterm custom terminfo
-
-Need to install custom wezterm terminfo [here](https://wezfurlong.org/wezterm/config/lua/config/term.html)
-
-```bash
-tempfile=$(mktemp) \
- && curl -o $tempfile <https://raw.githubusercontent.com/wez/wezterm/main/termwiz/data/wezterm.terminfo> \
- && tic -x -o ~/.terminfo $tempfile \
- && rm $tempfile
-```
-
-### Rust
+## Rust
 
 For cargo to run install rust [here](https://www.rust-lang.org/tools/install)
