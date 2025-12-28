@@ -38,10 +38,23 @@
       "value" : "/Applications/Brave Browser.app"
     },
     {
+      "iconPath" : "/Applications/Brave Browser.app",
+      "key" : "B",
+      "label" : "Brave (New window)",
+      "type" : "command",
+      "value" : "open -n -a \"Brave Browser\""
+    },
+    {
+      "iconPath" : "calendar",
       "key" : "c",
       "label" : "Calender",
       "type" : "command",
       "value" : "send-keys hyper+c"
+    },
+    {
+      "key" : "d",
+      "type" : "application",
+      "value" : "/Applications/Discord.app"
     },
     {
       "key" : "g",
@@ -54,11 +67,25 @@
       "value" : "/Applications/Ghostty.app"
     },
     {
+      "iconPath" : "/Applications/Ghostty.app",
+      "key" : "I",
+      "label" : "Ghostty (New window)",
+      "type" : "command",
+      "value" : "open-new-osa Ghostty"
+    },
+    {
       "actions" : [
+        {
+          "iconPath" : "hifispeaker.and.homepod.mini.badge.plus.fill",
+          "key" : "c",
+          "label" : "Music Volume up",
+          "type" : "command",
+          "value" : "music-player music_vol_up"
+        },
         {
           "iconPath" : "speaker.plus.fill",
           "key" : "f",
-          "label" : "Music Volume up",
+          "label" : "Volume up",
           "type" : "command",
           "value" : "music-player vol_up"
         },
@@ -91,9 +118,16 @@
         {
           "iconPath" : "speaker.minus.fill",
           "key" : "w",
-          "label" : "Music Volume down",
+          "label" : "Volume down",
           "type" : "command",
           "value" : "music-player vol_down"
+        },
+        {
+          "iconPath" : "hifispeaker.and.homepod.mini.badge.minus.fill",
+          "key" : "x",
+          "label" : "Music Volume down",
+          "type" : "command",
+          "value" : "music-player music_vol_down"
         }
       ],
       "iconPath" : "/System/Applications/Music.app",
@@ -133,6 +167,11 @@
           "value" : "open-browser \"mail.google.com/mail/u/0\""
         },
         {
+          "key" : "x",
+          "type" : "command",
+          "value" : "open-browser x.com"
+        },
+        {
           "key" : "y",
           "label" : "Youtube",
           "type" : "command",
@@ -143,22 +182,12 @@
           "label" : "Github",
           "type" : "command",
           "value" : "open-browser github.com"
-        },
-        {
-          "key" : "x",
-          "type" : "command",
-          "value" : "open-browser x.com"
         }
       ],
       "iconPath" : "globe",
       "key" : "o",
       "label" : "Open website",
       "type" : "group"
-    },
-    {
-      "key" : "d",
-      "type" : "application",
-      "value" : "/Applications/Discord.app"
     }
   ],
   "type" : "group"
