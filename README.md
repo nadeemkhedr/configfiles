@@ -38,6 +38,7 @@ sudo ln -s ~/scripts/music-player.sh /usr/local/bin/music-player
 sudo ln -s ~/scripts/open-browser.sh /usr/local/bin/open-browser
 sudo ln -s ~/scripts/send-keys.sh /usr/local/bin/send-keys
 sudo ln -s ~/scripts/toggle-desk.sh /usr/local/bin/toggle-desk
+sudo ln -s ~/scripts/open-new-osa.sh /usr/local/bin/open-new-osa
 ```
 
 ## Bat

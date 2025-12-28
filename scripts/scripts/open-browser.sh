@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Accepts a URL and opens a new tab or focuses existing tab
+#
 if [[ $# -ne 1 ]]; then
   echo "Usage: open-browser <url-fragment>" >&2
   exit 1

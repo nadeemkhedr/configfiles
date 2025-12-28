@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# cli app that triggers a shortcut that you pass
+# helpful mainly for leaderkey. Leaderkey doesn't have a way to execute a shortcut
 if [[ $# -ne 1 ]]; then
   echo "Usage: send-keys <combo>"
   echo "Example: send-keys hyper+c"
