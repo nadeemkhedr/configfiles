@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# CLI app to toggle my ikea desk
-# need to download linak-controller first
+# CLI app to toggle my ikea desk need to download linak-controller first
 # https://github.com/rhyst/linak-controller
+# To execute this file (the app running it like "leaderkey" must have bluetooth permissions in Macos)
 
 echo "===== $(date) ====="
 

@@ -62,6 +62,34 @@
       "value" : "/Applications/Steam.app"
     },
     {
+      "actions" : [
+        {
+          "iconPath" : "trash",
+          "key" : "\\",
+          "label" : "TEST",
+          "type" : "command",
+          "value" : "env | sort > /tmp/env-from-app.txt"
+        },
+        {
+          "iconPath" : "table.furniture.fill",
+          "key" : "d",
+          "label" : "Standing desk (toggle)",
+          "type" : "command",
+          "value" : "/Users/nadeem/scripts/toggle-desk.sh"
+        },
+        {
+          "iconPath" : "lightbulb.min.fill",
+          "key" : "l",
+          "type" : "command",
+          "value" : "shortcuts run 'Office lights'"
+        }
+      ],
+      "iconPath" : "homekit",
+      "key" : "h",
+      "label" : "Home",
+      "type" : "group"
+    },
+    {
       "key" : "i",
       "type" : "application",
       "value" : "/Applications/Ghostty.app"
@@ -137,47 +165,55 @@
     {
       "actions" : [
         {
+          "iconPath" : "/Applications/Brave Browser.app",
           "key" : "c",
           "label" : "Work Calendar",
           "type" : "command",
           "value" : "open-browser calendar.google.com/calendar/u/1/r"
         },
         {
+          "iconPath" : "/Applications/Brave Browser.app",
           "key" : "e",
           "label" : "Engadget",
           "type" : "command",
           "value" : "open-browser engadget.com"
         },
         {
+          "iconPath" : "/Applications/Brave Browser.app",
           "key" : "g",
           "label" : "Work Email",
           "type" : "command",
           "value" : "open-browser \"mail.google.com/mail/u/1\""
         },
         {
+          "iconPath" : "/Applications/Brave Browser.app",
           "key" : "m",
           "label" : "Monkeytype",
           "type" : "command",
           "value" : "open-browser monkeytype.com"
         },
         {
+          "iconPath" : "/Applications/Brave Browser.app",
           "key" : "p",
           "label" : "Personal Email",
           "type" : "command",
           "value" : "open-browser \"mail.google.com/mail/u/0\""
         },
         {
+          "iconPath" : "/Applications/Brave Browser.app",
           "key" : "x",
           "type" : "command",
           "value" : "open-browser x.com"
         },
         {
+          "iconPath" : "/Applications/Brave Browser.app",
           "key" : "y",
           "label" : "Youtube",
           "type" : "command",
           "value" : "open-browser youtube.com"
         },
         {
+          "iconPath" : "/Applications/Brave Browser.app",
           "key" : "z",
           "label" : "Github",
           "type" : "command",
