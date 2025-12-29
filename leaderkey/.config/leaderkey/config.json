@@ -75,7 +75,7 @@
           "key" : "d",
           "label" : "Standing desk (toggle)",
           "type" : "command",
-          "value" : "/Users/nadeem/scripts/toggle-desk.sh"
+          "value" : "toggle-desk"
         },
         {
           "iconPath" : "lightbulb.min.fill",
@@ -231,6 +231,35 @@
       "key" : "o",
       "label" : "Open website",
       "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "iconPath" : "menubar.rectangle",
+          "key" : "a",
+          "label" : "Menu bar (Toggle)",
+          "type" : "command",
+          "value" : "send-keys 'hyper+a'"
+        },
+        {
+          "iconPath" : "desktopcomputer",
+          "key" : "d",
+          "label" : "Show desktop (F11)",
+          "type" : "command",
+          "value" : "osascript -e 'tell application \"System Events\" to key code 103'"
+        }
+      ],
+      "iconPath" : "paintbrush.fill",
+      "key" : "u",
+      "label" : "UI",
+      "type" : "group"
+    },
+    {
+      "iconPath" : "macwindow.on.rectangle",
+      "key" : "tab",
+      "label" : "Switch windows",
+      "type" : "command",
+      "value" : "send-keys 'cmd+`'"
     }
   ],
   "type" : "group"
