@@ -2,8 +2,8 @@
 set -euo pipefail
 
 CMD="${1:-}"
-MUSIC_STEP="${MUSIC_VOL_STEP:-20}" # override: MUSIC_VOL_STEP=10 ./music-player.sh music_vol_up
-SYS_STEP="${SYS_VOL_STEP:-20}"     # override: SYS_VOL_STEP=10 ./music-player.sh vol_up
+MUSIC_STEP="${MUSIC_VOL_STEP:-10}" # override: MUSIC_VOL_STEP=10 ./music-player.sh music_vol_up
+SYS_STEP="${SYS_VOL_STEP:-10}"     # override: SYS_VOL_STEP=10 ./music-player.sh vol_up
 MIN_VOL=0
 MAX_VOL=100
 
@@ -12,8 +12,8 @@ usage() {
 Usage: music-player.sh <play-pause|next|prev|music_vol_up|music_vol_down|vol_up|vol_down|mini|mini-player>
 
 Env:
-  MUSIC_VOL_STEP   Music app volume step (0-100). Default: 20
-  SYS_VOL_STEP     System volume step (0-100). Default: 5
+  MUSIC_VOL_STEP   Music app volume step (0-100). Default: 10
+  SYS_VOL_STEP     System volume step (0-100). Default: 10
 
 Examples:
   ./music-player.sh play-pause
