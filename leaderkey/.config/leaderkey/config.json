@@ -156,6 +156,13 @@
           "label" : "Music Volume down",
           "type" : "command",
           "value" : "music-player music_vol_down"
+        },
+        {
+          "iconPath" : "macmini.fill",
+          "key" : "z",
+          "label" : "Mini player (Toggle)",
+          "type" : "command",
+          "value" : "music-player mini"
         }
       ],
       "iconPath" : "/System/Applications/Music.app",

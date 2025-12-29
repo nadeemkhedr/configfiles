@@ -9,7 +9,7 @@ MAX_VOL=100
 
 usage() {
   cat <<'EOF'
-Usage: music-player.sh <play-pause|next|prev|music_vol_up|music_vol_down|vol_up|vol_down>
+Usage: music-player.sh <play-pause|next|prev|music_vol_up|music_vol_down|vol_up|vol_down|mini|mini-player>
 
 Env:
   MUSIC_VOL_STEP   Music app volume step (0-100). Default: 20
@@ -70,6 +70,17 @@ vol_down | volume-down | volume_down)
     set nv to v - ${SYS_STEP}
     if nv < ${MIN_VOL} then set nv to ${MIN_VOL}
     set volume output volume nv"
+  ;;
+
+mini | mini-player | mini_player)
+  osascript_run '
+    tell application "Music" to activate
+    tell application "System Events"
+      tell process "Music"
+        keystroke "m" using {command down, shift down}
+      end tell
+    end tell
+  '
   ;;
 
 -h | --help | help | "")
