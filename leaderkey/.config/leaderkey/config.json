@@ -238,9 +238,9 @@
         {
           "iconPath" : "menubar.rectangle",
           "key" : "a",
-          "label" : "Menu bar (Ctrl+F2)",
+          "label" : "Menu bar Toggle (Bartender)",
           "type" : "command",
-          "value" : "osascript -e 'tell application \"System Events\" to key code 120 using {control down}'"
+          "value" : "send-keys hyper+a"
         },
         {
           "iconPath" : "desktopcomputer",
