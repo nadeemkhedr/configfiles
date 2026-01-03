@@ -80,6 +80,7 @@
         {
           "iconPath" : "lightbulb.min.fill",
           "key" : "l",
+          "label" : "Office lights",
           "type" : "command",
           "value" : "shortcuts run 'Office lights'"
         }
@@ -237,9 +238,9 @@
         {
           "iconPath" : "menubar.rectangle",
           "key" : "a",
-          "label" : "Menu bar (Toggle)",
+          "label" : "Menu bar (Ctrl+F2)",
           "type" : "command",
-          "value" : "send-keys 'hyper+a'"
+          "value" : "osascript -e 'tell application \"System Events\" to key code 120 using {control down}'"
         },
         {
           "iconPath" : "desktopcomputer",
@@ -247,6 +248,13 @@
           "label" : "Show desktop (F11)",
           "type" : "command",
           "value" : "osascript -e 'tell application \"System Events\" to key code 103'"
+        },
+        {
+          "iconPath" : "menubar.dock.rectangle",
+          "key" : "z",
+          "label" : "Show dock (Ctrl + F3)",
+          "type" : "command",
+          "value" : "osascript -e 'tell application \"System Events\" to key code 99 using {control down}'"
         }
       ],
       "iconPath" : "paintbrush.fill",
