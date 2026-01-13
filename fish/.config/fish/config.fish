@@ -1,3 +1,15 @@
+# Add Homebrew binaries to the PATH
+# This is done automatically in the terminal
+# Its mainly for GUI apps like leaderkey
+if test -d /opt/homebrew/bin
+    fish_add_path /opt/homebrew/bin
+    fish_add_path /opt/homebrew/sbin
+end
+fish_add_path /usr/local/bin
+
+# fzf.fish plugin
+set fzf_fd_opts -H -E .git
+
 fish_vi_key_bindings
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
 
@@ -9,6 +21,7 @@ atuin init fish --disable-up-arrow | source
 # Bindings
 
 alias j="jump"
+
 alias k="kubectl"
 # eza
 alias ls='eza --group-directories-first --icons=auto'
