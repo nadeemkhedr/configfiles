@@ -251,10 +251,16 @@
         },
         {
           "iconPath" : "menubar.dock.rectangle",
-          "key" : "z",
+          "key" : "r",
           "label" : "Show dock (Ctrl + F3)",
           "type" : "command",
           "value" : "osascript -e 'tell application \"System Events\" to key code 99 using {control down}'"
+        },
+        {
+          "iconPath" : "play.display",
+          "key" : "z",
+          "type" : "command",
+          "value" : "open -a ScreenSaverEngine"
         }
       ],
       "iconPath" : "paintbrush.fill",
