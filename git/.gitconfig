@@ -1,5 +1,6 @@
 [alias]
 	root = rev-parse --show-toplevel
+  rel = rev-parse --show-prefix
   aa = add --all
   st = status --short
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
