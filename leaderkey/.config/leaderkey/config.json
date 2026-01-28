@@ -226,6 +226,13 @@
           "label" : "Github",
           "type" : "command",
           "value" : "open-browser github.com"
+        },
+        {
+          "iconPath" : "/Applications/Brave Browser.app",
+          "key" : "i",
+          "label" : "Breakout-infra",
+          "type" : "command",
+          "value" : "open-browser github.com/breakout-gg/breakout-infra"
         }
       ],
       "iconPath" : "globe",
@@ -259,8 +266,23 @@
         {
           "iconPath" : "play.display",
           "key" : "z",
+          "label" : "Screensaver",
           "type" : "command",
           "value" : "open -a ScreenSaverEngine"
+        },
+        {
+          "iconPath" : "lock.fill",
+          "key" : "q",
+          "label" : "Lock Mac",
+          "type" : "command",
+          "value" : "send-keys 'cmd+ctrl+q'"
+        },
+        {
+          "iconPath" : "powersleep",
+          "key" : "s",
+          "label" : "Sleep",
+          "type" : "command",
+          "value" : "pmset sleepnow"
         }
       ],
       "iconPath" : "paintbrush.fill",
@@ -274,6 +296,11 @@
       "label" : "Switch windows",
       "type" : "command",
       "value" : "send-keys 'cmd+`'"
+    },
+    {
+      "key" : "w",
+      "type" : "application",
+      "value" : "/Applications/WhatsApp.app"
     }
   ],
   "type" : "group"
