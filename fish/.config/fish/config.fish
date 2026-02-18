@@ -20,15 +20,20 @@ atuin init fish --disable-up-arrow | source
 
 # Bindings
 
-alias j="jump"
+function j
+    jump $argv
+end
 
 alias k="kubectl"
 # eza
 alias ls='eza --group-directories-first --icons=auto'
 alias ll='ls -lh --git'
 alias la='ll -a'
-alias tree='ll --tree --level=2'
+alias tree='ll --tree --level=5'
 alias oo='cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Mind'
+alias mux='tmuxinator'
+alias tg='terragrunt'
+alias tf='terraform'
 
 abbr s 'sesh connect "$(sesh list -i | gum filter --limit 1 --placeholder \'Pick a sesh\' --prompt=\'⚡\')"'
 
@@ -41,6 +46,16 @@ set -Ux PAGER nvimpager
 
 # Created by `pipx` on 2025-12-01 13:03:32
 set PATH $PATH /Users/nadeem/.local/bin
+
+# https://yazi-rs.github.io/docs/quick-start/
+function y
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    command yazi $argv --cwd-file="$tmp"
+    if read -z cwd <"$tmp"; and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        builtin cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
+end
 
 # If private file exists load it
 set -l private_config ~/.config/fish/config_private.fish
