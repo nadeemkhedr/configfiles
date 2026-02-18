@@ -233,6 +233,18 @@
           "label" : "Breakout-infra",
           "type" : "command",
           "value" : "open-browser github.com/breakout-gg/breakout-infra"
+        },
+        {
+          "iconPath" : "/Applications/Brave Browser.app",
+          "key" : "o",
+          "type" : "command",
+          "value" : "open-browser github.com/breakout-gg/breakout-backend"
+        },
+        {
+          "iconPath" : "/Applications/Brave Browser.app",
+          "key" : ";",
+          "type" : "command",
+          "value" : "open-browser github.com/breakout-gg/breakout-frontend"
         }
       ],
       "iconPath" : "globe",
