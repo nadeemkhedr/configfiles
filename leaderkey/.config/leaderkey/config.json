@@ -313,6 +313,16 @@
       "key" : "w",
       "type" : "application",
       "value" : "/Applications/WhatsApp.app"
+    },
+    {
+      "key" : "p",
+      "type" : "application",
+      "value" : "/Applications/Postman.app"
+    },
+    {
+      "key" : "P",
+      "type" : "application",
+      "value" : "/Applications/Postico 2.app"
     }
   ],
   "type" : "group"
