@@ -82,7 +82,7 @@
           "key" : "l",
           "label" : "Office lights",
           "type" : "command",
-          "value" : "shortcuts run 'Office lights'"
+          "value" : "shortcuts run 'Desk Lamps'"
         }
       ],
       "iconPath" : "homekit",
