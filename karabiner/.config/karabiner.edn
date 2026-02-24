@@ -403,11 +403,7 @@
                  [:spacebar :!Tspacebar]
 
                  [:condi :terminals  :a-mode] ; tmux keys
-                 [:-q [:!Ta :1]] ; go to window 1
-                 [:-w [:!Ta :2]]
-                 [:-f [:!Ta :3]]
-                 [:-p [:!Ta :4]]
-                 [:-g [:!Ta :5]]
+                 [:-g [:!Ta :g]]
                  [:-j [:!Ta :j]] ; move between panes
                  [:-k [:!Ta :k]]
                  [:-h [:!Ta :h]]
