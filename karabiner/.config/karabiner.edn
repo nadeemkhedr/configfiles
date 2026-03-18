@@ -310,29 +310,6 @@
                  ;;
                  ]}
 
-        {:des "arc-shortcuts"
-         :rules [:arc
-                 [:condi :arc :a-mode]
-
-                 [:-n :!COup_arrow]
-                 [:-e :!COdown_arrow]
-
-                 [:-s :reopen_tab]
-                 [:-t :new_tab]
-                 [:-l :focus_omnibar]
-                 [:-i :open_dev_tools]
-                 [:-r :refresh]
-                 [:delete  :close_tab]
-                 [:-p :private_mode]
-                 [:-u :browser_1pass]
-                 [:-c :!COg] ;chatgpt
-                 [:-d :!TSequal_sign] ; split in arc
-                 ; focus splits
-                 [:-m :!TS1]
-                 [:comma :!TS2]
-                 [:period :!TS3]
-                 ]}
-
         {:des "godot-shortcuts"
          :rules [:godot
                  [:condi :godot :a-mode]
@@ -404,6 +381,7 @@
 
                  [:condi :terminals  :a-mode] ; tmux keys
                  [:-g [:!Ta :g]]
+                 [:-f [:!Ta :f]]
                  [:-j [:!Ta :j]] ; move between panes
                  [:-k [:!Ta :k]]
                  [:-h [:!Ta :h]]
