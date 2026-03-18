@@ -39,3 +39,5 @@
   tool = kdiff3
 [difftool]
   prompt = false
+[pull]
+	rebase = true
