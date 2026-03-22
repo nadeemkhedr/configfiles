@@ -44,6 +44,9 @@ set -Ux PAGER nvimpager
 # NOTE: "noborus/ov" 🎑Feature-rich terminal-based text viewer. It is a so-called terminal pager.
 # set -Ux PAGER ov
 
+# For lazygit config change
+set -gx XDG_CONFIG_HOME $HOME/.config
+
 # Created by `pipx` on 2025-12-01 13:03:32
 set PATH $PATH /Users/nadeem/.local/bin
 
