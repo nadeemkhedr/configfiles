@@ -7,13 +7,8 @@ if test -d /opt/homebrew/bin
 end
 fish_add_path /usr/local/bin
 
-# fzf.fish plugin
-set fzf_fd_opts -H -E .git
-
 fish_vi_key_bindings
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
-
-fzf --fish | source
 starship init fish | source
 zoxide init fish | source
 atuin init fish --disable-up-arrow | source
