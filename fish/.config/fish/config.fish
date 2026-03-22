@@ -12,6 +12,7 @@ set -Ux EDITOR nvim # 'neovim/neovim' text editor
 starship init fish | source
 zoxide init fish | source
 atuin init fish --disable-up-arrow | source
+tv init fish | source
 
 # Bindings
 
