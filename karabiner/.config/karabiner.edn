@@ -447,7 +447,9 @@
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
                  [:-d :f11] ; show desktop
+                 [:-t :!Ospacebar] ; leaderkey
                  [:delete :!Cw]
+
                  ; [:delete "yabai -m window --close"]
 
                  [:-c :!!c] ; open calendar
@@ -482,6 +484,7 @@
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
                  [:-d :f11] ; show desktop
+                 [:-t :!Ospacebar] ; leaderkey
                  [:delete :!Cw]
                  ; [:delete "yabai -m window --close"]
 
