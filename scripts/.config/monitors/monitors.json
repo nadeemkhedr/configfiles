@@ -1,0 +1,27 @@
+{
+  "Monitors": {
+    "Dell": {
+      "tool": "m1ddc",
+      "id": "B66B86F7-E09F-4D60-A60F-9EC218F92359",
+      "idDdcutil": "F1TN323",
+      "alias": ["bottom", "ultrawide"]
+    },
+    "MSI": {
+      "tool": "msigd",
+      "alias": ["top", "gaming"]
+    }
+  },
+  "Aliases": {
+    "switch": [
+      { "monitor": "top", "input": "hdmi1" }
+    ],
+    "laptop": [
+      { "monitor": "top", "input": "usbc" },
+      { "monitor": "bottom", "input": "usbc" }
+    ],
+    "pc": [
+      { "monitor": "top", "input": "dp" },
+      { "monitor": "bottom", "input": "hdmi1" }
+    ]
+  }
+}
