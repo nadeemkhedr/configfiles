@@ -13,10 +13,11 @@ OS="$(uname -s)"
 print_usage() {
   cat <<EOF
 Usage:
-  monitors                           List monitors + show this help
-  monitors <monitor-alias> <input>   Switch monitor input (e.g. monitors top hdmi1)
-  monitors go <action-alias>         Run an action defined under Aliases
-  monitors list                      List monitors and action aliases
+  monitors                                    List monitors + show this help
+  monitors <monitor-alias> <input>            Switch monitor input (e.g. monitors top hdmi1)
+  monitors go <action-alias>                  Run an action defined under Aliases
+  monitors shutdown <action-alias> [delay]    Run action, wait [delay]s (default 2), then power off
+  monitors list                               List monitors and action aliases
 
 Inputs (DDC tools): hdmi1, hdmi2, hdmi3, dp1, dp2, usbc, vga, or raw number.
 Inputs (msigd): passed through as-is to 'msigd --input'.
@@ -161,6 +162,32 @@ run_action() {
   done < <(echo "$steps" | jq -c '.[]')
 }
 
+force_poweroff() {
+  case "$OS" in
+    Linux)
+      # --force skips the graceful service-stop sequence and inhibitor checks
+      # but still syncs and unmounts. Falls back to sudo if polkit denies.
+      systemctl poweroff --force 2>/dev/null \
+        || sudo systemctl poweroff --force
+      ;;
+    Darwin)
+      osascript -e 'tell application "System Events" to shut down'
+      ;;
+    *)
+      echo "Don't know how to power off on '$OS'" >&2
+      return 1
+      ;;
+  esac
+}
+
+run_shutdown() {
+  local action="$1"
+  local delay="${2:-2}"
+  run_action "$action"
+  sleep "$delay"
+  force_poweroff
+}
+
 case "${1:-}" in
   "")
     print_list
@@ -176,6 +203,10 @@ case "${1:-}" in
   go)
     [[ $# -lt 2 ]] && { echo "Usage: monitors go <action-alias>" >&2; exit 1; }
     run_action "$2"
+    ;;
+  shutdown)
+    [[ $# -lt 2 ]] && { echo "Usage: monitors shutdown <action-alias> [delay-seconds]" >&2; exit 1; }
+    run_shutdown "$2" "${3:-}"
     ;;
   *)
     [[ $# -lt 2 ]] && { print_usage; exit 1; }
