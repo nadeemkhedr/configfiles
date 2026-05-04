@@ -21,6 +21,10 @@ Usage:
 
 Inputs (DDC tools): hdmi1, hdmi2, hdmi3, dp1, dp2, usbc, vga, or raw number.
 Inputs (msigd): passed through as-is to 'msigd --input'.
+
+Action steps support:
+  { "monitor": "<alias>", "input": "<input>" }   Switch monitor input
+  { "monitor": "<msi-alias>", "kvm": "<value>" } Set msigd KVM (e.g. type_c, auto)
 EOF
 }
 
@@ -59,7 +63,11 @@ print_list() {
     "Action aliases:",
     ((.Aliases // {}) | to_entries[] |
       "  " + .key + ": " +
-      (.value | map("\(.monitor) -> \(.input)") | join("; ")))
+      (.value | map(
+        if .kvm then "\(.monitor) kvm \(.kvm)"
+        else "\(.monitor) -> \(.input)"
+        end
+      ) | join("; ")))
   ' "$CONFIG"
 }
 
@@ -147,6 +155,23 @@ set_input() {
   echo "Switched $key ($monitor_alias) -> $input"
 }
 
+set_kvm() {
+  local monitor_alias="$1" kvm="$2"
+  local key tool
+  key="$(find_monitor "$monitor_alias")"
+  if [[ -z "$key" ]]; then
+    echo "No monitor matches alias '$monitor_alias'" >&2
+    return 1
+  fi
+  tool="$(monitor_field "$key" tool)"
+  if [[ "$tool" != "msigd" ]]; then
+    echo "KVM only supported on msigd monitors (got '$tool' for '$key')" >&2
+    return 1
+  fi
+  msigd --kvm "$kvm"
+  echo "Set $key ($monitor_alias) KVM -> $kvm"
+}
+
 run_action() {
   local action="$1"
   local steps
@@ -155,10 +180,17 @@ run_action() {
     echo "No action alias '$action'" >&2
     return 1
   fi
+  local monitor input kvm
   while read -r step; do
-    set_input \
-      "$(echo "$step" | jq -r '.monitor')" \
-      "$(echo "$step" | jq -r '.input')"
+    monitor="$(echo "$step" | jq -r '.monitor')"
+    input="$(echo "$step" | jq -r '.input // empty')"
+    kvm="$(echo "$step" | jq -r '.kvm // empty')"
+    if [[ -n "$input" ]]; then
+      set_input "$monitor" "$input"
+    fi
+    if [[ -n "$kvm" ]]; then
+      set_kvm "$monitor" "$kvm"
+    fi
   done < <(echo "$steps" | jq -c '.[]')
 }
 

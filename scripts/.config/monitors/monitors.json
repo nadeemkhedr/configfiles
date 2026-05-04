@@ -16,10 +16,12 @@
       { "monitor": "top", "input": "hdmi1" }
     ],
     "laptop": [
+      { "monitor": "top", "kvm": "type_c" },
       { "monitor": "top", "input": "usbc" },
       { "monitor": "bottom", "input": "usbc" }
     ],
     "pc": [
+      { "monitor": "top", "kvm": "auto" },
       { "monitor": "top", "input": "dp" },
       { "monitor": "bottom", "input": "hdmi1" }
     ]
