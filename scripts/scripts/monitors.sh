@@ -23,8 +23,9 @@ Inputs (DDC tools): hdmi1, hdmi2, hdmi3, dp1, dp2, usbc, vga, or raw number.
 Inputs (msigd): passed through as-is to 'msigd --input'.
 
 Action steps support:
-  { "monitor": "<alias>", "input": "<input>" }   Switch monitor input
-  { "monitor": "<msi-alias>", "kvm": "<value>" } Set msigd KVM (e.g. type_c, auto)
+  { "monitor": "<alias>", "input": "<input>" }                  Switch monitor input
+  { "monitor": "<msi-alias>", "kvm": "<value>" }                Set msigd KVM (e.g. type_c, auto)
+  { "monitor": "<msi-alias>", "kvm": "<v>", "input": "<i>" }    Batched into one msigd call (recommended)
 EOF
 }
 
@@ -172,6 +173,35 @@ set_kvm() {
   echo "Set $key ($monitor_alias) KVM -> $kvm"
 }
 
+apply_step() {
+  local monitor_alias="$1" input="$2" kvm="$3"
+  local key tool rc=0
+  key="$(find_monitor "$monitor_alias")"
+  if [[ -z "$key" ]]; then
+    echo "No monitor matches alias '$monitor_alias'" >&2
+    return 1
+  fi
+  tool="$(monitor_field "$key" tool)"
+
+  # msigd is flaky if --kvm and --input are sent as separate invocations
+  # (KVM switch transiently disrupts the USB control channel). Batch them.
+  if [[ "$tool" == "msigd" && -n "$kvm" && -n "$input" ]]; then
+    if msigd --kvm "$kvm" --input "$input"; then
+      echo "Set $key ($monitor_alias) KVM -> $kvm"
+      echo "Switched $key ($monitor_alias) -> $input"
+      return 0
+    fi
+    return 1
+  fi
+  if [[ -n "$kvm" ]]; then
+    set_kvm "$monitor_alias" "$kvm" || rc=$?
+  fi
+  if [[ -n "$input" ]]; then
+    set_input "$monitor_alias" "$input" || rc=$?
+  fi
+  return $rc
+}
+
 run_action() {
   local action="$1"
   local steps
@@ -180,18 +210,17 @@ run_action() {
     echo "No action alias '$action'" >&2
     return 1
   fi
-  local monitor input kvm
+  local monitor input kvm step rc=0
   while read -r step; do
     monitor="$(echo "$step" | jq -r '.monitor')"
     input="$(echo "$step" | jq -r '.input // empty')"
     kvm="$(echo "$step" | jq -r '.kvm // empty')"
-    if [[ -n "$input" ]]; then
-      set_input "$monitor" "$input"
-    fi
-    if [[ -n "$kvm" ]]; then
-      set_kvm "$monitor" "$kvm"
+    if ! apply_step "$monitor" "$input" "$kvm" </dev/null; then
+      echo "Step failed (continuing): $step" >&2
+      rc=1
     fi
   done < <(echo "$steps" | jq -c '.[]')
+  return $rc
 }
 
 force_poweroff() {
