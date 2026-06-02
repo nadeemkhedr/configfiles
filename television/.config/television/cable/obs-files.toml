@@ -1,0 +1,21 @@
+[metadata]
+name = "obs"
+description = "Browse Obsidian notes from `obs files` and open the selected note in Neovim"
+requirements = ["obsidian", "nvim", "bat"]
+
+[source]
+command = "obsidian files"
+
+[preview]
+command = "bat -n --color=always (obsidian vault | awk -F\\t '$1==\"path\"{print $2}')/'{}'"
+env = { BAT_THEME = "ansi" }
+shell = "fish"
+
+[keybindings]
+enter = "actions:edit"
+
+[actions.edit]
+description = "Open the selected note in Neovim"
+command = "nvim (obsidian vault | awk -F\\t '$1==\"path\"{print $2}')/'{}'"
+shell = "fish"
+mode = "execute"
