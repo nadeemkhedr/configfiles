@@ -1,0 +1,488 @@
+schemaVersion = 1
+
+[[catalogs.globalScopes]]
+catalogIdentifier = 'Tuna.EffectsCatalog'
+mode = 'none'
+selectedItemKeys = []
+
+[[catalogs.globalScopes]]
+catalogIdentifier = 'TunaEmoji.EmojiCatalog'
+mode = 'some'
+selectedItemKeys = [
+    'almost equal to',
+    'angle',
+    'approximately equal to',
+    'arrow pointing rightwards then curving downwards',
+    'arrow pointing rightwards then curving upwards',
+    'ballot box',
+    'ballot box with check',
+    'ballot box with x',
+    'ballot x',
+    'beamed eighth notes',
+    'beamed sixteenth notes',
+    'because',
+    'bitcoin sign',
+    'black centre white star',
+    'black diamond',
+    'black down pointing triangle',
+    'black four pointed star',
+    'black left pointing triangle',
+    'black right pointing triangle',
+    'black star',
+    'black telephone',
+    'black up pointing triangle',
+    'bullet',
+    'bullseye',
+    'cent sign',
+    'circled plus',
+    'circled times',
+    'circled white star',
+    'clockwise open circle arrow',
+    'contour integral',
+    'copyright sign',
+    'counterclockwise open circle arrow',
+    'cube root',
+    'currency sign',
+    'degree celsius',
+    'degree fahrenheit',
+    'degree sign',
+    'double dagger',
+    'double integral',
+    'double low 9 quotation mark',
+    'double prime',
+    'downwards arrow',
+    'downwards double arrow',
+    'downwards harpoon with barb rightwards',
+    'eighth note',
+    'element of',
+    'empty set',
+    'euro sign',
+    'fisheye',
+    'five eighths',
+    'fourth root',
+    'greater than or equal to',
+    'heavy eight teardrop spoked propeller asterisk',
+    'heavy outlined black star',
+    'hryvnia sign',
+    'identical to',
+    'increment',
+    'indian rupee sign',
+    'integral',
+    'interrobang',
+    'intersection',
+    'left double angle quote',
+    'left double quotation mark',
+    'left half black circle',
+    'left hook arrow',
+    'left right double arrow',
+    'left single angle quote',
+    'left single quotation mark',
+    'leftwards arrow',
+    'leftwards double arrow',
+    'leftwards harpoon with barb downwards',
+    'leftwards harpoon with barb upwards',
+    'leftwards two headed arrow',
+    'less than or equal to',
+    'logical and',
+    'logical or',
+    'lower right pencil',
+    'micro sign',
+    'music flat sign',
+    'music natural sign',
+    'music sharp sign',
+    'n ary product',
+    'n ary summation',
+    'nabla',
+    'north east arrow',
+    'north west arrow',
+    'not an element of',
+    'not equal to',
+    'not sign',
+    'numero sign',
+    'ohm sign',
+    'one eighth',
+    'one half',
+    'one quarter',
+    'one third',
+    'open centre black star',
+    'outlined black star',
+    'parallel to',
+    'partial differential',
+    'per mille sign',
+    'per ten thousand sign',
+    'pilcrow sign',
+    'pinwheel star',
+    'plus minus sign',
+    'pound sign',
+    'prime',
+    'proportional to',
+    'quarter note',
+    'reference mark',
+    'registered sign',
+    'right double angle quote',
+    'right double quotation mark',
+    'right half black circle',
+    'right hook arrow',
+    'right single angle quote',
+    'right single quotation mark',
+    'rightwards arrow',
+    'rightwards double arrow',
+    'rightwards harpoon with barb downwards',
+    'rightwards harpoon with barb upwards',
+    'rightwards two headed arrow',
+    'ruble sign',
+    'section sign',
+    'service mark',
+    'seven eighths',
+    'shadowed white star',
+    'single high reversed 9 quotation mark',
+    'sound recording copyright',
+    'south east arrow',
+    'south west arrow',
+    'square root',
+    'stress outlined white star',
+    'subscript equals',
+    'subscript minus',
+    'subscript plus',
+    'subset of',
+    'subset of or equal to',
+    'superscript eight',
+    'superscript five',
+    'superscript four',
+    'superscript nine',
+    'superscript one',
+    'superscript seven',
+    'superscript six',
+    'superscript three',
+    'superscript two',
+    'superscript zero',
+    'superset of',
+    'superset of or equal to',
+    'telephone location sign',
+    'therefore',
+    'three eighths',
+    'three quarters',
+    'trade mark sign',
+    'triangular bullet',
+    'triple prime',
+    'turkish lira sign',
+    'two thirds',
+    'union',
+    'up down double arrow',
+    'up tack',
+    'upwards arrow',
+    'upwards double arrow',
+    'upwards harpoon with barb rightwards',
+    'white bullet',
+    'white down pointing triangle',
+    'white four pointed star',
+    'white left pointing triangle',
+    'white right pointing triangle',
+    'white star',
+    'white up pointing triangle',
+    'won sign',
+    'yen sign'
+]
+
+[[catalogs.sortOrders]]
+catalogIdentifier = 'Tuna.Internal.ClipboardProxyCatalog'
+sortOrder = 'capturedAt.desc'
+
+[[comboMode.bindings]]
+key = '/'
+url = 'tuna://run/path.%252FApplications%252FObsidian.app/Open'
+
+[[comboMode.bindings]]
+iconPath = 'theatermasks.fill'
+key = 'a'
+label = 'AI'
+
+    [[comboMode.bindings.children]]
+    iconPath = '/Applications/ChatGPT.app'
+    key = 'a'
+    label = 'ChatGPT (Quick Chat)'
+    url = 'tuna://run/text.send-keys%2520cmd+opt+ctrl+a/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = '/Applications/superwhisper.app'
+    key = 'r'
+    label = 'Superwhisper'
+    url = "tuna://run/text.send-keys%2520'cmd+opt+ctrl+;'/Run%20Text%20as%20Shell%20Command"
+
+    [[comboMode.bindings.children]]
+    key = 's'
+    url = 'tuna://run/path.%252FApplications%252FChatGPT.app/Open'
+
+[[comboMode.bindings]]
+key = 'b'
+url = 'tuna://run/path.%252FApplications%252FBrave%2520Browser.app/Open'
+
+[[comboMode.bindings]]
+iconPath = '/Applications/Brave Browser.app'
+key = 'B'
+label = 'Brave (New window)'
+url = 'tuna://run/text.open%2520-n%2520-a%2520%2522Brave%2520Browser%2522/Run%20Text%20as%20Shell%20Command'
+
+[[comboMode.bindings]]
+iconPath = 'calendar'
+key = 'c'
+label = 'Calender'
+url = 'tuna://run/text.send-keys%2520hyper+c/Run%20Text%20as%20Shell%20Command'
+
+[[comboMode.bindings]]
+key = 'd'
+url = 'tuna://run/path.%252FApplications%252FDiscord.app/Open'
+
+[[comboMode.bindings]]
+key = 'g'
+url = 'tuna://run/path.%252FApplications%252FSteam.app/Open'
+
+[[comboMode.bindings]]
+iconPath = 'homekit'
+key = 'h'
+label = 'Home'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'trash'
+    key = '\'
+    label = 'TEST'
+    url = 'tuna://run/text.env%2520%257C%2520sort%2520%253E%2520%252Ftmp%252Fenv-from-app.txt/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'table.furniture.fill'
+    key = 'd'
+    label = 'Standing desk (toggle)'
+    url = 'tuna://run/text.toggle-desk/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'lightbulb.min.fill'
+    key = 'l'
+    label = 'Office lights'
+    url = "tuna://run/text.shortcuts%2520run%2520'Desk%2520Lamps'/Run%20Text%20as%20Shell%20Command"
+
+[[comboMode.bindings]]
+key = 'i'
+url = 'tuna://run/path.%252FApplications%252FGhostty.app/Open'
+
+[[comboMode.bindings]]
+iconPath = '/Applications/Ghostty.app'
+key = 'I'
+label = 'Ghostty (New window)'
+url = 'tuna://run/text.open-new-osa%2520Ghostty/Run%20Text%20as%20Shell%20Command'
+
+[[comboMode.bindings]]
+iconPath = '/System/Applications/Music.app'
+key = 'm'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'hifispeaker.and.homepod.mini.badge.plus.fill'
+    key = 'c'
+    label = 'Music Volume up'
+    url = 'tuna://run/text.music-player%2520music_vol_up/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'speaker.plus.fill'
+    key = 'f'
+    label = 'Volume up'
+    url = 'tuna://run/text.music-player%2520vol_up/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    key = 'm'
+    url = 'tuna://run/path.%252FSystem%252FApplications%252FMusic.app/Open'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'backward.fill'
+    key = 'r'
+    label = 'Prev Track'
+    url = 'tuna://run/text.music-player%2520next/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'forward.fill'
+    key = 's'
+    label = 'Next Track'
+    url = 'tuna://run/text.music-player%2520next/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'playpause.fill'
+    key = 't'
+    label = 'Play/Pause'
+    url = 'tuna://run/text.music-player%2520playpause/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'speaker.minus.fill'
+    key = 'w'
+    label = 'Volume down'
+    url = 'tuna://run/text.music-player%2520vol_down/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'hifispeaker.and.homepod.mini.badge.minus.fill'
+    key = 'x'
+    label = 'Music Volume down'
+    url = 'tuna://run/text.music-player%2520music_vol_down/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'macmini.fill'
+    key = 'z'
+    label = 'Mini player (Toggle)'
+    url = 'tuna://run/text.music-player%2520mini/Run%20Text%20as%20Shell%20Command'
+
+[[comboMode.bindings]]
+iconPath = 'globe'
+key = 'o'
+label = 'Open website'
+
+    [[comboMode.bindings.children]]
+    iconPath = '/Applications/Brave Browser.app'
+    key = 'c'
+    label = 'Calendar'
+    url = 'tuna://run/text.open-browser%2520calendar.google.com/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = '/Applications/Brave Browser.app'
+    key = 'e'
+    label = 'Engadget'
+    url = 'tuna://run/text.open-browser%2520engadget.com/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = '/Applications/Brave Browser.app'
+    key = 'g'
+    label = 'Work Email'
+    url = 'tuna://run/text.open-browser%2520%2522mail.google.com%252Fmail%252Fu%252F1%2522/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = '/Applications/Brave Browser.app'
+    key = 'm'
+    label = 'Monkeytype'
+    url = 'tuna://run/text.open-browser%2520monkeytype.com/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = '/Applications/Brave Browser.app'
+    key = 'p'
+    label = 'Personal Email'
+    url = 'tuna://run/text.open-browser%2520%2522mail.google.com%252Fmail%252Fu%252F0%2522/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = '/Applications/Brave Browser.app'
+    key = 'x'
+    url = 'tuna://run/text.open-browser%2520x.com/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = '/Applications/Brave Browser.app'
+    key = 'y'
+    label = 'Youtube'
+    url = 'tuna://run/text.open-browser%2520youtube.com/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = '/Applications/Brave Browser.app'
+    key = 'z'
+    label = 'Github'
+    url = 'tuna://run/text.open-browser%2520github.com/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = '/Applications/Brave Browser.app'
+    key = 'i'
+    label = 'Breakout-infra'
+    url = 'tuna://run/text.open-browser%2520github.com%252Fbreakout-gg%252Fbreakout-infra/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = '/Applications/Brave Browser.app'
+    key = 'o'
+    url = 'tuna://run/text.open-browser%2520github.com%252Fbreakout-gg%252Fbreakout-backend/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = '/Applications/Brave Browser.app'
+    key = ';'
+    url = 'tuna://run/text.open-browser%2520github.com%252Fbreakout-gg%252Fbreakout-frontend/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = '/Applications/Brave Browser.app'
+    key = 'a'
+    label = 'Crunchyroll'
+    url = 'tuna://run/text.open-browser%2520crunchyroll.com/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = '/Applications/Brave Browser.app'
+    key = 't'
+    label = 'Clickup'
+    url = 'tuna://run/text.open-browser%2520app.clickup.com%252F90182095152%252Fv%252Fl%252F6-901815187668-1/Run%20Text%20as%20Shell%20Command'
+
+[[comboMode.bindings]]
+iconPath = 'paintbrush.fill'
+key = 'u'
+label = 'UI'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'menubar.rectangle'
+    key = 'a'
+    label = 'Menu bar Toggle (Bartender)'
+    url = 'tuna://run/text.send-keys%2520hyper+a/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'desktopcomputer'
+    key = 'd'
+    label = 'Show desktop (F11)'
+    url = "tuna://run/text.osascript%2520-e%2520'tell%2520application%2520%2522System%2520Events%2522%2520to%2520key%2520code%2520103'/Run%20Text%20as%20Shell%20Command"
+
+    [[comboMode.bindings.children]]
+    iconPath = 'menubar.dock.rectangle'
+    key = 'r'
+    label = 'Show dock (Ctrl + F3)'
+    url = "tuna://run/text.osascript%2520-e%2520'tell%2520application%2520%2522System%2520Events%2522%2520to%2520key%2520code%252099%2520using%2520%257Bcontrol%2520down%257D'/Run%20Text%20as%20Shell%20Command"
+
+    [[comboMode.bindings.children]]
+    iconPath = 'play.display'
+    key = 'z'
+    label = 'Screensaver'
+    url = 'tuna://run/text.open%2520-a%2520ScreenSaverEngine/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'powersleep'
+    key = 'q'
+    label = 'Sleep'
+    url = 'tuna://run/text.pmset%2520sleepnow/Run%20Text%20as%20Shell%20Command'
+
+    [[comboMode.bindings.children]]
+    iconPath = 'formfitting.gamecontroller'
+    key = 's'
+    label = 'Change monitor to Switch'
+    url = 'tuna://run/text.monitors%2520go%2520switch/Run%20Text%20as%20Shell%20Command'
+
+[[comboMode.bindings]]
+iconPath = 'macwindow.on.rectangle'
+key = 'tab'
+label = 'Switch windows'
+url = "tuna://run/text.send-keys%2520'cmd+%2560'/Run%20Text%20as%20Shell%20Command"
+
+[[comboMode.bindings]]
+key = 'w'
+url = 'tuna://run/path.%252FApplications%252FWhatsApp.app/Open'
+
+[[comboMode.bindings]]
+key = 'p'
+url = 'tuna://run/path.%252FApplications%252FPostman.app/Open'
+
+[[comboMode.bindings]]
+key = 'P'
+url = 'tuna://run/path.%252FApplications%252FPostico%25202.app/Open'
+
+[hotkeys]
+custom = []
+
+    [hotkeys.app.activate]
+    carbonKeyCode = 49
+    carbonModifiers = 256
+
+    [hotkeys.app.comboMode]
+    carbonKeyCode = 49
+    carbonModifiers = 2048
+
+    [hotkeys.app.dictation]
+    carbonKeyCode = 41
+    carbonModifiers = 256
+
+[settings]
+comboModeCheatsheetBehavior = 'always'
+dictationActivationMode = 'toggle'
+showResultsImmediatelyOnActivation = true
+themeIdentifier = 'com.brnbw.tuna.themes.default'
+typingTimeoutDuration = 1.5
