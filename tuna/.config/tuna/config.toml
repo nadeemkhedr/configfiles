@@ -327,86 +327,6 @@ key = 'm'
     url = 'tuna://run/text.music-player%2520mini/Run%20Text%20as%20Shell%20Command'
 
 [[comboMode.bindings]]
-iconPath = 'globe'
-key = 'o'
-label = 'Open website'
-
-    [[comboMode.bindings.children]]
-    iconPath = '/Applications/Brave Browser.app'
-    key = 'c'
-    label = 'Calendar'
-    url = 'tuna://run/text.open-browser%2520calendar.google.com/Run%20Text%20as%20Shell%20Command'
-
-    [[comboMode.bindings.children]]
-    iconPath = '/Applications/Brave Browser.app'
-    key = 'e'
-    label = 'Engadget'
-    url = 'tuna://run/text.open-browser%2520engadget.com/Run%20Text%20as%20Shell%20Command'
-
-    [[comboMode.bindings.children]]
-    iconPath = '/Applications/Brave Browser.app'
-    key = 'g'
-    label = 'Work Email'
-    url = 'tuna://run/text.open-browser%2520%2522mail.google.com%252Fmail%252Fu%252F1%2522/Run%20Text%20as%20Shell%20Command'
-
-    [[comboMode.bindings.children]]
-    iconPath = '/Applications/Brave Browser.app'
-    key = 'm'
-    label = 'Monkeytype'
-    url = 'tuna://run/text.open-browser%2520monkeytype.com/Run%20Text%20as%20Shell%20Command'
-
-    [[comboMode.bindings.children]]
-    iconPath = '/Applications/Brave Browser.app'
-    key = 'p'
-    label = 'Personal Email'
-    url = 'tuna://run/text.open-browser%2520%2522mail.google.com%252Fmail%252Fu%252F0%2522/Run%20Text%20as%20Shell%20Command'
-
-    [[comboMode.bindings.children]]
-    iconPath = '/Applications/Brave Browser.app'
-    key = 'x'
-    url = 'tuna://run/text.open-browser%2520x.com/Run%20Text%20as%20Shell%20Command'
-
-    [[comboMode.bindings.children]]
-    iconPath = '/Applications/Brave Browser.app'
-    key = 'y'
-    label = 'Youtube'
-    url = 'tuna://run/text.open-browser%2520youtube.com/Run%20Text%20as%20Shell%20Command'
-
-    [[comboMode.bindings.children]]
-    iconPath = '/Applications/Brave Browser.app'
-    key = 'z'
-    label = 'Github'
-    url = 'tuna://run/text.open-browser%2520github.com/Run%20Text%20as%20Shell%20Command'
-
-    [[comboMode.bindings.children]]
-    iconPath = '/Applications/Brave Browser.app'
-    key = 'i'
-    label = 'Breakout-infra'
-    url = 'tuna://run/text.open-browser%2520github.com%252Fbreakout-gg%252Fbreakout-infra/Run%20Text%20as%20Shell%20Command'
-
-    [[comboMode.bindings.children]]
-    iconPath = '/Applications/Brave Browser.app'
-    key = 'o'
-    url = 'tuna://run/text.open-browser%2520github.com%252Fbreakout-gg%252Fbreakout-backend/Run%20Text%20as%20Shell%20Command'
-
-    [[comboMode.bindings.children]]
-    iconPath = '/Applications/Brave Browser.app'
-    key = ';'
-    url = 'tuna://run/text.open-browser%2520github.com%252Fbreakout-gg%252Fbreakout-frontend/Run%20Text%20as%20Shell%20Command'
-
-    [[comboMode.bindings.children]]
-    iconPath = '/Applications/Brave Browser.app'
-    key = 'a'
-    label = 'Crunchyroll'
-    url = 'tuna://run/text.open-browser%2520crunchyroll.com/Run%20Text%20as%20Shell%20Command'
-
-    [[comboMode.bindings.children]]
-    iconPath = '/Applications/Brave Browser.app'
-    key = 't'
-    label = 'Clickup'
-    url = 'tuna://run/text.open-browser%2520app.clickup.com%252F90182095152%252Fv%252Fl%252F6-901815187668-1/Run%20Text%20as%20Shell%20Command'
-
-[[comboMode.bindings]]
 iconPath = 'paintbrush.fill'
 key = 'u'
 label = 'UI'
@@ -464,6 +384,12 @@ url = 'tuna://run/path.%252FApplications%252FPostman.app/Open'
 [[comboMode.bindings]]
 key = 'P'
 url = 'tuna://run/path.%252FApplications%252FPostico%25202.app/Open'
+
+[[comboMode.bindings]]
+iconPath = 'bookmark.fill'
+key = 'o'
+label = 'Bookmark Opener'
+url = 'tuna://run/text.%252FApplications%252FGhostty.app%252FContents%252FMacOS%252Fghostty%2520--initial-command=%252Fusr%252Flocal%252Fbin%252Fbml%2520--window-width=72%2520--window-height=24%2520--window-position-x=1301%2520--window-position-y=285/Run%20Text%20as%20Shell%20Command'
 
 [hotkeys]
 custom = []
