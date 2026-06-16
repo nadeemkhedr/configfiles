@@ -243,6 +243,8 @@
                  ; change profiles in karabiner
                  [:!!open_bracket "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'QWERTY'"]
                  [:!!close_bracket "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Default'"]
+                 ; hold left_option + tap right_option -> switch to QWERTY profile
+                 [:!Oright_option "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'QWERTY'"]
                  ; both cmds will be f12
                  ;[{:key :right_command :modi {:mandatory [:left_command] :optional  [:any]}} :f12]
                  
