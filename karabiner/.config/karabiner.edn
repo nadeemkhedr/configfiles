@@ -214,7 +214,6 @@
                 }
  ;; Layers Are Typically "Thumb Keys" or "Pinky Keys"
  :layers {;;
-          :caps_lock-mode {:key :caps_lock :alone {:key :escape}}
           :escape-mode {:key :escape :alone {:key :escape}}
           :tab-mode {:key :tab, :alone {:key :tab}}
           :launch-mode {:key :f24 :alone {:key :spacebar :modi :left_option}}}
@@ -249,8 +248,11 @@
                  
 
                  ; map clicking on right-command or clicking on left option would show `leaderkey`
-                 [:right_command :right_command nil {:alone :!Ospacebar}] 
+                 [:right_command :right_command nil {:alone :!Ospacebar}]
                  [:left_option :left_option nil {:alone :!Ospacebar}]
+
+                 ; caps_lock also activates escape-mode (for keyboards with a caps_lock key)
+                 [:caps_lock ["escape-mode" 1] nil {:afterup ["escape-mode" 0] :alone :escape}]
                  ]}
 
         {:des "finder"
@@ -464,45 +466,13 @@
                  [:-m [:launch "Music"]]
                  [:-s [:launch "Discord"]] ; active work chat app
                  [:-b [:launch "Brave"]]
+                 [:-v "ghostty --initial-command=/usr/local/bin/bml --window-width=72 --window-height=24 --window-position-x=1300 --window-position-y=285"]
                  [:comma [:launch "Messenger"]]
                  [:-l :!!l] ; toggle 1password
                  [:slash [:launch "Obsidian"]]
                  [:spacebar :!Csemicolon] ; for kit
                  [:-z [:quit "logioptionsplus_agent"]]
-                 ;;
-                 ]}
-
-        ;; for keyboards with capslock
-        {:des "caps_lock (same as escape-mode)"
-         :rules [:caps_lock-mode
-                 [:return_or_enter [:open-new-osa "Ghostty"]]
-                 [:period  [:open-new "/Applications/Brave Browser.app"]]
-
-                 [:-n :prev_app]
-                 [:-e :next_app]
-                 [:-i [:activate "Ghostty"]]
-                 [:-f [:launch "Finder"]]
-                 [:-o :switch_windows]
-                 [:-d :f11] ; show desktop
-                 [:-t :!Ospacebar] ; leaderkey
-                 [:delete :!Cw]
-                 ; [:delete "yabai -m window --close"]
-
-                 [:-c :!!c] ; open calendar
-                 [:-w :!!w]
-                 [:-a :!!a] ; toggle menubar (bartenter)
-                 [:-p :!!p] ; take a screenshot 
-
-                 [:-k :!!k]
-
-                 [:-m [:launch "Music"]]
-                 [:-s [:launch "Slack"]]
-                 [:-b [:launch "Brave"]]
-                 [:comma [:launch "Messenger"]]
-                 [:-l :!!l] ; toggle 1password
-                 [:slash [:launch "Obsidian"]]
-                 [:spacebar :!Csemicolon] ; for kit
-                 [:-z [:quit "logioptionsplus_agent"]]
+                 
                  ;;
                  ]}
 
