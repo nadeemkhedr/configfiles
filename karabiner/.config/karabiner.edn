@@ -468,7 +468,9 @@
                  [:-m [:launch "Music"]]
                  [:-s [:launch "Discord"]] ; active work chat app
                  [:-b [:launch "Brave"]]
-                 [:-v "ghostty --initial-command=/usr/local/bin/bml --window-width=72 --window-height=24 --window-position-x=1300 --window-position-y=285"]
+                 ; bml popup in a new window of the running Ghostty instance,
+                 ; see the script for the gory details
+                 [:-v "/Users/nadeem/scripts/bml-popup.sh"]
                  [:comma [:launch "Messenger"]]
                  [:-l :!!l] ; toggle 1password
                  [:slash [:launch "Obsidian"]]
@@ -497,7 +499,7 @@
         {:des "tab-mode"
          :rules [:tab-mode
                  [:-a :!!a] ; open launchpad
-                 [:-r :!Tf3] ; focus dock
+                 [:-t :!Tf3] ; focus dock
                  [:-s :!!s] ; toggle top menubar (bartender)
 
                  ;; moom
