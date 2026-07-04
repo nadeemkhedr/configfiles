@@ -1,0 +1,95 @@
+# herdr configuration — mirrors ~/.tmux.conf so karabiner a-mode works in both
+# karabiner a-mode sends ctrl+a followed by the bound key (see karabiner.edn "a-mode terminals")
+
+[keys]
+prefix = "ctrl+a"
+
+# pane navigation (tmux: bind h/j/k/l select-pane) — a-mode h/j/k/l
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# a-mode o -> prefix+z (tmux zoom)
+zoom = "prefix+z"
+
+# a-mode x / delete -> prefix+x (tmux kill-pane)
+close_pane = "prefix+x"
+
+# a-mode c -> prefix+c (tmux new-window; herdr tab = tmux window)
+new_tab = "prefix+c"
+
+# a-mode r -> prefix+comma (tmux rename-window)
+rename_tab = "prefix+comma"
+
+# a-mode n/e -> prefix+p / prefix+n (tmux previous/next window)
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
+
+# a-mode minus -> prefix+minus: split down (herdr default)
+split_horizontal = "prefix+minus"
+
+# a-mode s -> prefix+b: toggle sidebar (herdr default)
+toggle_sidebar = "prefix+b"
+# a-mode v -> prefix+% (tmux split left/right); herdr split_vertical = split right
+split_vertical = "prefix+%"
+
+# a-mode return -> prefix+[ (tmux copy-mode); closest herdr analog is scrollback editing
+edit_scrollback = "prefix+["
+
+# a-mode t -> prefix+t (tmux sesh session picker); herdr analog is the workspace picker
+workspace_picker = "prefix+t"
+
+# a-mode f -> prefix+f: goto picker
+goto = "prefix+f"
+
+# new workspace stays on the herdr default (prefix+shift+n), used without a-mode
+
+# a-mode u / y -> cycle between agents; a-mode i -> jump to agent needing attention
+previous_agent = "prefix+u"
+next_agent = "prefix+y"
+open_notification_target = "prefix+o"
+
+# a-mode m / comma -> prefix+C-j / prefix+C-k (tmux: swap-window); herdr: prev/next workspace
+previous_workspace = "prefix+ctrl+j"
+next_workspace = "prefix+ctrl+k"
+
+
+# no herdr equivalents (yet) for these tmux a-mode bindings:
+#   a-mode spacebar  -> prefix+space (tmux next-layout)
+#   a-mode semicolon -> prefix+L (tmux "sesh last")
+
+[ui]
+# create tabs immediately with generated names (tmux-like) instead of prompting for a name
+prompt_new_tab_name = false
+
+# popups (tmux popup bindings), as temporary panes
+show_agent_labels_on_pane_borders = false
+# a-mode g -> prefix+g: lazygit in a temporary pane (matches tmux)
+[[keys.command]]
+key = "prefix+g"
+type = "pane"
+command = "lazygit"
+
+[[keys.command]]
+key = "prefix+ctrl+o"
+type = "pane"
+command = "claude"
+
+# a-mode p -> prefix+C-p: herdr-plus project picker (tmuxinator-style workspace templates)
+[[keys.command]]
+key = "prefix+ctrl+p"
+type = "plugin_action"
+command = "cloudmanic.herdr-plus.projects"
+description = "herdr-plus: projects"
+
+
+[ui.toast]
+delivery = "herdr"
+
+[experimental]
+pane_history = false
+
+[theme]
+name = "catppuccin"
+auto_switch = false

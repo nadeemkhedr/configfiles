@@ -1,0 +1,16 @@
+name = "configfiles"
+description = "dotfiles repo (~/configfiles)"
+working_dir = "~/configfiles"
+
+[[tabs]]
+name = "configfiles"
+
+[[tabs.panes]]
+command = "nvim"
+
+[[tabs.panes]]
+command = "claude"
+split = "right"
+
+[[tabs]]
+name = "console"

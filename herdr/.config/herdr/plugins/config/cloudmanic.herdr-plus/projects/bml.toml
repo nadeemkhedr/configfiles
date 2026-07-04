@@ -1,0 +1,16 @@
+name = "bml"
+description = "bml launcher (~/repos/bml)"
+working_dir = "~/repos/bml"
+
+[[tabs]]
+name = "bml"
+
+[[tabs.panes]]
+command = "nvim"
+
+[[tabs.panes]]
+command = "claude"
+split = "right"
+
+[[tabs]]
+name = "console"

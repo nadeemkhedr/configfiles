@@ -1,0 +1,16 @@
+name = "breakout-infra"
+description = "breakout infra (~/work/breakout/infra)"
+working_dir = "~/work/breakout/infra"
+
+[[tabs]]
+name = "infra"
+
+[[tabs.panes]]
+command = "nvim"
+
+[[tabs.panes]]
+command = "claude"
+split = "right"
+
+[[tabs]]
+name = "console"

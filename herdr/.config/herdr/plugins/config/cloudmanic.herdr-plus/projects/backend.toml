@@ -1,0 +1,16 @@
+name = "backend"
+description = "breakout backend (~/work/breakout/backend)"
+working_dir = "~/work/breakout/backend"
+
+[[tabs]]
+name = "backend"
+
+[[tabs.panes]]
+command = "nvim"
+
+[[tabs.panes]]
+command = "claude"
+split = "right"
+
+[[tabs]]
+name = "console"

@@ -1,0 +1,16 @@
+name = "servers"
+description = "breakout dev servers (backend + frontend)"
+working_dir = "~/work/breakout"
+
+[[tabs]]
+name = "servers"
+
+[[tabs.panes]]
+command = "cd backend && bun run dev"
+
+[[tabs.panes]]
+command = "cd frontend && npm run dev"
+split = "right"
+
+[[tabs]]
+name = "console"

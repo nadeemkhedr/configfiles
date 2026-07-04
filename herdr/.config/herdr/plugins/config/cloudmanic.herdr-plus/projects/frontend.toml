@@ -1,0 +1,12 @@
+name = "frontend"
+description = "breakout frontend (~/work/breakout/frontend)"
+working_dir = "~/work/breakout/frontend"
+
+[[tabs]]
+name = "frontend"
+
+[[tabs.panes]]
+command = "nvim"
+
+[[tabs.panes]]
+split = "right"
