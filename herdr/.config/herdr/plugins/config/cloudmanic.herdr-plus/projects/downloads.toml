@@ -1,0 +1,12 @@
+name = "downloads"
+description = "downloads folder (~/Downloads)"
+working_dir = "~/Downloads"
+
+[[tabs]]
+name = "downloads"
+
+[[tabs.panes]]
+command = "yazi"
+
+[[tabs]]
+name = "console"

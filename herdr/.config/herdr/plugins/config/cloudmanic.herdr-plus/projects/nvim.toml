@@ -1,0 +1,22 @@
+name = "nvim"
+description = "neovim config (~/.config/nvim)"
+working_dir = "~/.config/nvim"
+
+[[tabs]]
+name = "nvim"
+
+[[tabs.panes]]
+command = "nvim"
+
+[[tabs.panes]]
+command = "claude"
+split = "right"
+
+[[tabs]]
+name = "plugins"
+
+[[tabs.panes]]
+command = "cd ~/.local/share/nvim"
+
+[[tabs]]
+name = "console"

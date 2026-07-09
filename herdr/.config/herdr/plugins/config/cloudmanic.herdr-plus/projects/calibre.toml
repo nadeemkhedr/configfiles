@@ -1,0 +1,9 @@
+name = "calibre"
+description = "calibre library (~/Calibre Library)"
+working_dir = "~/Calibre Library"
+
+[[tabs]]
+name = "library"
+
+[[tabs.panes]]
+command = "yazi"
