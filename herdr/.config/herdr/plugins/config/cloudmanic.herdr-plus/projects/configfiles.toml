@@ -9,8 +9,5 @@ name = "configfiles"
 command = "nvim"
 
 [[tabs.panes]]
-command = "claude"
+command = ""
 split = "right"
-
-[[tabs]]
-name = "console"

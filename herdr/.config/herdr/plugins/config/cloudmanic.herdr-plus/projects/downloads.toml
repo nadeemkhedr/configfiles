@@ -8,5 +8,6 @@ name = "downloads"
 [[tabs.panes]]
 command = "yazi"
 
-[[tabs]]
-name = "console"
+[[tabs.panes]]
+command = ""
+split = "right"

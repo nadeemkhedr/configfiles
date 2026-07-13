@@ -13,4 +13,7 @@ command = "claude"
 split = "right"
 
 [[tabs]]
-name = "console"
+name = "sixer"
+
+[[tabs.panes]]
+command = "~/work/sixer/sixer-infra"

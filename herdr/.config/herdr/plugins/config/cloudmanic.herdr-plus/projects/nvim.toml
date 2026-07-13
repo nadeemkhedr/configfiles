@@ -6,17 +6,8 @@ working_dir = "~/.config/nvim"
 name = "nvim"
 
 [[tabs.panes]]
-command = "nvim"
-
-[[tabs.panes]]
-command = "claude"
-split = "right"
-
-[[tabs]]
-name = "plugins"
+command = ""
 
 [[tabs.panes]]
 command = "cd ~/.local/share/nvim"
-
-[[tabs]]
-name = "console"
+split = "right"

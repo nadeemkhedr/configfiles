@@ -11,6 +11,3 @@ command = "cd backend && bun run dev"
 [[tabs.panes]]
 command = "cd frontend && npm run dev"
 split = "right"
-
-[[tabs]]
-name = "console"
