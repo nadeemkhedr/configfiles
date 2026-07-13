@@ -184,6 +184,11 @@ selectedItemKeys = [
     'yen sign'
 ]
 
+[[catalogs.globalScopes]]
+catalogIdentifier = 'TunaSmartLinks.SmartLinksCatalog'
+mode = 'all'
+selectedItemKeys = [ 'DuckDuckGo', 'DuckDuckGo Lucky', 'GitHub', 'Google', 'Stack Overflow' ]
+
 [[catalogs.sortOrders]]
 catalogIdentifier = 'Tuna.Internal.ClipboardProxyCatalog'
 sortOrder = 'capturedAt.desc'
@@ -391,20 +396,29 @@ key = 'o'
 label = 'Bookmark Opener'
 url = 'tuna://run/text.%252FApplications%252FGhostty.app%252FContents%252FMacOS%252Fghostty%2520--initial-command=%252Fusr%252Flocal%252Fbin%252Fbml%2520--window-width=72%2520--window-height=24%2520--window-position-x=1301%2520--window-position-y=285/Run%20Text%20as%20Shell%20Command'
 
-[hotkeys]
-custom = []
+[hotkeys.app.activate]
+carbonKeyCode = 49
+carbonModifiers = 256
 
-    [hotkeys.app.activate]
+[hotkeys.app.comboMode]
+carbonKeyCode = 49
+carbonModifiers = 2048
+
+[hotkeys.app.dictation]
+carbonKeyCode = 41
+carbonModifiers = 256
+
+[[hotkeys.custom]]
+id = '3D94FE29-F37D-4C6D-9822-69A66A751235'
+presentation = 'auto'
+
+    [hotkeys.custom.command]
+    actionIdentifier = 'TunaCore.CommonActionsCatalog.Browse'
+    subjectIdentifier = 'TunaEmoji.EmojiSearchCatalog.Emoji'
+
+    [hotkeys.custom.shortcut]
     carbonKeyCode = 49
-    carbonModifiers = 256
-
-    [hotkeys.app.comboMode]
-    carbonKeyCode = 49
-    carbonModifiers = 2048
-
-    [hotkeys.app.dictation]
-    carbonKeyCode = 41
-    carbonModifiers = 256
+    carbonModifiers = 4352
 
 [settings]
 comboModeCheatsheetBehavior = 'always'
@@ -412,3 +426,39 @@ dictationActivationMode = 'toggle'
 showResultsImmediatelyOnActivation = true
 themeIdentifier = 'com.brnbw.tuna.themes.default'
 typingTimeoutDuration = 1.5
+
+[[smartLinks.entries]]
+enabled = true
+name = 'DuckDuckGo'
+requiresInput = true
+template = 'https://duckduckgo.com/?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'DuckDuckGo Lucky'
+requiresInput = true
+template = 'https://duckduckgo.com/?q=!ducky+{{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'GitHub'
+requiresInput = true
+template = 'https://github.com/search?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'Google'
+requiresInput = true
+template = 'https://www.google.com/search?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'Stack Overflow'
+requiresInput = true
+template = 'https://stackoverflow.com/search?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'Youtube'
+requiresInput = true
+template = 'https://www.youtube.com/results?search_query={{input}}'
