@@ -106,6 +106,11 @@
        :refresh {:key r :modi :command}
        :private_mode {:key n :modi :cs}
        :browser_1pass {:key x :modi :cs}
+
+       ;; scripts
+       ;; ~/scripts/bml.sh spawns a new ghostty instance (also used by BetterMouse);
+       ;; the faster AppleScript alternative lives in ~/scripts/bml-popup.sh
+       :bml {:shell "~/scripts/bml.sh"}
        ;;
        }
 
@@ -255,6 +260,9 @@
 
                  ; caps_lock also activates escape-mode (for keyboards with a caps_lock key)
                  [:caps_lock ["escape-mode" 1] nil {:afterup ["escape-mode" 0] :alone :escape}]
+
+                 ; hyper-v runs bml; reuse :bml in other sections to bind it elsewhere
+                 ;[:!!v :bml]
                  ]}
 
         {:des "finder"
@@ -474,10 +482,7 @@
                  [:-m [:launch "Music"]]
                  [:-s [:launch "Discord"]] ; active work chat app
                  [:-b [:launch "Brave"]]
-                 ; slower (spawns a new ghostty instance) but fewer focus
-                 ; quirks than the AppleScript popup; the faster alternative
-                 ; lives in ~/scripts/bml-popup.sh if we want to switch back
-                 [:-v "ghostty --initial-command=/usr/local/bin/bml --window-width=72 --window-height=24 --window-position-x=1300 --window-position-y=285"]
+                 [:-v :!!v]
                  [:comma [:launch "Messenger"]]
                  [:-l :!!l] ; toggle 1password
                  [:slash [:launch "Obsidian"]]
