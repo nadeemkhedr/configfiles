@@ -65,9 +65,9 @@ print_list() {
     ((.Aliases // {}) | to_entries[] |
       "  " + .key + ": " +
       (.value | map(
-        if .kvm then "\(.monitor) kvm \(.kvm)"
-        else "\(.monitor) -> \(.input)"
-        end
+        .monitor
+        + (if .kvm then " kvm \(.kvm)" else "" end)
+        + (if .input then " -> \(.input)" else "" end)
       ) | join("; ")))
   ' "$CONFIG"
 }
