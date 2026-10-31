@@ -1,3 +1,7 @@
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:/Users/nadeem/.docker/bin"
+# End of Docker Desktop section.
+
 # Add Homebrew binaries to the PATH
 # This is done automatically in the terminal
 # Its mainly for GUI apps like leaderkey
@@ -6,6 +10,7 @@ if test -d /opt/homebrew/bin
     fish_add_path /opt/homebrew/sbin
 end
 fish_add_path /usr/local/bin
+fish_add_path /Applications/Obsidian.app/Contents/MacOS
 
 fish_vi_key_bindings
 set -Ux EDITOR nvim # 'neovim/neovim' text editor
@@ -26,10 +31,11 @@ alias ls='eza --group-directories-first --icons=auto'
 alias ll='ls -lh --git'
 alias la='ll -a'
 alias tree='ll --tree --level=5'
-alias oo='cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Mind'
 alias mux='tmuxinator'
 alias tg='terragrunt'
 alias tf='terraform'
+# fixes window dragging lag (AXVisualSupportAgent leaks ports into WindowServer)
+alias clearui='killall AXVisualSupportAgent'
 
 abbr s 'sesh connect "$(sesh list -i | gum filter --limit 1 --placeholder \'Pick a sesh\' --prompt=\'⚡\')"'
 
