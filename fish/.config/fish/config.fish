@@ -18,6 +18,10 @@ starship init fish | source
 zoxide init fish | source
 atuin init fish --disable-up-arrow | source
 tv init fish | source
+# rex (terminal multiplexer) completions
+if command -q rex
+    rex completion fish | source
+end
 
 # Bindings
 

@@ -211,6 +211,7 @@
                 :slack ["com.tinyspeck.slackmacgap"]
                 :messenger ["com.facebook.archon"]
                 :terminals ["com.apple.Terminal", "com.googlecode.iterm2", "io.alacritty", "net.kovidgoyal.kitty", "com.github.wez.wezterm", "com.mitchellh.ghostty"]
+                :rex ["com.superlogical.rex"] ; rex terminal multiplexer (beta shares the same bundle id)
                 :obsidian ["md.obsidian"]
                 :todoist ["com.todoist.mac.Todoist"]
                 :finder ["com.apple.finder"]
@@ -427,6 +428,56 @@
                  ;;
                  ]}
 
+        {:des "rex-shortcuts"
+         :rules [:rex
+                 [:condi :rex :r-mode] ; control key - terminal (same as terminals group)
+                 [:-c :!Tc]
+                 [:-h :!Th]
+                 [:-i :!Ti]
+                 [:-j :!Tj]
+                 [:-k :!Tk]
+                 [:-l :!Tl]
+                 [:-o :!To]
+                 [:-t :!Tt] ; toggle terminal in lazyvim
+                 [:slash :!Tslash] ; toggle terminal in lazyvim
+                 [:-v :!Tv]
+                 [:-x :!Tx]
+                 [:-u :!Tu]
+                 [:-d :!Td]
+                 [:-semicolon :!Tq]
+                 [:spacebar :!Tspacebar]
+
+                 ;; a-mode mirrors the tmux a-mode above, but sends rex's own default
+                 ;; shortcuts instead of a tmux prefix (no rex config needed).
+                 ;; tmux "window" == rex "tab", tmux "pane" == rex "pane".
+                 [:condi :rex :a-mode]
+                 [:-j :!COdown_arrow] ; focus pane down (cmd+opt+arrow)
+                 [:-k :!COup_arrow] ; focus pane up
+                 [:-h :!COleft_arrow] ; focus pane left
+                 [:-l :!COright_arrow] ; focus pane right
+                 [:-u :!Copen_bracket] ; focus previous pane (cmd+[)
+                 [:-y :!Cclose_bracket] ; focus next pane (cmd+])
+                 [:-o :!CSreturn_or_enter] ; zoom / restore pane (cmd+shift+enter)
+                 [:-x :!Cw] ; close pane (cmd+w)
+                 [:delete :!Cw] ; close pane
+                 [:-c :!Ct] ; new tab (cmd+t) == tmux new window
+                 [:-t :!CSn] ; new session (cmd+shift+n)
+                 [:-r :!CSp] ; command palette (cmd+shift+p); rename tab has no default shortcut in rex
+                 [:-semicolon :!Ck] ; change session (cmd+k) == tmux last-session
+                 [:-p :!CSg] ; go to directory (cmd+shift+g) == project picker
+                 [:hyphen :!CSd] ; split down (cmd+shift+d)
+                 [:-v :!Cd] ; split right (cmd+d)
+                 [:spacebar :!Creturn_or_enter] ; split where there is most room (cmd+enter)
+
+                 [:-m :!TSpage_up] ; move tab backward (ctrl+shift+pageup)
+                 [:comma :!TSpage_down] ; move tab forward (ctrl+shift+pagedown)
+
+                 [:-n :prev_tab] ; previous tab (ctrl+shift+tab)
+                 [:-e :next_tab] ; next tab (ctrl+tab)
+                 ;; no rex default for: toggle sidebar (-s), copy mode (return), cycle layouts
+                 ;;
+                 ]}
+
         {:des "u-mode (window managment/desktop)"
          :rules [:j-mode
                  [:-q :!T1] ; move to desktop 1
@@ -461,7 +512,7 @@
 
                  [:-n :prev_app]
                  [:-e :next_app]
-                 [:-i [:activate "Ghostty"]]
+                 [:-i [:activate "Rex Beta"]]
                  [:-f [:launch "Finder"]]
                  [:-o :switch_windows]
                  [:-d :f11] ; show desktop

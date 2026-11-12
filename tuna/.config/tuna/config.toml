@@ -229,6 +229,18 @@ abbreviation = 'y'
     catalogID = 'tuna.smart-links'
     id = 'Youtube'
 
+[catalogConfiguration]
+customItems = []
+folderDepthOverrides = []
+scriptsDirectories = []
+
+    [[catalogConfiguration.customFolders]]
+    depthRawValue = 1
+    entryType = 'directory'
+    filterMode = 'folders'
+    id = '65B42204-20EF-4EE2-A958-2BB4E5C2929D'
+    path = '/Volumes/Extreme Pro/Applications'
+
 [catalogs]
 searchPriorities = []
 
@@ -483,7 +495,7 @@ key = 'i'
         actionIdentifier = 'tuna.common-actions/open'
         behavior = 'run'
         presentation = 'automatic'
-        subjectIdentifiers = [ 'path:/Applications/Ghostty.app' ]
+        subjectIdentifiers = [ 'tuna.applications//Applications/Rex Beta.app' ]
         type = 'savedCommand'
 
 [[comboMode.bindings]]
@@ -1010,6 +1022,21 @@ label = 'Bookmarks'
                 presentation = 'automatic'
                 subjectIdentifiers = [ 'text:open-browser localhost:5173' ]
                 type = 'savedCommand'
+
+[[comboMode.bindings]]
+iconPath = 'desktopcomputer'
+key = 'f'
+label = 'Finder'
+
+    [comboMode.bindings.destination]
+    type = 'command'
+
+        [comboMode.bindings.destination.command]
+        actionIdentifier = 'tuna.common-actions/open'
+        behavior = 'run'
+        presentation = 'automatic'
+        subjectIdentifiers = [ 'tuna.applications//System/Library/CoreServices/Finder.app' ]
+        type = 'savedCommand'
 
 [hotkeys.app.activate]
 carbonKeyCode = 49
