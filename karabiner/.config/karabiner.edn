@@ -61,14 +61,6 @@
        :return {:key :return_or_enter}
        :tilde {:key :grave_accent_and_tilde}
 
-       :delete_line {:key :k :modi :cs} ; !CSk
-
-       :expand_selection {:key :right_arrow :modi :cst}
-       :shrink_selection {:key :left_arrow :modi :cst}
-
-       :insert_line_below {:key :return_or_enter :modi :command} ; !Creturn_or_enter
-       :insert_line_above {:key :return_or_enter :modi :cs} ; !Creturn_or_enter
-
        ;; named symbols
        :open_brace {:key :open_bracket :modi :shift}
        :close_brace {:key :close_bracket :modi :shift}
@@ -115,13 +107,6 @@
        }
 
  :templates {;;
-             :alfred "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\"'"
-             :code-project "osascript -e 'tell application \"Visual Studio Code\" to activate' &&
-                            open -a 'Visual Studio Code' %s -g %s
-                            "
-             :delay "osascript -e 'delay \"%s\"'"
-             :km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
-             :type "osascript -e 'tell application \"System Events\" to keystroke \"%s\"'"
              :activate "osascript -e '
                         tell application \"%s\" 
                            activate
@@ -133,26 +118,6 @@
                            activate
                         end tell
                         '"
-             :open-browser "osascript -e '
-                        set address to \"%s\"
-                        
-                        tell application \"Brave\"
-                           activate
-                                if not (exists window 1) then reopen
-                                repeat with w in windows
-                                        set i to 1
-                                        repeat with t in tabs of w
-                                        if URL of t contains address then
-                                                set active tab index of w to i
-                                                set index of w to 1
-                                                return
-                                        end if
-                                        set i to i + 1
-                                        end repeat
-                                end repeat
-                                open location \"http://\" & address
-                        end tell
-                           '"
              :open-new-osa "osascript -e '
                         tell application \"%s\" 
                           if it is running then
@@ -163,24 +128,12 @@
                           end if
                         end tell
                       '"
-             :open "open \"%s\""
              :open-new "open -n \"%s\""
-             :open-new-args "open -n \"%s\" %s"
-             :open-a "open -a '%s'"
              :quit "osascript -e '
                         tell application \"%s\" 
                           if its running then
                             quit
                           end if
-                        end tell
-                      '"
-             :restart "osascript -e '
-                        tell application \"%s\" 
-                          if its running then
-                            quit
-                            delay 0.5
-                          end if
-                          activate
                         end tell
                       '"
              :paste "osascript -e '
@@ -189,18 +142,6 @@
                                 keystroke \"v\" using command down
                         end tell
                 '"
-             :zsh "zsh ~/.zfunc/'%s'"
-             :modify "osascript -e '
-                        tell application \"System Events\" to keystroke \"c\" using {command down}
-                        set clipboardText to the clipboard
-                        set selectedText to the quoted form of clipboardText
-                        set output to do shell script \". ~/.jsrc; %s \" & selectedText
-                        set the clipboard to output                    
-                        tell application \"System Events\" to keystroke \"v\" using {command down}
-                     '"
-             :query "osascript -e '
-                      tell application id \"com.runningwithcrayons.Alfred\" to run trigger \"scripted-list\" in workflow \"com.johnlindquist.scripted-list\" with argument \"%s\"
-                      '"
              ;;
              }
 
@@ -225,18 +166,7 @@
           :launch-mode {:key :f24 :alone {:key :spacebar :modi :left_option}}}
  :simlayers {;;
              :a-mode {:key :a} ; app specific // tmux, chrome
-             :r-mode {:key :s} ; app specific // ctrl for vim
-             :d-mode {:key :g}
-             :c-mode {:key :c}
-             :m-mode {:key :m} ; music mode
-             :j-mode {:key :y} ; window managment (amethyst)
-             :tilde-mode {:key :grave_accent_and_tilde}
              :emoji-mode {:key :z}
-
-             :shift-mode {:key :d} ; "s" on colemak
-             :movement-mode {:key :f} ; "t" on colemak
-             :delete-mode {:key :j} ; "n" on colemak
-
              :spacebar-mode {:key :spacebar}
              ;;
              }
@@ -345,18 +275,6 @@
                  [:-t :!Cn] ; a-t creates an untitled file
                  [:comma :!Ccomma] ; settings
                  [:-v :!Cbackslash] ; vertical split
-
-                 [:condi :code :r-mode] ; control key - terminal
-                 [:-c :!Tc]
-                 [:-h :!Th]
-                 [:-i :!Ti]
-                 [:-j :!Tj]
-                 [:-k :!Tk]
-                 [:-l :!Tl]
-                 [:-o :!To]
-                 [:-t :!Tt]
-                 [:-v :!Tv]
-                 [:-x :!Tx]
                  ;;
                  ]}
 
@@ -375,24 +293,7 @@
 
         {:des "terminals-shortcuts"
          :rules [:terminals
-                 [:condi :terminals :r-mode] ; control key - terminal
-                 [:-c :!Tc]
-                 [:-h :!Th]
-                 [:-i :!Ti]
-                 [:-j :!Tj]
-                 [:-k :!Tk]
-                 [:-l :!Tl]
-                 [:-o :!To]
-                 [:-t :!Tt] ; toggle terminal in lazyvim
-                 [:slash :!Tslash] ; toggle terminal in lazyvim
-                 [:-v :!Tv]
-                 [:-x :!Tx]
-                 [:-u :!Tu]
-                 [:-d :!Td]
-                 [:-semicolon :!Tq]
-                 [:spacebar :!Tspacebar]
-
-                 [:condi :terminals  :a-mode] ; tmux keys
+                 [:condi :terminals :a-mode] ; tmux keys
                  [:-g [:!Ta :g]]
                  [:-f [:!Ta :f]]
                  [:-j [:!Ta :j]] ; move between panes
@@ -430,23 +331,6 @@
 
         {:des "rex-shortcuts"
          :rules [:rex
-                 [:condi :rex :r-mode] ; control key - terminal (same as terminals group)
-                 [:-c :!Tc]
-                 [:-h :!Th]
-                 [:-i :!Ti]
-                 [:-j :!Tj]
-                 [:-k :!Tk]
-                 [:-l :!Tl]
-                 [:-o :!To]
-                 [:-t :!Tt] ; toggle terminal in lazyvim
-                 [:slash :!Tslash] ; toggle terminal in lazyvim
-                 [:-v :!Tv]
-                 [:-x :!Tx]
-                 [:-u :!Tu]
-                 [:-d :!Td]
-                 [:-semicolon :!Tq]
-                 [:spacebar :!Tspacebar]
-
                  ;; a-mode mirrors the tmux a-mode above, but sends rex's own default
                  ;; shortcuts instead of a tmux prefix (no rex config needed).
                  ;; tmux "window" == rex "tab", tmux "pane" == rex "pane".
@@ -478,17 +362,6 @@
                  ;;
                  ]}
 
-        {:des "u-mode (window managment/desktop)"
-         :rules [:j-mode
-                 [:-q :!T1] ; move to desktop 1
-                 [:-w :!T2] ; move to desktop 2
-                 [:-f :!T3] ; move to desktop 3
-
-                 [:-a :!TOS1] ; throw to desktop 1
-                 [:-r :!TOS2] ; throw to desktop 2
-                 [:-s :!TOS3] ; throw to desktop 3
-                 ;;
-                 ]}
         {:des "emoji z-mode"
          :rules [:emoji-mode
                  [:-t [:paste "👍"]] ; thumbsup
@@ -543,22 +416,6 @@
                  ;;
                  ]}
 
-        ;; yabai shortcuts (tab)
-        ;; tab + key must be defined before "tab-mode"
-        {:des "tab + d (desktops)"
-         :rules [[:condi :tab-mode :d-mode]
-                 [:-n :!T1]
-                 [:-e :!T2]
-                 [:-i :!T3]
-                 [:-o :!T4]
-
-                 [:-semicolon :!Cequal_sign] ; zoom in
-                 [:-y :!Chyphen] ; zoom out
-                 [:-u :!C0] ; reset zoom
-
-                 [:-m :!Tleft_arrow]
-                 [:comma :!Tright_arrow]]}
-
         {:des "tab-mode"
          :rules [:tab-mode
                  [:-a :!!a] ; open launchpad
@@ -578,62 +435,6 @@
                  [:-y :!!7]
                  [:-l :!!8]
 
-                 ;;
-                 ]}
-
-        {:des "delete n-mode"
-         :rules [:delete-mode
-                 [:hyphen :delete_line :code]
-                 [:hyphen :!Cdelete_or_backspace]
-                 [:-a :!Odelete_or_backspace]
-                 [:-r :delete_or_backspace]
-                 [:-s :delete_forward]
-                 [:-t :!Odelete_forward]
-                 [:-d :!Cdelete_forward]
-                 ;;
-                 ]}
-
-        {:des "move t-mode"
-         :rules [:movement-mode
-                 [:##j :left_arrow] ; n in colemak
-                 [:##k :down_arrow] ; e in colemak
-                 [:##i :up_arrow] ; u in colemak
-                 [:##l :right_arrow] ; i in colemak
-
-                 [:##u :!Oleft_arrow] ; l in colemak
-                 [:##o :!Oright_arrow] ; y in colemak
-                 [:##y :!Odown_arrow] ; j in colemak
-                 [:##h :!Oup_arrow] ; h in colemak
-
-                 [:##m :!Cleft_arrow] ; m in colemak
-                 [:##comma :home] ; , in colemak
-                 [:##period :end] ; . in colemak
-                 [:##slash :!Cright_arrow] ; / in colemak
-                 ;;
-                 ]}
-
-        {:des "shift s-mode"
-         :rules [:shift-mode
-                 [:##j :!Sleft_arrow] ; n in colemak
-                 [:##k :!Sdown_arrow] ; e in colemak
-                 [:##l :!Sup_arrow] ; i in colemak
-                 [:##semicolon :!Sright_arrow] ; o in colemak
-                 [:##h :!Ca] ; h in colemak
-
-                 [:##u :!OSleft_arrow] ; l in colemak
-                 [:##i :!OSdown_arrow] ; u in colemak
-                 [:##o :!OSup_arrow] ; y in colemak
-                 [:##p :!OSright_arrow] ; semi-colon in colemak
-
-                 [:##m :!Shome] ; m in colemak
-                 [:##slash :!Send] ; / in colemak
-
-                 [:left_shift :shrink_selection]
-                 [:return_or_enter :insert_line_above]
-                 ;; [:semicolon :expand_selection]
-                 ;; [:quote :shrink_selection]
-                 ;; [:##spacebar {:pkey :button1 :modi :left_command}]
-                 ;; [:##left_shift :##button2]
                  ;;
                  ]}
 
@@ -673,18 +474,6 @@
                  ;;
                  ]}
 
-        {:des "m-mode (music player)"
-         :rules [:m-mode
-                 [:-q [:restart "Music"]]
-                 [:-t :vk_consumer_play]
-                 [:-s :vk_consumer_next]
-                 [:-r :vk_consumer_previous]
-
-                 [:-f :volume_increment]
-                 [:-w :volume_decrement]
-                 ;;
-                 ]}
-
         {:des "a-mode (global)"
          :rules [:a-mode
                  [:-c :!Cc] ; copy
@@ -693,6 +482,32 @@
                  ;;
                  ]}
 
+        ;; Homerow mods: hold >= 200ms -> modifier, tap -> colemak letter.
+        ;; Pressing another key before 200ms cancels the hold and types the letter,
+        ;; so fast rolls never turn into shortcuts. Keep :held and :delay equal.
+        ;; :alone is longer on purpose: a tap released within 300ms with no other key
+        ;; pressed still types the letter, even if the modifier already kicked in.
+        ;; Must stay after every layer rule and before "colemak".
+        {:des "homerow mods"
+         :rules [;;
+                 [:##s nil nil {:alone {:key :r :halt true} :held :left_control :delayed {:canceled :r}
+                                 :params {:alone 300 :held 150 :delay 150}}] ; r -> left ctrl
+                 [:##d nil nil {:alone {:key :s :halt true} :held :left_shift :delayed {:canceled :s}
+                                 :params {:alone 300 :held 200 :delay 200}}] ; s -> left shift
+                 [:##f nil nil {:alone {:key :t :halt true} :held :left_command :delayed {:canceled :t}
+                                 :params {:alone 300 :held 200 :delay 200}}] ; t -> left cmd
+                 [:##j nil nil {:alone {:key :n :halt true} :held :right_command :delayed {:canceled :n}
+                                 :params {:alone 300 :held 200 :delay 200}}] ; n -> right cmd
+                 [:##k nil nil {:alone {:key :e :halt true} :held :right_shift :delayed {:canceled :e}
+                                 :params {:alone 300 :held 200 :delay 200}}] ; e -> right shift
+                 [:##l nil nil {:alone {:key :i :halt true} :held :right_control :delayed {:canceled :i}
+                                 :params {:alone 300 :held 200 :delay 200}}] ; i -> right ctrl
+                 [:##semicolon nil nil {:alone {:key :o :halt true} :held :left_option :delayed {:canceled :o}
+                                 :params {:alone 300 :held 200 :delay 200}}] ; o -> left alt
+                 ;;
+                 ]}
+
+        ;; s d f j k l ; are handled by "homerow mods" above
         {:des "colemak"
          :rules [;;
                  [:##e :f]
@@ -704,14 +519,7 @@
                  [:##o :y]
                  [:##p :semicolon]
 
-                 [:##s :r]
-                 [:##d :s]
-                 [:##f :t]
                  [:##g :d]
-                 [:##j :n]
-                 [:##k :e]
-                 [:##l :i]
-                 [:##semicolon :o]
 
                  [:##n :k]
                  ;;
